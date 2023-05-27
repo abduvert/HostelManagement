@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.stage.Stage?>
+
+
+<Stage xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.ProgressController">
+   <scene>
+      <Scene>
+         <root>
+            <AnchorPane prefHeight="258.0" prefWidth="461.0">
+               <children>
+                  <ImageView fitHeight="258.0" fitWidth="461.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Hostel%20Management%20System.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar layoutX="14.0" layoutY="210.0" prefHeight="20.0" prefWidth="321.0" />
+               </children>
+            </AnchorPane>
+         </root>
+      </Scene>
+   </scene>
+</Stage>

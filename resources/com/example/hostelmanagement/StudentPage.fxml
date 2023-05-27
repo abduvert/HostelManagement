@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<TabPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.StudentController">
+   <tabs>
+      <Tab closable="false" style="-fx-background-color: FC7753; -fx-border-radius: 15;" text="Students">
+         <content>
+            <AnchorPane fx:id="anchorPane" prefHeight="1244.0" prefWidth="1749.0">
+               <children>
+                  <ScrollPane layoutY="1.0" prefHeight="1243.0" prefWidth="1759.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1244.0" prefWidth="1754.0" style="-fx-background-color: ECFFD2;">
+                           <children>
+                              <TextField layoutX="657.0" layoutY="259.0" prefHeight="32.0" prefWidth="376.0" promptText="Search" style="-fx-background-color: FFFF; -fx-background-radius: 15; -fx-border-color: black; -fx-border-radius: 15;" AnchorPane.leftAnchor="657.0" AnchorPane.rightAnchor="689.0">
+                                 <effect>
+                                    <DropShadow>
+                                       <color>
+                                          <Color opacity="0.43893128633499146" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                              </TextField>
+                              <Label layoutX="661.0" layoutY="28.0" text="STUDENTS ALLOCATED">
+                                 <font>
+                                    <Font name="Berlin Sans FB Demi Bold" size="35.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow>
+                                       <color>
+                                          <Color opacity="0.13740457594394684" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                              </Label>
+                              <Circle fill="DODGERBLUE" layoutX="62.0" layoutY="59.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Label layoutX="23.0" layoutY="112.0" prefHeight="8.0" prefWidth="120.0" text="ADMIN">
+                                 <font>
+                                    <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane layoutX="-3.0" layoutY="607.0" prefHeight="635.0" prefWidth="1759.0">
+                                 <content>
+                                    <TableView prefHeight="623.0" prefWidth="1759.0">
+                                       <columns>
+                                          <TableColumn fx:id="id" prefWidth="102.0" style="-fx-background-color: 40476D;" text="Student ID" />
+                                          <TableColumn prefWidth="153.0" text="Name" />
+                                          <TableColumn prefWidth="120.0" text="Password" />
+                                          <TableColumn prefWidth="107.0" text="Date Of Birth" />
+                                          <TableColumn prefWidth="91.0" text="Semester" />
+                                          <TableColumn prefWidth="94.0" text="Batch" />
+                                          <TableColumn prefWidth="89.0" text="Degree" />
+                                          <TableColumn prefWidth="75.0" text="CGPA" />
+                                          <TableColumn prefWidth="150.0" text="CNIC No" />
+                                          <TableColumn prefWidth="115.0" text="Phone Number" />
+                                          <TableColumn prefWidth="200.0" text="Email" />
+                                          <TableColumn prefWidth="208.0" text="Address" />
+                                          <TableColumn prefWidth="217.0" text="Religion" />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Guardians">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab closable="false" text="Visitors">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab closable="false" text="Rooms and Payment">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+   </tabs>
+   <effect>
+      <Blend />
+   </effect>
+</TabPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.stage.Stage?>
+
+<Stage xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.Logout">
+   <scene>
+      <Scene>
+         <root>
+            <AnchorPane prefHeight="333.0" prefWidth="292.0" style="-fx-background-color: #25283D; -fx-border-color: AAD922;">
+               <children>
+                  <Label layoutX="105.0" layoutY="204.0" prefHeight="15.0" prefWidth="84.0" text="LOGGING OUT" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ProgressIndicator layoutX="125.0" layoutY="147.0" prefHeight="39.0" prefWidth="43.0" />
+               </children>
+            </AnchorPane>
+         </root>
+      </Scene>
+   </scene>
+</Stage>

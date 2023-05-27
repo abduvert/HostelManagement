@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.StudentController">
+   <top>
+      <HBox prefHeight="34.0" prefWidth="1036.0" style="-fx-background-color: #A7A5C6;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" onAction="#Back" prefHeight="34.0" prefWidth="81.0" rotate="180.0" style="-fx-background-color: D1CAA1; -fx-background-radius: 0;" text="➜" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="student" mnemonicParsing="false" onAction="#Student" onMouseEntered="#StudentsHoverIn" onMouseExited="#StudentsHoverOut" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0; -fx-border-style: hidden hidden solid hidden; -fx-border-color: #D1CAA1;" text="👨🏻‍🎓 Students" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="guardians" mnemonicParsing="false" onAction="#Guardians" onMouseEntered="#GuardiansHoverIn" onMouseExited="#GuardiansHoverOut" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0;" text="🙋🏻‍♂ Guardians" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="visitors" mnemonicParsing="false" onAction="#Visitors" onMouseEntered="#VisitorsHoverIn" onMouseExited="#VisitorsHoverOut" prefHeight="33.0" prefWidth="102.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0;" text="🧍 Visitors" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <AnchorPane prefHeight="482.0" prefWidth="200.0" style="-fx-background-color: 90AA86;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="94.0" layoutY="90.0" prefHeight="42.0" prefWidth="25.0" text="ID">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="124.0" prefHeight="32.0" prefWidth="76.0" text="S00001" textFill="#727272">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <VBox layoutX="4.0" layoutY="198.0" prefHeight="274.0" prefWidth="226.0">
+               <children>
+                  <VBox prefHeight="43.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EMAIL:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="sajjadabdullah3@gmail.com" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="42.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="35202-xxxxxx-x" wrappingWidth="208.669921875" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="36.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RELIGION:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Islam" wrappingWidth="208.669921875" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="40.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BATCH:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FA21" wrappingWidth="208.669921875" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="37.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DEGREE:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bachelors in Computer Sci." wrappingWidth="208.669921875" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="35.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="26 july 2003" wrappingWidth="208.669921875" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="48.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="House2, Bahria Town, Lahore" wrappingWidth="208.669921875" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <Label layoutX="67.0" layoutY="56.0" text="Student Details" textFill="#302f46" />
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutY="124.0" prefHeight="50.0" prefWidth="1036.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="Student ID">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Student Name">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="Phone No">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="Semester">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+                     <children>
+                        <Label alignment="CENTER" text="CGPA">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: #8797B2; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="More">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </children>
+            </HBox>
+            <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="299.0" prefWidth="839.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="174.0">
+               <content>
+                  <VBox fx:id="entries" minHeight="${entries.parent.height}" minWidth="${entries.parent.width}" prefHeight="284.0" prefWidth="873.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label alignment="CENTER" text="S00001">
+                                       <font>
+                                          <Font name="Arial" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </FlowPane>
+                              <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Abdullah Sajjad">
+                                       <font>
+                                          <Font name="Arial" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </FlowPane>
+                              <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label alignment="CENTER" text="03024821263">
+                                       <font>
+                                          <Font name="Arial" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </FlowPane>
+                              <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label alignment="CENTER" text="Semester">
+                                       <font>
+                                          <Font name="Arial" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </FlowPane>
+                              <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6;">
+                                 <children>
+                                    <Label alignment="CENTER" text="CGPA">
+                                       <font>
+                                          <Font name="Arial" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </FlowPane>
+                              <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: #8797B2;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Button mnemonicParsing="false" style="-fx-background-color: D1CAA1;" text="Details">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+               <children>
+                  <HBox prefHeight="35.0" prefWidth="201.0">
+                     <children>
+                        <TextField prefHeight="47.0" prefWidth="166.0" promptText="Search" style="-fx-background-radius: 0;" HBox.hgrow="NEVER">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="35.0" prefWidth="102.0" />
+                  <HBox prefHeight="29.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox editable="true" prefHeight="40.0" prefWidth="206.0" promptText="Filter By" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="35.0" prefWidth="155.0" />
+                  <HBox prefHeight="35.0" prefWidth="149.0">
+                     <children>
+                        <Button fx:id="register" mnemonicParsing="false" onAction="#Register" onMouseEntered="#RegHoverIn" onMouseExited="#RegHoverOut" prefHeight="41.0" prefWidth="156.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="➕ Register" textFill="WHITE" HBox.hgrow="NEVER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

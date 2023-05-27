@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.stage.Stage?>
+
+<Stage fx:id="forStage" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.HelloController">
+   <scene>
+      <Scene>
+         <root>
+            <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #66717E; -fx-border-color: black; -fx-border-image-width: 20;">
+               <children>
+                  <Label layoutX="172.0" layoutY="58.0" text="SECURITY QUESTION" textFill="#d7deff">
+                     <font>
+                        <Font name="Arial Black" size="22.0" />
+                     </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7105262875556946" green="0.7072368264198303" blue="0.7072368264198303" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Label>
+                  <Label layoutX="225.0" layoutY="157.0" text="Favourite Animal?">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField focusTraversable="false" layoutX="190.0" layoutY="188.0" prefHeight="18.0" prefWidth="227.0" promptText="BestFriend Name" style="-fx-background-radius: 5;">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.3552631437778473" green="0.33388158679008484" blue="0.33388158679008484" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </TextField>
+                  <Label layoutX="216.0" layoutY="369.0" text="Copyrights reserved v10 @2023" textFill="WHITE" />
+                  <Button fx:id="done" layoutX="218.0" layoutY="230.0" mnemonicParsing="false" onAction="#Done" onMouseEntered="#DoneHoverIn" onMouseExited="#DoneHoverOut" prefHeight="22.0" prefWidth="164.0" style="-fx-background-color: #32213A; -fx-background-radius: 5;" text="Done" textFill="WHITE">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.34210526943206787" green="0.28825536370277405" blue="0.28825536370277405" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="cancel" layoutX="217.0" layoutY="264.0" mnemonicParsing="false" onAction="#Cancel" onMouseEntered="#CancelHoverIn" onMouseExited="#CancelHoverOut" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: D4D6B9; -fx-background-radius: 5;" text="Cancel">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.2763157784938812" green="0.24433480203151703" blue="0.24433480203151703" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </root>
+      </Scene>
+   </scene>
+</Stage>

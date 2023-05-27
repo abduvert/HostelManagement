@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="842.0" style="-fx-background-color: #66717E;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.RegisterController">
+   <top>
+      <ToolBar prefHeight="109.0" prefWidth="842.0" style="-fx-background-color: #66717E; -fx-border-color: white;" BorderPane.alignment="CENTER">
+         <items>
+            <HBox />
+            <Label alignment="CENTER" prefHeight="66.0" prefWidth="819.0" text="    Register Page" textFill="#2d1e34">
+               <font>
+                  <Font name="System Bold" size="45.0" />
+               </font>
+            </Label>
+         </items>
+      </ToolBar>
+   </top>
+   <left>
+      <AnchorPane prefHeight="534.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-style: hidden solid solid solid;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="45.0" layoutY="195.0" prefHeight="35.0" prefWidth="109.0" text="Guardian" textFill="#2d1e34">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="230.0" text="Details" textFill="#2d1e34">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="next2" layoutX="57.0" layoutY="276.0" mnemonicParsing="false" onAction="#Next2" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2D1E34;" text="NEXT" textFill="WHITE" />
+            <Button fx:id="cancel1" layoutX="56.0" layoutY="311.0" mnemonicParsing="false" onAction="#Cancel1" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: GRAY;" text="BACK" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <HBox prefHeight="479.0" prefWidth="652.0" style="-fx-border-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="460.0" prefWidth="29.0" />
+            <VBox prefHeight="460.0" prefWidth="187.0">
+               <children>
+                  <VBox prefHeight="57.0" prefWidth="187.0" />
+                  <VBox prefHeight="55.0" prefWidth="206.0">
+                     <children>
+                        <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="150.076171875">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="55.0" prefWidth="206.0">
+                     <children>
+                        <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="150.076171875">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="55.0" prefWidth="206.0">
+                     <children>
+                        <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Relation" wrappingWidth="150.076171875">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                     </children>
+                  </VBox>
+                  <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" wrappingWidth="150.076171875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="21.0" prefWidth="189.0">
+                     <children>
+                        <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                     </children>
+                  </HBox>
+                  <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC" wrappingWidth="150.076171875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="21.0" prefWidth="189.0">
+                     <children>
+                        <TextField prefHeight="27.0" prefWidth="56.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField prefHeight="27.0" prefWidth="121.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="472.0" prefWidth="152.0" />
+            <VBox prefHeight="458.0" prefWidth="189.0">
+               <children>
+                  <VBox prefHeight="57.0" prefWidth="186.0" />
+                  <VBox prefHeight="55.0" prefWidth="206.0">
+                     <children>
+                        <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="150.076171875">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <VBox prefHeight="229.0" prefWidth="189.0">
+                           <children>
+                              <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                              <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Religion" wrappingWidth="150.076171875">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Text>
+                              <VBox prefHeight="55.0" prefWidth="206.0">
+                                 <children>
+                                    <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                                    <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="House No." wrappingWidth="150.076171875">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="55.0" prefWidth="206.0">
+                                 <children>
+                                    <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Town" wrappingWidth="150.076171875">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                                    <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="150.076171875">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox prefHeight="41.0" prefWidth="188.0" style="-fx-background-color: #d1caa1;" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
