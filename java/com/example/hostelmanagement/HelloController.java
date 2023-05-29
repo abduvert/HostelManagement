@@ -1,130 +1,136 @@
 package com.example.hostelmanagement;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class HelloController {
-
     public static Stage forStage;
-    public static Stage newStage;
-
     public Button login;
     public Button forgot;
     public CheckBox showpass;
-    public PasswordField password;
-    public Stage mainstage;
-
+    public TextField id_field;
+    public PasswordField passwordField;
+    public TextField security_field;
+    public TextField Security_id_Field;
     public Button done;
     public Button cancel;
-
-    public Button update;
-    public Button cancel2;
     public Scene scene;
+    public Stage newStage;
 
     public Circle circle;
+    public Stage mainstage;
 
+    @FXML
+    protected void Login() {
 
+        try{
+            String q1 = "select * from Student where st_id ='" + id_field.getText() + "'and st_password = '" +  passwordField.getText() + "'";
+            ResultSet res = HelloApplication.statement.executeQuery(q1);
 
+//            String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "'";
+//            ResultSet res2 = HelloApplication.statement.executeQuery(q2);
 
+            if(res.next()){  //Student has logged in
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
+                scene = new Scene(root);
+
+                HelloApplication.stage.setScene(scene);
+            }
+//            else if (res2.next()) {     //Employee has logged in
+//                //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
+//                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
+//                scene = new Scene(root);
+//
+//                HelloApplication.stage.setScene(scene);
+//                return;
+//            }
+            else{
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setContentText("Entered ID or Password is incorrect");
+                a.show();
+            }
+
+            id_field.setText("");
+            passwordField.setText("");
+
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void ForgotPassword(ActionEvent event) throws IOException {
+
+            FXMLLoader loder = new FXMLLoader(getClass().getResource("ForgotPass.fxml"));
+            forStage = loder.load();
+            forStage.initStyle(StageStyle.UNDECORATED);
+            forStage.show();
+
+            try{
+            String q1 = "select * from Student where st_SecurityQuestion = '" + security_field.getText() + "'and st_id = " + Security_id_Field.getText() + "'";
+            ResultSet res1 = HelloApplication.statement.executeQuery(q1);
+
+//            String q2 = "select * from Employees where emp_SecurityQuestion ='" + security_field.getText() + "'and emp_id = '" +  Security_id_Field.getText() + "'";
+//            ResultSet res2 = HelloApplication.statement.executeQuery(q2);
+
+                if(res1.next()){    //Student security question checked
+                   // b_student = true;
+                    FXMLLoader load = new FXMLLoader(HelloApplication.class.getResource("ForgotPass.fxml"));
+                    Parent root = load.load();
+                    scene = new Scene(root);
+
+                    HelloApplication.stage.setScene(scene);
+                }
+//                else if(res2.next()){   //Employee security question checked
+//                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ForgotPass.fxml")));
+//                    scene = new Scene(root);
+//
+//                    HelloApplication.stage.setScene(scene);
+//                }
+                else{
+                    Alert a = new Alert(Alert.AlertType.WARNING);
+                    a.setContentText("ID and Security Answer not matched");
+                    a.show();
+                }
+
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
 
 
     @FXML
-   protected void Login() throws IOException {
-       Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
-       scene = new Scene(root);
+    protected void Confirm() throws IOException {
+        FXMLLoader loder = new FXMLLoader(HelloApplication.class.getResource("NewPass.fxml"));
+        newStage = loder.load();
+        NewPasswordController npc = loder.getController();
+        npc.ID = Security_id_Field.getText();
+        forStage.close();
 
-
-       HelloApplication.stage.setScene(scene);
-
-
-
-   }
-
-
-
-
-   @FXML
-   protected void ForgotPassword(ActionEvent event) throws IOException {
-
-      FXMLLoader loder = new FXMLLoader(getClass().getResource("ForgotPass.fxml"));
-      forStage = loder.load();
-      forStage.initStyle(StageStyle.UNDECORATED);
-      forStage.show();
-
-
-   }
-
-
-   @FXML
-   protected void UpdateHoverIn(){
-        update.setStyle("-fx-background-color: #9A71AD; -fx-background-radius: 5");
-   }
-
-   @FXML
-   protected void UpdateHoverOut(){
-
-       update.setStyle("-fx-background-color:  #32213A; -fx-background-radius: 5");
-
-   }
-
-   @FXML
-   protected void Update(){
-        newStage.close();
-        Stage updated = new Stage();
-        BorderPane upd = new BorderPane();
-        Label ud = new Label("Your Password has been updated!");
-        ud.setStyle("-fx-text-fill: #2D1E34");
-        upd.setCenter(ud);
-        updated.setScene(new Scene(upd,400,200));
-        updated.show();
-   }
-
-
-
-    @FXML
-    protected void Cancel2HoverIn(){
-        cancel2.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-background-radius: 5");
+//        newStage.setScene(loder.load());
+        newStage.initStyle(StageStyle.UNDECORATED);
+        newStage.show();
     }
 
-
-    @FXML
-    protected void Cancel2HoverOut(){
-        cancel2.setStyle("-fx-background-color: gray; -fx-background-radius: 5");
-    }
-
-    @FXML
-    protected void Cancel2() throws IOException {
-
-        newStage.close();
-        forStage.show();
-    }
    @FXML
    protected void DoneHoverIn(){
         done.setStyle("-fx-background-color: #9A71AD; -fx-background-radius: 5");
    }
-
 
     @FXML
     protected void DoneHoverOut(){
@@ -132,19 +138,9 @@ public class HelloController {
     }
 
     @FXML
-    protected void Done() throws IOException {
-        FXMLLoader loder = new FXMLLoader(getClass().getResource("NewPass.fxml"));
-        newStage = loder.load();
-        newStage.initStyle(StageStyle.UNDECORATED);
-        forStage.close();
-        newStage.show();
-    }
-
-    @FXML
     protected void CancelHoverIn(){
         cancel.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-background-radius: 5");
     }
-
 
     @FXML
     protected void CancelHoverOut(){
@@ -171,22 +167,15 @@ public class HelloController {
 
    }
 
-
-
-
-
     @FXML
     protected void ShowPassword(){
         if (showpass.isSelected()) {
-            password.setPromptText(password.getText());
-            password.setText("");
+            passwordField.setPromptText(passwordField.getText());
+            passwordField.setText("");
         } else {
-            password.setText(password.getPromptText());
-            password.setPromptText("");
+            passwordField.setText(passwordField.getPromptText());
+            passwordField.setPromptText("");
         }
 
     }
-
-
-
 }

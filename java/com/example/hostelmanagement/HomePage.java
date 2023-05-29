@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -20,6 +21,7 @@ import javafx.stage.StageStyle;
 import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.Objects;
 
 public class HomePage {
@@ -46,10 +48,32 @@ public class HomePage {
        StudentController studentController = new StudentController();
        studentController.add(event);
 
-
+       // loadAllProducts(studentController.entries);
 
     }
+    public void loadAllProducts(VBox entries) {
+        try {
+            String q = "select * from Student";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
 
+            while (res.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+                Parent row = loader.load();
+
+                SRowController prc = loader.getController();
+                prc.id.setText(res.getString("st_id"));
+                prc.name.setText(res.getString("st_firstName") + res.getString("st_lastName"));
+                prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
+                prc.degree.setText(res.getString("degree"));
+                prc.CGPA.setText(res.getString("cgpa"));
+
+
+                entries.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void StudentHoverOut(){
@@ -119,7 +143,7 @@ public class HomePage {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Logout.fxml"));
         splashStage = loader.load();
-        splashStage.getIcons().add(new Image("C:\\Users\\hp\\IdeaProjects\\HostelManagement\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
+        //splashStage.getIcons().add(new Image("C:\\Users\\Rida Abid\\IdeaProjects\\HOSTEL_MANAGEMENT\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
         splashStage.initStyle(StageStyle.UNDECORATED);
         HelloApplication.stage.close();
         splashStage.show();

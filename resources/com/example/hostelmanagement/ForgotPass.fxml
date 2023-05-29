@@ -28,22 +28,8 @@
                         </DropShadow>
                      </effect>
                   </Label>
-                  <Label layoutX="225.0" layoutY="157.0" text="Favourite Animal?">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField focusTraversable="false" layoutX="190.0" layoutY="188.0" prefHeight="18.0" prefWidth="227.0" promptText="BestFriend Name" style="-fx-background-radius: 5;">
-                     <effect>
-                        <DropShadow>
-                           <color>
-                              <Color red="0.3552631437778473" green="0.33388158679008484" blue="0.33388158679008484" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </TextField>
                   <Label layoutX="216.0" layoutY="369.0" text="Copyrights reserved v10 @2023" textFill="WHITE" />
-                  <Button fx:id="done" layoutX="218.0" layoutY="230.0" mnemonicParsing="false" onAction="#Done" onMouseEntered="#DoneHoverIn" onMouseExited="#DoneHoverOut" prefHeight="22.0" prefWidth="164.0" style="-fx-background-color: #32213A; -fx-background-radius: 5;" text="Done" textFill="WHITE">
+                  <Button fx:id="done" layoutX="218.0" layoutY="230.0" mnemonicParsing="false" onAction="#Confirm" onMouseEntered="#DoneHoverIn" onMouseExited="#DoneHoverOut" prefHeight="22.0" prefWidth="164.0" style="-fx-background-color: #32213A; -fx-background-radius: 5;" text="Confirm" textFill="WHITE">
                      <effect>
                         <DropShadow>
                            <color>
@@ -61,6 +47,24 @@
                         </DropShadow>
                      </effect>
                   </Button>
+                  <TextField fx:id="Security_id_Field" focusTraversable="false" layoutX="190.0" layoutY="139.0" prefHeight="18.0" prefWidth="227.0" promptText="ID" style="-fx-background-radius: 5;">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.3552631437778473" green="0.33388158679008484" blue="0.33388158679008484" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="security_field" focusTraversable="false" layoutX="190.0" layoutY="187.0" prefHeight="18.0" prefWidth="227.0" promptText="Favourite Animal Name" style="-fx-background-radius: 5;">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.3552631437778473" green="0.33388158679008484" blue="0.33388158679008484" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </TextField>
                </children>
             </AnchorPane>
          </root>

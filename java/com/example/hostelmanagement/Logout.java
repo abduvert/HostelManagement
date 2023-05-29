@@ -18,7 +18,7 @@ public class Logout implements Initializable {
 
         Thread taskThread = new Thread(() -> {
             try {
-                // delay for 5 seconds  //
+                // delay for 2 seconds  //
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -34,11 +34,11 @@ public class Logout implements Initializable {
 
 
                     HelloApplication.stage = loader.load();
-                    HelloApplication.stage.getIcons().add(new Image("C:\\Users\\hp\\IdeaProjects\\HostelManagement\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
+                    //HelloApplication.stage.getIcons().add(new Image("C:\\Users\\Rida Abid\\IdeaProjects\\HOSTEL_MANAGEMENT\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
                     HelloApplication.stage.setTitle("SU HOSTEL");
 
 
-                    HomePage.splashStage.hide();
+                    HomePage.splashStage.close();
                     HelloApplication.stage.show();
 
 

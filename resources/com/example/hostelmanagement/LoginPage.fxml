@@ -68,7 +68,7 @@
                                     <Image url="@login.png" />
                                  </image>
                               </ImageView>
-                              <PasswordField fx:id="password" layoutX="160.0" layoutY="262.0" prefHeight="35.0" prefWidth="205.0" promptText="Password" style="-fx-background-color: FFFFFF; -fx-border-color: transparent; -fx-background-radius: 8;">
+                              <PasswordField fx:id="passwordField" layoutX="160.0" layoutY="262.0" prefHeight="35.0" prefWidth="205.0" promptText="Password" style="-fx-background-color: FFFFFF; -fx-border-color: transparent; -fx-background-radius: 8;">
                                  <effect>
                                     <DropShadow>
                                        <color>
@@ -77,7 +77,7 @@
                                     </DropShadow>
                                  </effect>
                               </PasswordField>
-                              <TextField layoutX="161.0" layoutY="206.0" prefHeight="35.0" prefWidth="205.0" promptText="Username" style="-fx-background-color: FFFFFF; -fx-background-radius: 8; -fx-border-radius: 0; -fx-border-color: transparent; -fx-border-color: #0000;">
+                              <TextField fx:id="id_field" layoutX="161.0" layoutY="206.0" prefHeight="35.0" prefWidth="205.0" promptText="ID" style="-fx-background-color: FFFFFF; -fx-background-radius: 8; -fx-border-radius: 0; -fx-border-color: transparent; -fx-border-color: #0000;">
                                  <effect>
                                     <DropShadow>
                                        <color>

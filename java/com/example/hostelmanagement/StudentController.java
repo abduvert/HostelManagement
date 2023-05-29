@@ -15,6 +15,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.Objects;
 
 public class StudentController {
@@ -22,7 +23,7 @@ public class StudentController {
     public Button student;
     public Button guardians;
     public Button visitors;
-    public VBox entries;
+    public VBox entries = new VBox();
 
     public Button register;
     public Button back;
@@ -34,8 +35,14 @@ public class StudentController {
 
        FXMLLoader stud = new FXMLLoader(getClass().getResource("StdPage.fxml"));
        HelloApplication.stage.setScene(new Scene(stud.load()));
-       HelloApplication.stage.setMaximized(true);
+       HelloApplication.stage.setMaximized(false);
+//       loadAllProducts();
 
+    }
+
+    @FXML
+    public void initialize(){
+        loadAllProducts();
     }
 
     @FXML
@@ -90,7 +97,7 @@ public class StudentController {
         guardians.setStyle("-fx-background-color:   #A7A5C6;");
         FXMLLoader guard = new FXMLLoader(getClass().getResource("Guardians.fxml"));
         FXMLLoader guard2 = new FXMLLoader(getClass().getResource("Guardians2.fxml"));
-
+        Guardload();
         borderPane.setCenter(guard.load());
         borderPane.setLeft(guard2.load());
 
@@ -140,6 +147,52 @@ public class StudentController {
     protected void Register(ActionEvent event) throws IOException {
         RegisterController reg = new RegisterController();
         reg.Register(event);
+    }
+    public void loadAllProducts() {
+        try {
+            String q = "select * from Student";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+                Parent row = loader.load();
+
+                SRowController prc = loader.getController();
+                prc.id.setText(res.getString("st_id"));
+                prc.name.setText(res.getString("st_firstName") + res.getString("st_lastName"));
+                prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
+                prc.degree.setText(res.getString("degree"));
+                prc.CGPA.setText(res.getString("cgpa"));
+
+
+                entries.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void Guardload() {
+        try {
+            String q = "select * from Guardian";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+                Parent row = loader.load();
+
+                SRowController prc = loader.getController();
+                prc.id.setText(res.getString("st_id"));
+                prc.name.setText(res.getString("st_firstName") + res.getString("st_lastName"));
+                prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
+                prc.degree.setText(res.getString("degree"));
+                prc.CGPA.setText(res.getString("cgpa"));
+
+
+                entries.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

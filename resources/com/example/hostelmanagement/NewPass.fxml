@@ -10,8 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.stage.Stage?>
 
-
-<Stage xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.HelloController">
+<Stage xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.NewPasswordController">
    <scene>
       <Scene>
          <root>
@@ -22,12 +21,7 @@
                         <Font name="Arial Rounded MT Bold" size="38.0" />
                      </font>
                   </Label>
-                  <Label layoutX="273.0" layoutY="66.0" text="Name">
-                     <font>
-                        <Font name="Arial Narrow" size="25.0" />
-                     </font>
-                  </Label>
-                  <TextField focusTraversable="false" layoutX="200.0" layoutY="200.0" prefHeight="25.0" prefWidth="214.0" promptText="New Password" style="-fx-background-radius: 5;">
+                  <TextField fx:id="new_pass_field" focusTraversable="false" layoutX="200.0" layoutY="200.0" prefHeight="25.0" prefWidth="214.0" promptText="New Password" style="-fx-background-radius: 5;">
                      <effect>
                         <DropShadow>
                            <color>
@@ -36,7 +30,7 @@
                         </DropShadow>
                      </effect>
                   </TextField>
-                  <TextField focusTraversable="false" layoutX="200.0" layoutY="246.0" prefHeight="25.0" prefWidth="214.0" promptText="Confirm Password" style="-fx-background-radius: 5;">
+                  <TextField fx:id="confirm_passs_field" focusTraversable="false" layoutX="200.0" layoutY="246.0" prefHeight="25.0" prefWidth="214.0" promptText="Confirm Password" style="-fx-background-radius: 5;">
                      <effect>
                         <DropShadow>
                            <color>
