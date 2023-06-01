@@ -21,13 +21,19 @@ import java.util.Objects;
 public class StudentController {
     public AnchorPane anchorPane;
     public Button student;
-    public Button guardians;
+
     public Button visitors;
+    public Button guardians;
+
     public VBox entries = new VBox();
+    public VBox entries2 = new VBox();
+    public VBox entries3 = new VBox();
 
     public Button register;
     public Button back;
-    public BorderPane borderPane;
+    public BorderPane borderPane = new BorderPane();
+
+
 
 
     @FXML
@@ -35,7 +41,7 @@ public class StudentController {
 
        FXMLLoader stud = new FXMLLoader(getClass().getResource("StdPage.fxml"));
        HelloApplication.stage.setScene(new Scene(stud.load()));
-       HelloApplication.stage.setMaximized(false);
+       HelloApplication.stage.setMaximized(true);
 //       loadAllProducts();
 
     }
@@ -43,7 +49,10 @@ public class StudentController {
     @FXML
     public void initialize(){
         loadAllProducts();
+        Guardload();
+        VisLoad();
     }
+
 
     @FXML
     protected void Back() throws IOException {
@@ -68,20 +77,17 @@ public class StudentController {
     @FXML
     protected void Student() throws IOException {
 
-        student.setStyle("-fx-background-color:   #A7A5C6;-fx-border-style: hidden hidden solid hidden ; -fx-border-color: #383B53");
+        //student.setStyle("-fx-background-color:   #A7A5C6;-fx-border-style: hidden hidden solid hidden ; -fx-border-color: #383B53");
         FXMLLoader stud = new FXMLLoader(getClass().getResource("StdPage.fxml"));
         HelloApplication.stage.setScene(new Scene(stud.load()));
         HelloApplication.stage.setMaximized(true);
 
 
     }
-
-
-
     @FXML
     public void GuardiansHoverIn(){
 
-      guardians.setStyle("-fx-background-color:   #A7A5C6;-fx-border-style: hidden hidden solid hidden ; -fx-border-color: #383B53");
+        guardians.setStyle("-fx-background-color:   #A7A5C6;-fx-border-style: hidden hidden solid hidden ; -fx-border-color: #383B53");
 
     }
 
@@ -94,15 +100,15 @@ public class StudentController {
 
     @FXML
     protected void Guardians() throws IOException {
-        guardians.setStyle("-fx-background-color:   #A7A5C6;");
+        //guardians.setStyle("-fx-background-color:   #A7A5C6;");
         FXMLLoader guard = new FXMLLoader(getClass().getResource("Guardians.fxml"));
         FXMLLoader guard2 = new FXMLLoader(getClass().getResource("Guardians2.fxml"));
-        Guardload();
-        borderPane.setCenter(guard.load());
-        borderPane.setLeft(guard2.load());
 
+        borderPane.setCenter(guard.load());
+        borderPane.setLeft(null);
 
     }
+
 
 
     @FXML
@@ -122,11 +128,12 @@ public class StudentController {
 
     @FXML
     protected void Visitors() throws IOException {
-        visitors.setStyle("-fx-background-color:   #A7A5C6;");
+//        visitors.setStyle("-fx-background-color:   #A7A5C6;");
         FXMLLoader vis = new FXMLLoader(getClass().getResource("Visitors.fxml"));
         FXMLLoader vis2 = new FXMLLoader(getClass().getResource("Visitors2.fxml"));
         borderPane.setCenter(vis.load());
         borderPane.setLeft(vis2.load());
+
     }
     @FXML
     public void RegHoverIn(){
@@ -148,6 +155,12 @@ public class StudentController {
         RegisterController reg = new RegisterController();
         reg.Register(event);
     }
+
+
+    //int count=0;
+
+
+
     public void loadAllProducts() {
         try {
             String q = "select * from Student";
@@ -171,29 +184,61 @@ public class StudentController {
             e.printStackTrace();
         }
     }
+
+    @FXML
     public void Guardload() {
         try {
             String q = "select * from Guardian";
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
             while (res.next()) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("GrdROW.fxml"));
                 Parent row = loader.load();
 
-                SRowController prc = loader.getController();
-                prc.id.setText(res.getString("st_id"));
-                prc.name.setText(res.getString("st_firstName") + res.getString("st_lastName"));
-                prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
-                prc.degree.setText(res.getString("degree"));
-                prc.CGPA.setText(res.getString("cgpa"));
+                GuardianRow gRow = loader.getController();
+                gRow.st_id.setText(res.getString("st_id"));
+                gRow.guardianName.setText(res.getString("g_firstName") + res.getString("g_lastName"));
+                gRow.g_Phone.setText(res.getString("g_PHNcode") + res.getString("g_PHNno"));
+                gRow.relation.setText(res.getString("g_relation"));
+                gRow.g_email.setText(res.getString("g_email"));
+                //gRow.details.setId(res.getString("st_id"));
 
-
-                entries.getChildren().add(row);
+                entries2.getChildren().add(row);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+
+    @FXML
+    public void VisLoad() {
+        try {
+            String q = "select * from Visitors";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VisRow.fxml"));
+                Parent row = loader.load();
+
+                VisRow visRow = loader.getController();
+                visRow.st_id.setText(res.getString("st_id"));
+                visRow.vis_Name.setText(res.getString("v_firstName") + res.getString("v_lastName"));
+                visRow.Vphone.setText(res.getString("v_PHNcode") + res.getString("v_PHNno"));
+                visRow.Vrelation.setText(res.getString("v_relation"));
+                visRow.VCNIC.setText(res.getString("v_CNICcode") + "-" + res.getString("v_CNICno"));
+                visRow.vis_id.setText(res.getString("v_id"));
+
+
+                entries3.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }
 

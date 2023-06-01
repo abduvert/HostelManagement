@@ -21,14 +21,14 @@ public class HelloApplication extends Application {
 
         HelloApplication.stage = stage;
         DriverManager.registerDriver(new SQLServerDriver());
-        Connection con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-P4J3J1U;Database=Hostel_Management;encrypt=true;trustServerCertificate=true;IntegratedSecurity=true;");
+        Connection con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-OSAF15A;Database=Hostel_Management;encrypt=true;trustServerCertificate=true;IntegratedSecurity=true;");
 
 
         statement = con.createStatement();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Loading1.fxml"));
         splashStage = loader.load();
-        splashStage.getIcons().add(new Image("C:\\Users\\Rida Abid\\IdeaProjects\\HOSTEL_MANAGEMENT_PROJECT\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
+        //splashStage.getIcons().add(new Image("C:\\Users\\Rida Abid\\IdeaProjects\\HOSTEL_MANAGEMENT_PROJECT\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
         splashStage.initStyle(StageStyle.UNDECORATED);
         splashStage.show();
     }

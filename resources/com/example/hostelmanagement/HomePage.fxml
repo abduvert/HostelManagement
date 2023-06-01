@@ -67,7 +67,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="employee" layoutX="434.0" layoutY="255.0" mnemonicParsing="false" onMouseEntered="#EmployeeHoverIn" onMouseExited="#EmployeeHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Employees" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
+                  <Button fx:id="employee" layoutX="434.0" layoutY="255.0" mnemonicParsing="false" onAction="#Employee" onMouseEntered="#EmployeeHoverIn" onMouseExited="#EmployeeHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Employees" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="21.0" />
                      </font>
@@ -83,7 +83,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="complaints" layoutX="434.0" layoutY="360.0" mnemonicParsing="false" onMouseEntered="#ComplaintsHoverIn" onMouseExited="#ComplaintsHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Complaints" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
+                  <Button fx:id="complaints" layoutX="434.0" layoutY="360.0" mnemonicParsing="false" onAction="#Complaints" onMouseEntered="#ComplaintsHoverIn" onMouseExited="#ComplaintsHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Complaints" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
                      <font>
                         <Font name="Tw Cen MT Condensed Extra Bold" size="21.0" />
                      </font>

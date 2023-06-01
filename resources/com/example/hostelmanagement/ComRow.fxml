@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="50.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.ComRow">
+   <children>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="comID" alignment="CENTER" text="Complain ID">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="121.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="r_id" alignment="CENTER" style="-fx-border-color: blaclk;" text="Room ID">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="empName" alignment="CENTER" text="Employee Assigned">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="293.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="complain" alignment="CENTER" text="Complain">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="155.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="status" alignment="CENTER" text="Status">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+   </children>
+</HBox>

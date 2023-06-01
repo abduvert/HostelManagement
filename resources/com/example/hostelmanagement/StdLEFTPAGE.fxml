@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="482.0" prefWidth="200.0" style="-fx-background-color: 90AA86;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="95.0" layoutY="74.0" prefHeight="42.0" prefWidth="25.0" text="ID">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="107.0" prefHeight="32.0" prefWidth="76.0" text="S00001" textFill="#727272">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <VBox layoutX="4.0" layoutY="198.0" prefHeight="274.0" prefWidth="226.0">
+         <children>
+            <VBox prefHeight="43.0" prefWidth="226.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EMAIL:" wrappingWidth="119.029296875">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="sajjadabdullah3@gmail.com" />
+               </children>
+            </VBox>
+            <VBox prefHeight="42.0" prefWidth="226.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC:" wrappingWidth="119.029296875">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="35202-xxxxxx-x" wrappingWidth="208.669921875" />
+               </children>
+            </VBox>
+            <VBox prefHeight="36.0" prefWidth="226.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RELIGION:" wrappingWidth="119.029296875">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Islam" wrappingWidth="208.669921875" />
+               </children>
+            </VBox>
+            <VBox prefHeight="40.0" prefWidth="226.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BATCH:" wrappingWidth="119.029296875">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FA21" wrappingWidth="208.669921875" />
+               </children>
+            </VBox>
+            <VBox prefHeight="37.0" prefWidth="226.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DEGREE:" wrappingWidth="119.029296875">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bachelors in Computer Sci." wrappingWidth="208.669921875" />
+               </children>
+            </VBox>
+            <VBox prefHeight="35.0" prefWidth="226.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:" wrappingWidth="119.029296875">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="26 july 2003" wrappingWidth="208.669921875" />
+               </children>
+            </VBox>
+            <VBox prefHeight="48.0" prefWidth="226.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS:" wrappingWidth="119.029296875">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="House2, Bahria Town, Lahore" wrappingWidth="208.669921875" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Label layoutX="67.0" layoutY="40.0" text="Student Details" textFill="#302f46" />
+      <Button layoutX="77.0" layoutY="152.0" mnemonicParsing="false" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
+      <Button layoutX="120.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-background-radius: 0;" text="🗑" textFill="WHITE" />
+   </children>
+</AnchorPane>

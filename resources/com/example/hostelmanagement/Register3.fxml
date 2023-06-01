@@ -37,7 +37,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="done" layoutX="57.0" layoutY="276.0" mnemonicParsing="false" onAction="#Done" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2D1E34;" text="Done" textFill="WHITE" />
+            <Button layoutX="57.0" layoutY="276.0" mnemonicParsing="false" onAction="#Next3" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2D1E34;" text="Allot Room" textFill="WHITE" />
             <Button fx:id="cancel2" layoutX="56.0" layoutY="311.0" mnemonicParsing="false" onAction="#Cancel2" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: GRAY;" text="BACK" textFill="WHITE" />
          </children>
       </AnchorPane>

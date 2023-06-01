@@ -51,29 +51,6 @@ public class HomePage {
        // loadAllProducts(studentController.entries);
 
     }
-    public void loadAllProducts(VBox entries) {
-        try {
-            String q = "select * from Student";
-            ResultSet res = HelloApplication.statement.executeQuery(q);
-
-            while (res.next()) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
-                Parent row = loader.load();
-
-                SRowController prc = loader.getController();
-                prc.id.setText(res.getString("st_id"));
-                prc.name.setText(res.getString("st_firstName") + res.getString("st_lastName"));
-                prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
-                prc.degree.setText(res.getString("degree"));
-                prc.CGPA.setText(res.getString("cgpa"));
-
-
-                entries.getChildren().add(row);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     public void StudentHoverOut(){
@@ -92,6 +69,11 @@ public class HomePage {
         employee.setTextFill(Color.WHITE);
     }
 
+    @FXML
+    public void Employee(ActionEvent event) throws IOException {
+        Employee emp = new Employee();
+        emp.add(event);
+    }
 
     @FXML
     public void FloorHoverIn(){
@@ -111,6 +93,11 @@ public class HomePage {
     public void ComplaintsHoverOut(){
         complaints.setStyle("-fx-background-color: transparent; -fx-background-radius:10;");
         complaints.setTextFill(Color.WHITE);
+    }
+    @FXML
+    public void Complaints(ActionEvent event) throws IOException {
+        Complaints comp = new Complaints();
+        comp.add(event);
     }
 
     @FXML

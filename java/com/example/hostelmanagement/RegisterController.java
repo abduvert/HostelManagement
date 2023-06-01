@@ -103,6 +103,11 @@ public class RegisterController {
         stage1.setScene(new Scene(reg2.load()));
     }
 
+    @FXML
+    protected void Next3() throws IOException {
+        FXMLLoader allot = new FXMLLoader(getClass().getResource("AllotingRoom.fxml"));
+        stage1.setScene(new Scene(allot.load()));
+    }
 
     @FXML
     protected void Done(){

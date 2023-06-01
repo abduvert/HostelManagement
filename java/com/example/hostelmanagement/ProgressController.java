@@ -39,7 +39,7 @@ public class ProgressController implements Initializable {
 
 
                     HelloApplication.stage = loader.load();
-                    HelloApplication.stage.getIcons().add(new Image("C:\\Users\\Rida Abid\\IdeaProjects\\HOSTEL_MANAGEMENT_PROJECT\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
+                    //HelloApplication.stage.getIcons().add(new Image("C:\\Users\\Rida Abid\\IdeaProjects\\HOSTEL_MANAGEMENT_PROJECT\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
                     HelloApplication.stage.setTitle("SU HOSTEL");
 
                     HelloApplication.splashStage.hide();

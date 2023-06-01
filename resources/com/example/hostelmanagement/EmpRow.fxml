@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="50.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.EmpRow">
+   <children>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="emp_id" alignment="CENTER" text="E001">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="empName" alignment="CENTER" text="E001">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="empGender" alignment="CENTER" text="E001">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="empPhone" alignment="CENTER" text="E001">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="empCNIC" alignment="CENTER" text="E001">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="empRole" alignment="CENTER" text="E001">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="empSalary" alignment="CENTER" text="E001">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+   </children>
+</HBox>

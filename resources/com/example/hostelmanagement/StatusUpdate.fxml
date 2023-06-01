@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="557.0" style="-fx-background-color: #66717E;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.RegisterController">
+   <left>
+      <AnchorPane prefHeight="534.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-style: solid solid;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="37.0" layoutY="135.0" text="Complaint" textFill="#2d1e34">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="170.0" text="Status" textFill="#2d1e34">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="next1" layoutX="57.0" layoutY="276.0" mnemonicParsing="false" onAction="#Next1" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2D1E34;" text="Update" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="next11" layoutX="57.0" layoutY="315.0" mnemonicParsing="false" onAction="#Next1" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: gray;" text="Cancel" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <HBox prefHeight="479.0" prefWidth="652.0" style="-fx-border-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="434.0" prefWidth="367.0">
+               <children>
+                  <VBox prefHeight="108.0" prefWidth="365.0" />
+                  <VBox prefHeight="282.0" prefWidth="365.0">
+                     <children>
+                        <HBox prefHeight="73.0" prefWidth="365.0">
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="152.0" text="   Open Complaints:">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox prefHeight="30.0" prefWidth="158.0" promptText="Complaints Ids" style="-fx-background-color: black; -fx-background-radius: 0; -fx-opacity: 0.9;" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="81.0" prefWidth="365.0">
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="152.0" text="   New Status">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid;" text="TYPE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="125.0" prefWidth="365.0">
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="152.0" text="   Description:">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextArea prefHeight="125.0" prefWidth="184.0" promptText="Explain the update" style="-fx-background-color: black;" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
