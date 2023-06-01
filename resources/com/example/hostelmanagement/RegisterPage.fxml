@@ -61,7 +61,10 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="fname" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="fname" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
                      </children>
                   </VBox>
                   <VBox prefHeight="55.0" prefWidth="206.0">
@@ -81,17 +84,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="dob" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="55.0" prefWidth="206.0">
-                     <children>
-                        <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester" wrappingWidth="150.076171875">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="semester" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="dob" promptText="YEAR-MM-DD" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="55.0" prefWidth="206.0">
@@ -111,7 +104,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="degree" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="degree" promptText="B**" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="55.0" prefWidth="206.0">
@@ -121,7 +114,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="batch" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="batch" promptText="YEAR" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="55.0" prefWidth="206.0">
@@ -132,6 +125,11 @@
                            </font>
                         </Text>
                         <PasswordField fx:id="password" style="-fx-border-color: #d1caa1; -fx-border-style: hidden hidden solid hidden; -fx-background-color: #66717E;" />
+                        <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="**Must contain capital letters and numbers. Last characteer must be a Letter" wrappingWidth="183.40948486328125">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Text>
                      </children>
                   </VBox>
                </children>
@@ -147,13 +145,13 @@
                   </Text>
                   <HBox prefHeight="21.0" prefWidth="189.0">
                      <children>
-                        <TextField fx:id="Phncode" prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="Phncode" prefHeight="27.0" prefWidth="82.0" promptText="92" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="PhnNo" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="PhnNo" promptText="3********" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </HBox>
                   <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC" wrappingWidth="150.076171875">
@@ -163,13 +161,13 @@
                   </Text>
                   <HBox prefHeight="21.0" prefWidth="189.0">
                      <children>
-                        <TextField fx:id="CNICcode" prefHeight="27.0" prefWidth="56.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="CNICcode" prefHeight="27.0" prefWidth="56.0" promptText="*****" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="CNICno" prefHeight="27.0" prefWidth="121.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="CNICno" prefHeight="27.0" prefWidth="121.0" promptText="********" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </HBox>
                   <VBox prefHeight="55.0" prefWidth="206.0">
@@ -181,7 +179,7 @@
                         </Text>
                         <VBox prefHeight="229.0" prefWidth="189.0">
                            <children>
-                              <TextField fx:id="email" prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                              <TextField fx:id="email" prefHeight="27.0" prefWidth="82.0" promptText="abc12@gmail.com" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                               <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Religion" wrappingWidth="150.076171875">
                                  <font>
                                     <Font name="System Bold" size="20.0" />
@@ -197,13 +195,7 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Text>
-                                          <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
-                                          <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="150.076171875">
-                                             <font>
-                                                <Font name="System Bold" size="20.0" />
-                                             </font>
-                                          </Text>
-                                          <ComboBox prefHeight="41.0" prefWidth="188.0" style="-fx-background-color: #d1caa1;" />
+                                          <TextField fx:id="town" prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                                        </children>
                                     </VBox>
                                     <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="House No." wrappingWidth="150.076171875">
@@ -214,18 +206,24 @@
                                     <TextField fx:id="Hno" prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                                  </children>
                               </VBox>
-                              <VBox prefHeight="72.0" prefWidth="189.0">
-                                 <children>
-                                    <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Question" wrappingWidth="174.076171875">
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <TextField fx:id="security" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
-                                 </children>
-                              </VBox>
                            </children>
                         </VBox>
+                     </children>
+                  </VBox>
+                  <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="150.076171875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="comboBox" onAction="#Show" prefHeight="17.0" prefWidth="188.0" style="-fx-background-color: #d1caa1;" visibleRowCount="15" />
+                  <VBox prefHeight="72.0" prefWidth="189.0">
+                     <children>
+                        <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Favourite Animal" wrappingWidth="174.076171875">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="security" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                </children>
