@@ -46,7 +46,22 @@ public class RegisterController {
     public ComboBox<String> comboBox2 = new ComboBox<>();
     public String G_city;
     @FXML
-    public TextField v_fname, v_lname, v_relation, v_PHNcode, v_PHNno,  v_CNICcode, v_CNICno;
+    public TextField v_fname;
+    public TextField v_lname;
+    public TextField v_relation;
+    public TextField v_PHNcode;
+    public TextField v_PHNno;
+    public TextField v_CNICcode;
+    public TextField v_CNICno;
+
+    @FXML
+    public TextField v2_fname;
+    public TextField v2_lname;
+    public TextField v2_relation;
+    public TextField v2_PHNcode;
+    public TextField v2_PHNno;
+    public TextField v2_CNICcode;
+    public TextField v2_CNICno;
     @FXML
     protected void Register(ActionEvent event) throws IOException {
         FXMLLoader reg1 = new FXMLLoader(getClass().getResource("RegisterPage.fxml"));
@@ -107,8 +122,8 @@ public class RegisterController {
     }
     @FXML
     protected void Show2(){
-        selected_city = comboBox.getValue();
-        comboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+        G_city = comboBox2.getValue();
+        comboBox2.valueProperty().addListener((observable, oldValue, newValue) -> {
             System.out.println("Selected value: " + newValue);
             G_city = newValue;
         });
@@ -157,10 +172,39 @@ public class RegisterController {
 
     @FXML
     protected void Next3() throws IOException {
+
+        try{
+            String maxStIdQuery = "SELECT MAX(st_id) FROM Student";
+            ResultSet resultSet = statement.executeQuery(maxStIdQuery);
+            resultSet.next();
+            String maxStId = resultSet.getString(1);
+
+            String maxV_IdQuery = "SELECT MAX(v_id) FROM Visitors";
+            ResultSet resultSet2 = statement.executeQuery(maxV_IdQuery);
+            resultSet2.next();
+            String v_id = resultSet2.getString(1);
+            int numericPart = Integer.parseInt(maxStId.substring(1)); // Extract numeric part
+
+            v_id = "V" + String.format("%03d", numericPart + 1);
+            String v_id2 = "V" + String.format("%03d", numericPart + 2);
+
+            System.out.println("v_id: "+v_id);
+            System.out.println("v_id2: " + v_id2);
+            String InsertQuery3 = "insert into Visitors values ('"+ maxStId + "' , '" + v_id + "' , '" + v_fname.getText() + "' , '" + v_lname.getText() + "' , "
+                    + v_CNICcode.getText() + " , " + v_CNICno.getText() + " , '" + v_relation.getText() + "' , " + v_PHNcode.getText() + " , "
+                    + v_PHNno.getText() +") , ( '" + maxStId + "' , '" + v_id2 + "' , '" + v2_fname.getText() + "' , '" + v2_lname.getText() +
+                    "' , " + v2_CNICcode.getText() + " , " + v2_CNICno.getText() + " , '" + v2_relation.getText() + "' , " + v2_PHNcode.getText() +
+                    " , " + v2_PHNno.getText() + ")";
+
+            HelloApplication.statement.executeUpdate(InsertQuery3);
+        } catch (Exception e){
+            System.out.println( e.getMessage());
+            e.printStackTrace();
+        }
+
         FXMLLoader allot = new FXMLLoader(getClass().getResource("AllotingRoom.fxml"));
         stage1.setScene(new Scene(allot.load()));
     }
-
     @FXML
     protected void Done(){
         stage1.close();

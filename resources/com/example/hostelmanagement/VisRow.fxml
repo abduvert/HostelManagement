@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -43,7 +45,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6;">
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
          <children>
             <Label fx:id="Vphone" alignment="CENTER" text="03023249142">
                <font>
@@ -54,11 +56,11 @@
       </FlowPane>
       <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
          <children>
-            <Label fx:id="VCNIC" alignment="CENTER" text="35202-xxxxx">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font>
-            </Label>
+            <Button fx:id="details" mnemonicParsing="false" onAction="#Details" style="-fx-background-color: D1CAA1;" text="Details">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </FlowPane>
    </children>

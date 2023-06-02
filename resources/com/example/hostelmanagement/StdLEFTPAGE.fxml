@@ -7,14 +7,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="482.0" prefWidth="200.0" style="-fx-background-color: 90AA86;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="482.0" prefWidth="200.0" style="-fx-background-color: 90AA86;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.SRowController">
    <children>
       <Label layoutX="95.0" layoutY="74.0" prefHeight="42.0" prefWidth="25.0" text="ID">
          <font>
             <Font name="Arial Rounded MT Bold" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="107.0" prefHeight="32.0" prefWidth="76.0" text="S00001" textFill="#727272">
+      <Label fx:id="st_id" layoutX="70.0" layoutY="107.0" prefHeight="32.0" prefWidth="76.0" text="S00001" textFill="#727272">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -28,7 +28,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="sajjadabdullah3@gmail.com" />
+                  <Text fx:id="email" strokeType="OUTSIDE" strokeWidth="0.0" text="sajjadabdullah3@gmail.com" />
                </children>
             </VBox>
             <VBox prefHeight="42.0" prefWidth="226.0">
@@ -38,7 +38,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="35202-xxxxxx-x" wrappingWidth="208.669921875" />
+                  <Text fx:id="CNIC" strokeType="OUTSIDE" strokeWidth="0.0" text="35202-xxxxxx-x" wrappingWidth="208.669921875" />
                </children>
             </VBox>
             <VBox prefHeight="36.0" prefWidth="226.0">
@@ -48,7 +48,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Islam" wrappingWidth="208.669921875" />
+                  <Text fx:id="religion" strokeType="OUTSIDE" strokeWidth="0.0" text="Islam" wrappingWidth="208.669921875" />
                </children>
             </VBox>
             <VBox prefHeight="40.0" prefWidth="226.0">
@@ -58,17 +58,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FA21" wrappingWidth="208.669921875" />
-               </children>
-            </VBox>
-            <VBox prefHeight="37.0" prefWidth="226.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DEGREE:" wrappingWidth="119.029296875">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bachelors in Computer Sci." wrappingWidth="208.669921875" />
+                  <Text fx:id="batch" strokeType="OUTSIDE" strokeWidth="0.0" text="FA21" wrappingWidth="208.669921875" />
                </children>
             </VBox>
             <VBox prefHeight="35.0" prefWidth="226.0">
@@ -78,7 +68,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="26 july 2003" wrappingWidth="208.669921875" />
+                  <Text fx:id="dateofbirth" strokeType="OUTSIDE" strokeWidth="0.0" text="26 july 2003" wrappingWidth="208.669921875" />
                </children>
             </VBox>
             <VBox prefHeight="48.0" prefWidth="226.0">
@@ -88,7 +78,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="House2, Bahria Town, Lahore" wrappingWidth="208.669921875" />
+                  <Text fx:id="address" strokeType="OUTSIDE" strokeWidth="0.0" text="House2, Bahria Town, Lahore" wrappingWidth="208.669921875" />
                </children>
             </VBox>
          </children>

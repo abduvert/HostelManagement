@@ -22,6 +22,7 @@ public class StudentController {
     public AnchorPane anchorPane;
     public Button student;
 
+
     public Button visitors;
     public Button guardians;
 
@@ -31,7 +32,7 @@ public class StudentController {
 
     public Button register;
     public Button back;
-    public BorderPane borderPane = new BorderPane();
+    public BorderPane borderPane;
 
 
 
@@ -106,7 +107,6 @@ public class StudentController {
 
         borderPane.setCenter(guard.load());
         borderPane.setLeft(null);
-
     }
 
 
@@ -132,7 +132,7 @@ public class StudentController {
         FXMLLoader vis = new FXMLLoader(getClass().getResource("Visitors.fxml"));
         FXMLLoader vis2 = new FXMLLoader(getClass().getResource("Visitors2.fxml"));
         borderPane.setCenter(vis.load());
-        borderPane.setLeft(vis2.load());
+        borderPane.setLeft(null);
 
     }
     @FXML
@@ -177,6 +177,7 @@ public class StudentController {
                 prc.degree.setText(res.getString("degree"));
                 prc.CGPA.setText(res.getString("cgpa"));
 
+                prc.details.setId(res.getString("st_id"));
 
                 entries.getChildren().add(row);
             }
@@ -201,7 +202,7 @@ public class StudentController {
                 gRow.g_Phone.setText(res.getString("g_PHNcode") + res.getString("g_PHNno"));
                 gRow.relation.setText(res.getString("g_relation"));
                 gRow.g_email.setText(res.getString("g_email"));
-                //gRow.details.setId(res.getString("st_id"));
+                gRow.details.setId(res.getString("st_id"));
 
                 entries2.getChildren().add(row);
             }
@@ -227,9 +228,8 @@ public class StudentController {
                 visRow.vis_Name.setText(res.getString("v_firstName") + res.getString("v_lastName"));
                 visRow.Vphone.setText(res.getString("v_PHNcode") + res.getString("v_PHNno"));
                 visRow.Vrelation.setText(res.getString("v_relation"));
-                visRow.VCNIC.setText(res.getString("v_CNICcode") + "-" + res.getString("v_CNICno"));
                 visRow.vis_id.setText(res.getString("v_id"));
-
+                visRow.details.setId(res.getString("st_id"));
 
                 entries3.getChildren().add(row);
             }

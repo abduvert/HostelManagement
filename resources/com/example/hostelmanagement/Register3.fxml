@@ -64,7 +64,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v_fname" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="68.0" prefWidth="187.0">
@@ -74,7 +74,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v_lname" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="64.0" prefWidth="187.0">
@@ -84,7 +84,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v_relation" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" wrappingWidth="150.076171875">
@@ -94,13 +94,13 @@
                   </Text>
                   <HBox prefHeight="21.0" prefWidth="189.0">
                      <children>
-                        <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v_PHNcode" prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v_PHNno" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </HBox>
                   <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC" wrappingWidth="150.076171875">
@@ -110,13 +110,13 @@
                   </Text>
                   <HBox prefHeight="21.0" prefWidth="189.0">
                      <children>
-                        <TextField prefHeight="27.0" prefWidth="56.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v_CNICcode" prefHeight="27.0" prefWidth="56.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField prefHeight="27.0" prefWidth="121.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v_CNICno" prefHeight="27.0" prefWidth="121.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </HBox>
                </children>
@@ -141,7 +141,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v2_fname" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="68.0" prefWidth="187.0">
@@ -151,7 +151,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v2_lname" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="64.0" prefWidth="187.0">
@@ -161,7 +161,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v2_relation" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </VBox>
                   <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" wrappingWidth="150.076171875">
@@ -171,13 +171,13 @@
                   </Text>
                   <HBox prefHeight="21.0" prefWidth="189.0">
                      <children>
-                        <TextField prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v2_PHNcode" prefHeight="27.0" prefWidth="82.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v2_PHNno" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </HBox>
                   <Text fill="#d1caa1" strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC" wrappingWidth="150.076171875">
@@ -187,13 +187,13 @@
                   </Text>
                   <HBox prefHeight="21.0" prefWidth="189.0">
                      <children>
-                        <TextField prefHeight="27.0" prefWidth="56.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v2_CNICcode" prefHeight="27.0" prefWidth="56.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="17.798828125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField prefHeight="27.0" prefWidth="121.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
+                        <TextField fx:id="v2_CNICno" prefHeight="27.0" prefWidth="121.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: #d1caa1; -fx-background-color: #66717E;" />
                      </children>
                   </HBox>
                </children>

@@ -13,7 +13,7 @@
             <Font name="Arial Rounded MT Bold" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="v_id" layoutX="69.0" layoutY="124.0" prefHeight="32.0" prefWidth="76.0" text="S00001" textFill="#727272">
+      <Label fx:id="v_id" alignment="CENTER" layoutX="69.0" layoutY="124.0" prefHeight="32.0" prefWidth="76.0" text="S00001" textFill="#727272">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>

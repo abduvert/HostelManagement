@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fillHeight="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.GuardianRow">
+<HBox xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.GuardianRow">
    <children>
-      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="155.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
          <children>
             <Label fx:id="st_id" alignment="CENTER" text="S00001">
                <font>
@@ -18,7 +18,7 @@
             </Label>
          </children>
       </FlowPane>
-      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="191.0" style="-fx-background-color: #A7A5C6;" HBox.hgrow="ALWAYS">
          <children>
             <Label fx:id="guardianName" alignment="CENTER" style="-fx-border-color: blaclk;" text="Guardian">
                <font>
