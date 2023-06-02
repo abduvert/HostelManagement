@@ -13,15 +13,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.StudentController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.Rooms">
    <top>
-      <HBox prefHeight="34.0" prefWidth="1036.0" style="-fx-background-color: #A7A5C6;" BorderPane.alignment="CENTER">
+      <HBox style="-fx-background-color: #A7A5C6;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#Back" prefHeight="34.0" prefWidth="81.0" rotate="180.0" style="-fx-background-color: D1CAA1; -fx-background-radius: 0;" text="➜" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="student" mnemonicParsing="false" onAction="#Student" onMouseEntered="#StudentsHoverIn" onMouseExited="#StudentsHoverOut" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0; -fx-border-style: hidden hidden solid hidden; -fx-border-color: #D1CAA1;" text="👨🏻‍🎓 Students" textFill="WHITE">
+               </cursor>
+            </Button>
+            <Button fx:id="rooms" alignment="CENTER" mnemonicParsing="false" onAction="#Room" onMouseEntered="#RoomHoverIn" onMouseExited="#RoomHoverOut" prefHeight="33.0" prefWidth="157.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0; -fx-border-style: hidden hidden solid hidden; -fx-border-color: #D1CAA1;" text="🚪 Rooms" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
@@ -29,15 +30,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="guardians" mnemonicParsing="false" onAction="#Guardians" onMouseEntered="#GuardiansHoverIn" onMouseExited="#GuardiansHoverOut" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0;" text="🙋🏻‍♂ Guardians" textFill="WHITE">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="visitors" mnemonicParsing="false" onAction="#Visitors" onMouseEntered="#VisitorsHoverIn" onMouseExited="#VisitorsHoverOut" prefHeight="33.0" prefWidth="102.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0;" text="🧍 Visitors" textFill="WHITE">
+            <Button fx:id="floors" alignment="CENTER" mnemonicParsing="false" onAction="#Floor" onMouseEntered="#FloorHoverIn" onMouseExited="#FloorHoverOut" prefHeight="33.0" prefWidth="177.0" style="-fx-background-color: #A7A5C6; -fx-background-radius: 0; -fx-border-style: hidden hidden solid hidden; -fx-border-color: #D1CAA1;" text="🏢 Floors" textFill="WHITE" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
@@ -53,27 +46,18 @@
          <children>
             <HBox layoutY="124.0" prefHeight="50.0" prefWidth="1036.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                  <FlowPane alignment="CENTER" prefHeight="52.0" prefWidth="100.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label alignment="CENTER" text="Student ID">
+                        <Label alignment="CENTER" text="Room ID">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="13.0" />
                            </font>
                         </Label>
                      </children>
                   </FlowPane>
-                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Student Name">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </FlowPane>
-                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label alignment="CENTER" text="Phone No">
+                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Room Type">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="13.0" />
                            </font>
@@ -82,7 +66,7 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label alignment="CENTER" text="Degree">
+                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Floor ID">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="13.0" />
                            </font>
@@ -91,16 +75,16 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
                      <children>
-                        <Label alignment="CENTER" text="CGPA">
+                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Occupancy">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="13.0" />
                            </font>
                         </Label>
                      </children>
                   </FlowPane>
-                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: #8797B2; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #505472; -fx-border-color: black;">
                      <children>
-                        <Label alignment="CENTER" text="More">
+                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="More" textFill="WHITE">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="13.0" />
                            </font>
@@ -111,10 +95,7 @@
             </HBox>
             <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
                <content>
-
-                  <VBox fx:id="entries" minWidth="${entries.parent.width}" minHeight="${entries.parent.height}" maxHeight="${entries.parent.height}" prefHeight="310.0" prefWidth="1039.0" />
-
-
+                  <VBox fx:id="entry" minHeight="${entry.parent.height}" minWidth="${entry.parent.width}" prefHeight="298.0" prefWidth="1040.0" />
                </content>
             </ScrollPane>
             <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
@@ -136,23 +117,25 @@
                   <HBox prefHeight="35.0" prefWidth="102.0" />
                   <HBox prefHeight="29.0" prefWidth="200.0">
                      <children>
-                        <ComboBox editable="true" prefHeight="40.0" prefWidth="206.0" promptText="Filter By" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
+                        <ComboBox prefHeight="40.0" prefWidth="206.0" promptText="Filter By" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ComboBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="35.0" prefWidth="155.0" />
+                  <HBox prefHeight="35.0" prefWidth="108.0" />
                   <HBox prefHeight="35.0" prefWidth="149.0">
                      <children>
-                        <Button fx:id="register" mnemonicParsing="false" onAction="#Register" onMouseEntered="#RegHoverIn" onMouseExited="#RegHoverOut" prefHeight="41.0" prefWidth="156.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="➕ Register" textFill="WHITE" HBox.hgrow="NEVER">
+                        <ComboBox prefHeight="40.0" prefWidth="206.0" promptText="Sort By" style="-fx-background-color: #505472; -fx-background-radius: 0;">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
+                        </ComboBox>
                      </children>
                   </HBox>
+                  <HBox prefHeight="35.0" prefWidth="77.0" />
+                  <HBox prefHeight="35.0" prefWidth="123.0" />
                </children>
             </HBox>
          </children>

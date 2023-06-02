@@ -30,6 +30,7 @@ public class HomePage {
     public Button floor;
     public Button employee;
     public Button complaints;
+    public Button allotment;
     public Button bills;
     public Button logout;
     public static Stage splashStage;
@@ -99,9 +100,25 @@ public class HomePage {
     }
 
     @FXML
+    public void AllotmentHoverIn(){
+        allotment.setStyle("-fx-background-color: #664375; -fx-background-radius:10;");
+       allotment.setTextFill(Color.BLACK);
+    } @FXML
+    public void AllotmentHoverOut(){
+        allotment.setStyle("-fx-background-color: transparent; -fx-background-radius:10;");
+        allotment.setTextFill(Color.WHITE);
+    }
+    @FXML
+    protected void Allotment(ActionEvent event) throws IOException {
+        AllotmentPage allot = new AllotmentPage();
+        allot.add(event);
+
+    }
+
+    @FXML
     public void BillsHoverIn(){
         bills.setStyle("-fx-background-color: #664375; -fx-background-radius:10;");
-       bills.setTextFill(Color.BLACK);
+        bills.setTextFill(Color.BLACK);
     } @FXML
     public void BillsHoverOut(){
         bills.setStyle("-fx-background-color: transparent; -fx-background-radius:10;");

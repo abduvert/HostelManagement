@@ -69,9 +69,9 @@ public class NewPasswordController {
                 e.printStackTrace();
             }
 
+            newStage.close();
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
             a.setContentText("Your password has been updated");
-            newStage.close();
             a.show();
 
         }

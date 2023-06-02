@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="51.0" prefWidth="1038.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.AllotRow">
+   <children>
+      <FlowPane alignment="CENTER" prefHeight="51.0" prefWidth="153.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="allotid" alignment="CENTER" text="Allotment ID">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="51.0" prefWidth="143.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="r_id" alignment="CENTER" style="-fx-border-color: blaclk;" text="Room ID">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="51.0" prefWidth="155.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="st_id" alignment="CENTER" style="-fx-border-color: blaclk;" text="Student">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="51.0" prefWidth="196.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="date" alignment="CENTER" style="-fx-border-color: blaclk;" text="Date">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="51.0" prefWidth="146.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="month" alignment="CENTER" style="-fx-border-color: blaclk;" text="Month">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="51.0" prefWidth="118.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="year" alignment="CENTER" style="-fx-border-color: blaclk;" text="Year">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+   </children>
+</HBox>

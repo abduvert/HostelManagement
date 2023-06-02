@@ -49,6 +49,7 @@ public class HelloController {
                 scene = new Scene(root);
 
                 HelloApplication.stage.setScene(scene);
+
             }
 //            else if (res2.next()) {     //Employee has logged in
 //                //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
