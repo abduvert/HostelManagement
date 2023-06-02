@@ -2,12 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="482.0" prefWidth="200.0" style="-fx-background-color: 90AA86;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.SRowController">
+<AnchorPane prefHeight="514.0" prefWidth="230.0" style="-fx-background-color: 90AA86;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.SRowController">
    <children>
       <Label layoutX="95.0" layoutY="74.0" prefHeight="42.0" prefWidth="25.0" text="ID">
          <font>
@@ -19,7 +21,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <VBox layoutX="4.0" layoutY="198.0" prefHeight="274.0" prefWidth="226.0">
+      <VBox layoutX="4.0" layoutY="198.0" prefHeight="318.0" prefWidth="226.0">
          <children>
             <VBox prefHeight="43.0" prefWidth="226.0">
                <children>
@@ -28,17 +30,23 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="email" strokeType="OUTSIDE" strokeWidth="0.0" text="sajjadabdullah3@gmail.com" />
+                  <TextField fx:id="email" alignment="TOP_LEFT" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
             <VBox prefHeight="42.0" prefWidth="226.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC:" wrappingWidth="119.029296875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC:" wrappingWidth="66.36260867118835">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="CNIC" strokeType="OUTSIDE" strokeWidth="0.0" text="35202-xxxxxx-x" wrappingWidth="208.669921875" />
+                  <TextField fx:id="CNICcode" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="56.0" style="-fx-background-color: transparent;" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="66.36260867118835">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="CNICno" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="121.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
             <VBox prefHeight="36.0" prefWidth="226.0">
@@ -48,7 +56,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="religion" strokeType="OUTSIDE" strokeWidth="0.0" text="Islam" wrappingWidth="208.669921875" />
+                  <TextField fx:id="religion" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
             <VBox prefHeight="40.0" prefWidth="226.0">
@@ -58,7 +66,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="batch" strokeType="OUTSIDE" strokeWidth="0.0" text="FA21" wrappingWidth="208.669921875" />
+                  <TextField fx:id="batch" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
             <VBox prefHeight="35.0" prefWidth="226.0">
@@ -68,7 +76,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="dateofbirth" strokeType="OUTSIDE" strokeWidth="0.0" text="26 july 2003" wrappingWidth="208.669921875" />
+                  <TextField fx:id="dateofbirth" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
             <VBox prefHeight="48.0" prefWidth="226.0">
@@ -78,13 +86,19 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="address" strokeType="OUTSIDE" strokeWidth="0.0" text="House2, Bahria Town, Lahore" wrappingWidth="208.669921875" />
+                  <TextField fx:id="address" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
+            <HBox alignment="CENTER" prefHeight="29.0" prefWidth="226.0">
+               <children>
+                  <Button fx:id="save" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Save" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Save" textFill="#505472" visible="false" />
+               </children>
+            </HBox>
          </children>
       </VBox>
       <Label layoutX="67.0" layoutY="40.0" text="Student Details" textFill="#302f46" />
-      <Button layoutX="77.0" layoutY="152.0" mnemonicParsing="false" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
-      <Button layoutX="120.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-background-radius: 0;" text="🗑" textFill="WHITE" />
+      <Button layoutX="77.0" layoutY="152.0" mnemonicParsing="false" onAction="#Edit" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
+      <TextField fx:id="email1" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+      <TextField fx:id="email2" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

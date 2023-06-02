@@ -23,7 +23,6 @@ import org.w3c.dom.events.MouseEvent;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.Objects;
-
 public class HomePage {
 
 
@@ -33,7 +32,6 @@ public class HomePage {
     public Button complaints;
     public Button bills;
     public Button logout;
-
     public static Stage splashStage;
 
 

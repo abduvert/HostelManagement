@@ -12,10 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProgressController implements Initializable {
-
     public ProgressBar progressBar;
-
-
     @FXML
 
     @Override
@@ -29,14 +26,10 @@ public class ProgressController implements Initializable {
                 e.printStackTrace();
             }
 
-
-
             // Switch to the next FXML file
             Platform.runLater(() -> {
                 try {
-
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
-
 
                     HelloApplication.stage = loader.load();
                     //HelloApplication.stage.getIcons().add(new Image("C:\\Users\\Rida Abid\\IdeaProjects\\HOSTEL_MANAGEMENT_PROJECT\\src\\main\\resources\\com\\example\\hostelmanagement\\SU.png"));
@@ -56,8 +49,4 @@ public class ProgressController implements Initializable {
 
         taskThread.start();
     }
-
-
-
-
 }

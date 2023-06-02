@@ -111,7 +111,7 @@
             </HBox>
             <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
                <content>
-                  <VBox fx:id="entries" minHeight="${entries.parent.height}" minWidth="${entries.parent.width}" prefHeight="284.0" prefWidth="873.0" />
+                  <VBox fx:id="entries" maxHeight="${entries.parent.height}" maxWidth="${entries.parent.width}" prefHeight="310.0" prefWidth="1039.0" />
                </content>
             </ScrollPane>
             <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">

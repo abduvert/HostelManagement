@@ -106,9 +106,14 @@ public class RegisterController {
             newStId = "S" + String.format("%03d", numericPart + 1); // Increment and format
 
             // Step 3: Insert the new record
-            String InsertQuery = "insert into Student(st_id, batch, degree, st_firstName, st_lastName, st_PHNcode, st_PHNno, st_email, st_dob, st_CNICcode, st_CNICno, religion, st_city, st_town, s_houseNo, cgpa, st_password, st_SecurityQuestion) values " +
-                    "('" + newStId + "' , '" + batch.getText() + "' , '" + degree.getText() + "' , '" + fname.getText() + "' , '" + lname.getText() + "' , " + Phncode.getText() + ", " + PhnNo.getText() + ", '" + email.getText() + "' , '" + dob.getText() + "' , "
-                    + CNICcode.getText() + ", " + CNICno.getText() + ", '" + religion.getText() + "' , '" + selected_city + "' , '" + town.getText() + "' , '" + Hno.getText() + "' , " + cgpa.getText() + ", '" + password.getText() +"' , '" + security.getText() + "')";
+            String InsertQuery = "insert into Student(st_id, batch, degree, st_firstName, st_lastName, st_PHNcode, " +
+                    "st_PHNno, st_email, st_dob, st_CNICcode," + " st_CNICno, religion, st_city, st_town, s_houseNo, " +
+                    "cgpa, st_password, st_SecurityQuestion) values " + "('" + newStId + "' , '" + batch.getText() +
+                    "' , '" + degree.getText() + "' , '" + fname.getText() + "' , '" + lname.getText() + "' , " +
+                    Phncode.getText() + ", " + PhnNo.getText() + ", '" + email.getText() + "' , '" + dob.getText() +
+                    "' , " + CNICcode.getText() + ", " + CNICno.getText() + ", '" + religion.getText() + "' , '" +
+                    selected_city + "' , '" + town.getText() + "' , '" + Hno.getText() + "' , " + cgpa.getText() +
+                    ", '" + password.getText() +"' , '" + security.getText() + "')";
 
             HelloApplication.statement.executeQuery(InsertQuery);
         } catch (Exception e){
@@ -116,8 +121,21 @@ public class RegisterController {
             e.printStackTrace();
         }
 
-        FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register2.fxml"));
-        stage1.setScene(new Scene(reg2.load()));
+        if(batch.getText().isEmpty() || degree.getText().isEmpty() || fname.getText().isEmpty() ||
+           lname.getText().isEmpty() || Phncode.getText().isEmpty() || PhnNo.getText().isEmpty() ||
+           email.getText().isEmpty() || dob.getText().isEmpty() || CNICcode.getText().isEmpty() ||
+           CNICno.getText().isEmpty() || religion.getText().isEmpty() || town.getText().isEmpty() ||
+           Hno.getText().isEmpty() || cgpa.getText().isEmpty() || password.getText().isEmpty() ||
+           security.getText().isEmpty()){
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("A text field is empty. Student has not been registered");
+            a.show();
+        }
+        else{
+            FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register2.fxml"));
+            stage1.setScene(new Scene(reg2.load()));
+        }
+
 
     }
     @FXML
@@ -140,18 +158,30 @@ public class RegisterController {
             System.out.println("in 2nd st_id: " + maxStId);
 
 
-        String InsertQuery2 = "insert into Guardian(st_id, g_firstName, g_lastname, g_CNICcode, g_CNICno, g_relation,g_PHNcode, g_PHNno, g_city, g_town, g_houseNo, g_email) values " +
-                "('" + maxStId + "' , '" + G_fname.getText() + "' , '" + G_lname.getText() + "' ," + G_CNICcode.getText() + "," + G_CNICno.getText() + ", '" + G_relation.getText() + "' , " + G_PHNcode.getText() + ", " + G_PHNno.getText() + ", '" + G_city + "' , '"
-                + G_town.getText() + "' , '" + G_Hno.getText() + "' , '" + G_email.getText() + "')";
+            String InsertQuery2 = "insert into Guardian(st_id, g_firstName, g_lastname, g_CNICcode, g_CNICno," +
+                  " g_relation,g_PHNcode, g_PHNno, g_city, g_town, g_houseNo, g_email) values " + "('" +
+                  maxStId + "' , '" + G_fname.getText() + "' , '" + G_lname.getText() + "' ," +
+                  G_CNICcode.getText() + "," + G_CNICno.getText() + ", '" + G_relation.getText() + "' , " +
+                  G_PHNcode.getText() + ", " + G_PHNno.getText() + ", '" + G_city + "' , '" + G_town.getText()
+                  + "' , '" + G_Hno.getText() + "' , '" + G_email.getText() + "')";
 
-        HelloApplication.statement.executeQuery(InsertQuery2);
-    } catch (Exception e){
+            HelloApplication.statement.executeQuery(InsertQuery2);
+        } catch (Exception e){
             System.out.println( e.getMessage());
             e.printStackTrace();
     }
-
-    FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register3.fxml"));
-        stage1.setScene(new Scene(reg2.load()));
+        if(G_fname.getText().isEmpty() || G_lname.getText().isEmpty() || G_CNICcode.getText().isEmpty() ||
+           G_CNICno.getText().isEmpty() || G_relation.getText().isEmpty() || G_PHNcode.getText().isEmpty() ||
+           G_PHNno.getText().isEmpty() || G_town.getText().isEmpty() || G_Hno.getText().isEmpty() ||
+           G_email.getText().isEmpty()){
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("A text field is empty. Guardian has not been registered");
+            a.show();
+        }
+        else{
+            FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register3.fxml"));
+            stage1.setScene(new Scene(reg2.load()));
+        }
     }
 
     @FXML

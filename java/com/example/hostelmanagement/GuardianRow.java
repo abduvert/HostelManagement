@@ -48,37 +48,22 @@ public class GuardianRow {
             System.out.println(g);
 
             if (res.next()) {
-
                 System.out.println(res.getString("g_relation"));
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Guardians2.fxml"));
-
-
                 Parent side = loader.load();
 
                 GuardianRow gr = loader.getController();
                 inform.setScene(new Scene(side));
                 gr.detID.setText(g);
-
                 gr.detRelation.setText(res.getString("g_relation"));
-
                 gr.detADDRESS.setText(res.getString("g_houseNo") + ", " + res.getString("g_town") + ", " +res.getString("g_city"));
-
-
                 gr.detCNIC.setText(res.getString("g_CNICcode") + " - " + res.getString("g_CNICno"));
 
-
                 inform.show();
-
-
             }
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 
