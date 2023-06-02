@@ -9,96 +9,99 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="514.0" prefWidth="230.0" style="-fx-background-color: 90AA86;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.SRowController">
+<AnchorPane fx:id="anchorPane" prefHeight="543.0" prefWidth="309.0" style="-fx-background-color: 90AA86;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.SRowController">
    <children>
-      <Label layoutX="95.0" layoutY="74.0" prefHeight="42.0" prefWidth="25.0" text="ID">
+      <Label layoutX="142.0" layoutY="74.0" prefHeight="42.0" prefWidth="25.0" text="ID">
          <font>
             <Font name="Arial Rounded MT Bold" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="st_id" layoutX="70.0" layoutY="107.0" prefHeight="32.0" prefWidth="76.0" text="S00001" textFill="#727272">
+      <Label fx:id="st_id" alignment="CENTER" layoutX="117.0" layoutY="106.0" prefHeight="32.0" prefWidth="76.0" text="S00" textFill="#727272">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <VBox layoutX="4.0" layoutY="198.0" prefHeight="318.0" prefWidth="226.0">
+      <VBox layoutX="13.0" layoutY="209.0" prefHeight="258.0" prefWidth="226.0">
          <children>
-            <VBox prefHeight="43.0" prefWidth="226.0">
+            <VBox prefHeight="49.0" prefWidth="226.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EMAIL:" wrappingWidth="119.029296875">
+                  <VBox prefHeight="36.0" prefWidth="226.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name:" wrappingWidth="119.029296875">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Text>
+                        <HBox>
+                           <children>
+                              <TextField fx:id="stfName" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: transparent;" />
+                              <TextField fx:id="stlName" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="119.029296875">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="email" alignment="TOP_LEFT" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <TextField fx:id="email" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
-            <VBox prefHeight="42.0" prefWidth="226.0">
+            <VBox prefHeight="43.0" prefWidth="226.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC:" wrappingWidth="66.36260867118835">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="CNICcode" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="56.0" style="-fx-background-color: transparent;" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="66.36260867118835">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="CNICno" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="121.0" style="-fx-background-color: transparent;" />
+                  <HBox prefHeight="25.0" prefWidth="226.0">
+                     <children>
+                        <TextField fx:id="CNICcode" editable="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="51.0" style="-fx-background-color: transparent;" />
+                        <TextField fx:id="CNICno" editable="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: transparent;" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="36.0" prefWidth="226.0">
+            <VBox prefHeight="43.0" prefWidth="185.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RELIGION:" wrappingWidth="119.029296875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Batch:" wrappingWidth="119.029296875">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="religion" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
-               </children>
-            </VBox>
-            <VBox prefHeight="40.0" prefWidth="226.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BATCH:" wrappingWidth="119.029296875">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="batch" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <TextField fx:id="batch" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
             <VBox prefHeight="35.0" prefWidth="226.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:" wrappingWidth="119.029296875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:" wrappingWidth="119.029296875">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="dateofbirth" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <TextField fx:id="dateofbirth" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                </children>
             </VBox>
             <VBox prefHeight="48.0" prefWidth="226.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS:" wrappingWidth="119.029296875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="119.029296875">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="address" editable="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="phoneCode" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent;" />
+                        <TextField fx:id="phoneNo" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: transparent;" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="29.0" prefWidth="226.0">
-               <children>
-                  <Button fx:id="save" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Save" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Save" textFill="#505472" visible="false" />
-               </children>
-            </HBox>
          </children>
       </VBox>
-      <Label layoutX="67.0" layoutY="40.0" text="Student Details" textFill="#302f46" />
-      <Button layoutX="77.0" layoutY="152.0" mnemonicParsing="false" onAction="#Edit" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
-      <TextField fx:id="email1" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
-      <TextField fx:id="email2" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+      <Label fx:id="dett" alignment="CENTER" layoutX="114.0" layoutY="40.0" text="Student Details" textFill="#302f46" />
+      <Button fx:id="save" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="487.0" mnemonicParsing="false" onAction="#Save" onMouseEntered="#SaveHoverin" onMouseExited="#SaveHoverOut" prefHeight="27.0" prefWidth="65.0" style="-fx-border-color: green; -fx-background-color: transparent; -fx-background-radius: 0;" text="Save" textFill="GREEN" visible="false" />
+      <Button fx:id="edit" layoutX="122.0" layoutY="138.0" mnemonicParsing="false" onAction="#Edit" onMouseEntered="#EditHoverin" onMouseExited="#EditHoverOut" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
    </children>
 </AnchorPane>
