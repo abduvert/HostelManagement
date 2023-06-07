@@ -207,11 +207,11 @@ public class Employee implements Initializable {
 
     @FXML
     protected void Apply(){
+        empEntry.getChildren().clear();
         try{
             String query = "select * from Employees where emp_salary between " + salary_start.getText() +
                     " and " + salary_end.getText();
             ResultSet resultSet = HelloApplication.statement.executeQuery(query);
-
             while (resultSet.next()) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("EmpRow.fxml"));
                 Parent row = loader.load();

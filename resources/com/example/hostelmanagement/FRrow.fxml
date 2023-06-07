@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="600.0" style="-fx-background-color: #66717E;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.FRres">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="157.0" prefWidth="464.0">
+               <children>
+                  <Label fx:id="type1" text="Floor Type Resources" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="resV" focusTraversable="true" prefHeight="297.0" prefWidth="466.0">
+               <children>
+                  <HBox prefHeight="36.0" prefWidth="600.0">
+                     <children>
+                        <Label fx:id="resId" alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: black;" text="Resource ID" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="name" alignment="CENTER" prefHeight="34.0" prefWidth="185.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: black;" text="Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="quantity" alignment="CENTER" prefHeight="34.0" prefWidth="167.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: black;" text="Quantity" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="134.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="id" text="ID" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+            <Label text="Floor ID" textFill="#030303">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

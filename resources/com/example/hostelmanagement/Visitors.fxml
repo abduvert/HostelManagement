@@ -74,7 +74,10 @@
       </HBox>
       <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="299.0" prefWidth="839.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="174.0">
          <content>
+
             <VBox fx:id="entries3" maxHeight="${entries3.parent.height}" maxWidth="${entries3.parent.width}" minWidth="${entries3.parent.width}" prefHeight="284.0" prefWidth="873.0" />
+
+
          </content>
       </ScrollPane>
       <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">

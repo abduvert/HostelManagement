@@ -95,7 +95,7 @@
             </HBox>
             <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
                <content>
-                  <VBox fx:id="entry" minHeight="${entry.parent.height}" minWidth="${entry.parent.width}" prefHeight="298.0" prefWidth="1040.0" />
+                  <VBox fx:id="entry" maxHeight="${entry.parent.height}" minWidth="${entry.parent.width}" prefHeight="298.0" prefWidth="1040.0" />
                </content>
             </ScrollPane>
             <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
@@ -127,15 +127,14 @@
                   <HBox prefHeight="35.0" prefWidth="108.0" />
                   <HBox prefHeight="35.0" prefWidth="149.0">
                      <children>
-                        <ComboBox prefHeight="40.0" prefWidth="206.0" promptText="Sort By" style="-fx-background-color: #505472; -fx-background-radius: 0;">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ComboBox>
+                        <Button fx:id="resources" mnemonicParsing="false" onAction="#RoomResources" onMouseEntered="#ResHoverIn" onMouseExited="#ResHoverOut" prefHeight="35.0" prefWidth="151.0" style="-fx-border-color: #505472; -fx-background-color: white;" text="Total Resources" textFill="#505472" />
                      </children>
                   </HBox>
                   <HBox prefHeight="35.0" prefWidth="77.0" />
-                  <HBox prefHeight="35.0" prefWidth="123.0" />
+                  <HBox prefHeight="35.0" prefWidth="123.0">
+                     <children>
+                        <Button fx:id="types" mnemonicParsing="false" onAction="#Roomtypes" onMouseEntered="#typesHoverIn" onMouseExited="#typesHoverOut" prefHeight="39.0" prefWidth="138.0" style="-fx-border-color: #505472; -fx-background-color: white;" text="Room Types" textFill="#505472" />
+                     </children></HBox>
                </children>
             </HBox>
          </children>

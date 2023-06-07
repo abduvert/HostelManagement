@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.sql.*;
+import java.sql.Types;
 
 public class StudentController {
     public AnchorPane anchorPane;
@@ -347,7 +348,7 @@ public class StudentController {
             if(fullName.contains(" ")){
                 callableStatement = HelloApplication.statement.getConnection().prepareCall("{call unconcatenate_name(?, ?, ?)}");
                 callableStatement.setString(1, fullName);
-                callableStatement.registerOutParameter(2, Types.VARCHAR);
+                callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);
                 callableStatement.registerOutParameter(3, Types.VARCHAR);
                 callableStatement.execute();
 
@@ -470,8 +471,8 @@ public class StudentController {
             if(fullName.contains(" ")){
                 callableStatement = HelloApplication.statement.getConnection().prepareCall("{call unconcatenate_name(?, ?, ?)}");
                 callableStatement.setString(1, fullName);
-                callableStatement.registerOutParameter(2, Types.VARCHAR);
-                callableStatement.registerOutParameter(3, Types.VARCHAR);
+                callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);
+                callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
                 callableStatement.execute();
 
                 // Retrieve the unconcatenated names

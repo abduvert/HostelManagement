@@ -229,7 +229,14 @@ public class RegisterController {
             System.out.println( e.getMessage());
             e.printStackTrace();
         }
+
         rooms_Show();
+
+
+        //shifting to another class for a new page
+        AllotingRoom room = new AllotingRoom();
+        room.add(stage1);
+
     }
 
     @FXML

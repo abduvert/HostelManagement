@@ -10,9 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -20,15 +19,48 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import static com.example.hostelmanagement.HelloApplication.statement;
 
 public class Complaints implements Initializable {
     public VBox comEntry;
     public Button stat;
     @FXML
     ComboBox<String > comboBox = new ComboBox<>();
-    Stage st = new Stage();
 
+    public Label complain;
+    Stage st = new Stage();
+    ObservableList<String> comItems = FXCollections.observableArrayList();
+
+    public ComboBox<String> comID = new ComboBox<>();
+
+
+
+    public static String selectedID;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try{
+            String query = "select * from Complaints c\n" +
+                    "where c.status = 'Open'";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while(resultSet.next()){
+                String item = resultSet.getString("cmp_id");
+                comItems.add(item);
+            }
+            comID.setItems(comItems);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+
+        loadAll();
+    }
     @FXML
     public void add(ActionEvent event) throws IOException {
         FXMLLoader complain = new FXMLLoader(getClass().getResource("Complaints.fxml"));
@@ -44,9 +76,31 @@ public class Complaints implements Initializable {
     }
 
     @FXML
-    public void close(){
+    public void Update() throws SQLException {
+        selectedID = comID.getValue();
+        String update = "Update Complaints " +
+                "set status = 'Closed'\n" +
+                "where cmp_id = " + selectedID;
+
+        comID.valueProperty().addListener((observable, oldValue, newValue) -> {
+            selectedID = newValue;
+        });
+        System.out.println("Selected complain is: " + selectedID);
+
+        statement.executeUpdate(update);
         st.close();
+        Stage updated = new Stage();
+        BorderPane upd = new BorderPane();
+        Label ud = new Label("The Complaint status has been Updated!");
+        upd.setStyle("-fx-background-color: #25283D;");
+        ud.setStyle("-fx-text-fill: white");
+        upd.setCenter(ud);
+
+        updated.setScene(new Scene(upd,400,200));
+        updated.show();
+
     }
+
 
 
     @FXML
@@ -65,16 +119,18 @@ public class Complaints implements Initializable {
 
     @FXML
     public void Status() throws IOException {
-
         FXMLLoader cpm = new FXMLLoader(getClass().getResource("StatusUpdate.fxml"));
-        st.setScene(new Scene(cpm.load()));
+        Parent cp = cpm.load();
+
+        st.setScene(new Scene(cp));
         st.initStyle(StageStyle.UNDECORATED);
         st.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadAll();
+
+    @FXML
+    public void close(){
+        st.close();
     }
 
     @FXML
@@ -161,4 +217,7 @@ public class Complaints implements Initializable {
             e.printStackTrace();
         }
     }
+
+
+
 }

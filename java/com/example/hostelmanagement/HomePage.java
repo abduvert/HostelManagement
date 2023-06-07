@@ -84,6 +84,12 @@ public class HomePage {
     }
 
     @FXML
+    public void Floor() throws IOException {
+        Rooms room = new Rooms();
+        room.add();
+    }
+
+    @FXML
     public void ComplaintsHoverIn(){
         complaints.setStyle("-fx-background-color: #664375; -fx-background-radius:10;");
         complaints.setTextFill(Color.BLACK);

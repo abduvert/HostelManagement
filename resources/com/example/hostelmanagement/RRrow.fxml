@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="34.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.RRrow">
+   <children>
+      <Label fx:id="id" alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: white;" text="Resource ID">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="name" alignment="CENTER" prefHeight="34.0" prefWidth="185.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: white;" text="Name">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantity" alignment="CENTER" prefHeight="34.0" prefWidth="167.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: white;" text="Quantity">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

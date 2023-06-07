@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: #66717E;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.FloorRes">
+   <center>
+      <VBox fx:id="vBox" focusTraversable="true" prefHeight="202.0" prefWidth="539.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="36.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: black;" text="ID" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: black;" text="Name" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: black;" text="Category" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid; -fx-background-color: black;" text="Condition" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="51.0" prefWidth="598.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" prefHeight="112.0" prefWidth="629.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="Floor Resources" textFill="#2d1e34">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <HBox prefHeight="235.0" prefWidth="23.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <HBox prefHeight="235.0" prefWidth="26.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

@@ -7,47 +7,38 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="50.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.RoomRow">
+<HBox prefHeight="50.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.FloorsRow">
    <children>
       <FlowPane alignment="CENTER" prefHeight="52.0" prefWidth="100.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
          <children>
-            <Label fx:id="roomId" alignment="CENTER" text="Room ID">
+            <Label fx:id="id" alignment="CENTER" text="Floor ID">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Label>
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
          <children>
-            <Label fx:id="roomType" alignment="CENTER" text="Type Name">
+            <Label fx:id="name" alignment="CENTER" style="-fx-border-color: blaclk;" text="Floor Name">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Label>
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
          <children>
-            <Label fx:id="floorid" alignment="CENTER" text="Floor">
+            <Label fx:id="rooms" alignment="CENTER" style="-fx-border-color: blaclk;" text="Total Rooms">
                <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Label>
-         </children>
-      </FlowPane>
-      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
-         <children>
-            <Label fx:id="status" alignment="CENTER" text="Status">
-               <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Label>
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: #505472; -fx-border-color: black;">
          <children>
-            <Button fx:id="details" mnemonicParsing="false" onAction="#Details" style="-fx-background-color: D1CAA1;" text="Resources">
+            <Button fx:id="resource" mnemonicParsing="false" onAction="#Details" style="-fx-background-color: D1CAA1;" text="Resources">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

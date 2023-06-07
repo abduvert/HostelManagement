@@ -75,7 +75,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="floor" layoutX="434.0" layoutY="311.0" mnemonicParsing="false" onMouseEntered="#FloorHoverIn" onMouseExited="#FloorHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Floor" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
+                  <Button fx:id="floor" layoutX="434.0" layoutY="311.0" mnemonicParsing="false" onAction="#Floor" onMouseEntered="#FloorHoverIn" onMouseExited="#FloorHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Floor" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="21.0" />
                      </font>

@@ -109,48 +109,58 @@
                   <VBox fx:id="empEntry" minHeight="${empEntry.parent.height}" minWidth="${empEntry.parent.width}" prefHeight="284.0" prefWidth="1035.0" />
                </content>
             </ScrollPane>
-            <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+            <HBox layoutX="48.0" layoutY="43.0">
                <children>
-                  <HBox prefHeight="35.0" prefWidth="201.0">
-                     <children>
-                        <TextField fx:id="searchTextfield" prefHeight="47.0" prefWidth="166.0" promptText="Search" style="-fx-background-radius: 0;" HBox.hgrow="NEVER">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </TextField>
-                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#Search" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="35.0" prefWidth="102.0" />
-                  <HBox prefHeight="29.0" prefWidth="200.0">
-                     <children>
-                        <ComboBox fx:id="comboBox" editable="true" onAction="#Filter" prefHeight="40.0" prefWidth="206.0" promptText="Filter By Role" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ComboBox>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="155.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filter By Salary Range:" textAlignment="CENTER" />
-                     </children></HBox>
-                  <HBox prefHeight="35.0" prefWidth="283.0">
-                     <children>
-                        <TextField fx:id="salary_start" prefHeight="42.0" prefWidth="149.0" promptText="From" style="-fx-border-color: #505472;" />
-                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="119.0">
+      
+                              <HBox prefHeight="35.0" prefWidth="201.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="---" textAlignment="CENTER" />
+                              <TextField fx:id="searchTextfield" prefHeight="47.0" prefWidth="166.0" promptText="Search" style="-fx-background-radius: 0;" HBox.hgrow="NEVER">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextField>
+                              <Button fx:id="searchButton" mnemonicParsing="false" onAction="#Search" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </HBox>
-                        <TextField fx:id="salary_end" prefHeight="42.0" prefWidth="149.0" promptText="To" style="-fx-border-color: #505472;" />
-                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="119.0">
+                        <HBox prefHeight="35.0" prefWidth="102.0" />
+                        <HBox prefHeight="29.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#Apply" prefHeight="37.0" prefWidth="52.0" style="-fx-background-color: white; -fx-border-color: #505472;" text="Apply" />
+                              <ComboBox fx:id="comboBox" editable="true" onAction="#Filter" prefHeight="40.0" prefWidth="206.0" promptText="Filter By Role" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ComboBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="155.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filter By Salary Range:" textAlignment="CENTER" />
+                           </children>
+                  </HBox>
+                        <HBox prefHeight="35.0" prefWidth="283.0">
+                           <children>
+      
+                              <TextField fx:id="salary_start" prefHeight="42.0" prefWidth="149.0" promptText="From" style="-fx-border-color: #505472;" />
+      
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="119.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="---" textAlignment="CENTER" />
+                                 </children>
+                              </HBox>
+      
+                              <TextField fx:id="salary_end" prefHeight="42.0" prefWidth="149.0" promptText="To" style="-fx-border-color: #505472;" />
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="119.0">
+                                 <children>
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="119.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#Apply" prefHeight="37.0" prefWidth="52.0" style="-fx-background-color: white; -fx-border-color: #505472;" text="Apply" />
+      
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                      </children>

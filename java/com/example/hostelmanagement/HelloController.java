@@ -28,7 +28,10 @@ public class HelloController {
     public TextField Security_id_Field;
     public Button done;
     public Button cancel;
+    public Button emp;
+    public Button std;
     public Scene scene;
+
     public Stage newStage;
 
     public Circle circle;
@@ -36,6 +39,7 @@ public class HelloController {
 
     @FXML
     protected void Login() {
+
 
         try{
             String q1 = "select * from Student where st_id ='" + id_field.getText() + "'and st_password = '" +  passwordField.getText() + "'";
@@ -178,5 +182,38 @@ public class HelloController {
             passwordField.setPromptText("");
         }
 
+    }
+
+    @FXML
+    public void EmpHoverIn()
+    {
+         emp.setStyle("-fx-background-color:  #D4D6B9; -fx-text-fill: black");
+    }
+
+    @FXML
+    public void EmpHoverout(){
+        emp.setStyle("-fx-background-color: transparent; -fx-border-style: hidden hidden solid hidden; -fx-border-color:#D4D6B9; -fx-text-fill: white ");
+    }
+
+    @FXML
+    public void Emp(){
+        id_field.setPromptText("Employee ID");
+    }
+
+    @FXML
+    public void STDHoverIn()
+    {
+        std.setStyle("-fx-background-color:  #D4D6B9; -fx-text-fill: black");
+    }
+
+
+    @FXML
+    public void STDHoverout(){
+        std.setStyle("-fx-background-color: transparent; -fx-border-style: hidden hidden solid hidden; -fx-border-color:#D4D6B9; -fx-text-fill: white ");
+    }
+
+    @FXML
+    public void STD(){
+        id_field.setPromptText("Student ID");
     }
 }
