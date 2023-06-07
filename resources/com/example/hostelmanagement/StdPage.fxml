@@ -112,7 +112,7 @@
             <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
                <content>
 
-                  <VBox fx:id="entries" minWidth="${entries.parent.width}" minHeight="${entries.parent.height}" maxHeight="${entries.parent.height}" prefHeight="310.0" prefWidth="1039.0" />
+                  <VBox fx:id="entries" maxHeight="${entries.parent.height}" minHeight="${entries.parent.height}" minWidth="${entries.parent.width}" prefHeight="310.0" prefWidth="1039.0" />
 
 
                </content>
@@ -121,12 +121,12 @@
                <children>
                   <HBox prefHeight="35.0" prefWidth="201.0">
                      <children>
-                        <TextField prefHeight="47.0" prefWidth="166.0" promptText="Search" style="-fx-background-radius: 0;" HBox.hgrow="NEVER">
+                        <TextField fx:id="st_search_textfield" prefHeight="47.0" prefWidth="166.0" promptText="Search by Name" style="-fx-background-radius: 0;" HBox.hgrow="NEVER">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
+                        <Button mnemonicParsing="false" onAction="#st_Search" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -136,7 +136,7 @@
                   <HBox prefHeight="35.0" prefWidth="102.0" />
                   <HBox prefHeight="29.0" prefWidth="200.0">
                      <children>
-                        <ComboBox editable="true" prefHeight="40.0" prefWidth="206.0" promptText="Filter By" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
+                        <ComboBox fx:id="comboBox" editable="true" onAction="#st_Filter" prefHeight="40.0" prefWidth="206.0" promptText="Filter By Degree" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

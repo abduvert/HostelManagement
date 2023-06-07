@@ -1,5 +1,9 @@
 package com.example.hostelmanagement;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,12 +23,12 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class Complaints implements Initializable {
-
     public VBox comEntry;
     public Button stat;
+    @FXML
+    ComboBox<String > comboBox = new ComboBox<>();
+    Stage st = new Stage();
 
-
-        Stage st = new Stage();
     @FXML
     public void add(ActionEvent event) throws IOException {
         FXMLLoader complain = new FXMLLoader(getClass().getResource("Complaints.fxml"));
@@ -36,7 +42,6 @@ public class Complaints implements Initializable {
         HelloApplication.stage.setScene(new Scene(back.load()));
 
     }
-
 
     @FXML
     public void close(){
@@ -58,7 +63,6 @@ public class Complaints implements Initializable {
     }
 
 
-
     @FXML
     public void Status() throws IOException {
 
@@ -67,8 +71,6 @@ public class Complaints implements Initializable {
         st.initStyle(StageStyle.UNDECORATED);
         st.show();
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -94,13 +96,69 @@ public class Complaints implements Initializable {
                 comRow.complain.setText(res.getString("complain"));
                 comRow.status.setText(res.getString("status"));
 
-
-
                 comEntry.getChildren().add(row);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    @FXML
+    protected void Filter(){
+        ObservableList<String> items = FXCollections.observableArrayList();
+        try {
+            String q = "select * from Complaints";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                items.add(res.getString("status"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        comboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = comboBox.getEditor();
+            final String selected = (String)comboBox.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        comEntry.getChildren().clear();
+        comboBox.setItems(filteredItems);
+
+        try {
+            String selectedStatus = comboBox.getSelectionModel().getSelectedItem();
+            String query = "SELECT * FROM Complaints WHERE status = '" + selectedStatus + "'";
+
+            ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ComRow.fxml"));
+                Parent row = loader.load();
+
+                ComRow comRow = loader.getController();
+
+                comRow.comID.setText(resultSet.getString("cmp_id"));
+                comRow.empName.setText(resultSet.getString("emp_firstName") + resultSet.getString("emp_lastName"));
+                comRow.r_id.setText(resultSet.getString("r_id"));
+                comRow.complain.setText(resultSet.getString("complain"));
+                comRow.status.setText(resultSet.getString("status"));
+
+                comEntry.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

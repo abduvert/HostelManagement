@@ -1,5 +1,9 @@
 package com.example.hostelmanagement;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -16,21 +21,21 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class AllotmentPage implements Initializable {
-
-
+    @FXML
     public Button room;
-    public VBox entry;
-    public VBox entry2;
+    @FXML
+    public VBox entry, entry2;
+    @FXML
     public BorderPane borderPane = new BorderPane();
-    public Button back;
-    public Button allot;
-    public Button vacat;
+    @FXML
+    public Button back, allot, vacat;
+    @FXML
+    public TextField search_textField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAll();
     }
-
 
     @FXML
     protected void Back() throws IOException {
@@ -124,15 +129,42 @@ public class AllotmentPage implements Initializable {
                al.date.setText(res.getString("allot_date"));
                al.month.setText(res.getString("allot_month"));
 
-
-
                entry.getChildren().add(row);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
+    @FXML
+    protected void Search(){
+        entry.getChildren().clear();
+
+        try{
+            String query = "select * from Allotment where r_id = " + search_textField.getText();
+            ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AllotROW.fxml"));
+                Parent row = loader.load();
+
+                AllotRow al = loader.getController();
+
+                al.r_id.setText(resultSet.getString("r_id"));
+                al.st_id.setText(resultSet.getString("st_id"));
+                al.allotid.setText(resultSet.getString("allot_id"));
+                al.year.setText(resultSet.getString("allot_year"));
+                al.date.setText(resultSet.getString("allot_date"));
+                al.month.setText(resultSet.getString("allot_month"));
+
+                entry.getChildren().add(row);
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
 }
 

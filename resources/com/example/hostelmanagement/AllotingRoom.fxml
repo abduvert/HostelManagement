@@ -24,7 +24,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="done" layoutX="57.0" layoutY="276.0" mnemonicParsing="false" onAction="#Done" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2D1E34;" text="Done" textFill="WHITE">
+            <Button layoutX="57.0" layoutY="276.0" mnemonicParsing="false" onAction="#Done" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2D1E34;" text="Done" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -52,7 +52,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <ComboBox prefHeight="30.0" prefWidth="158.0" promptText="Room Ids" style="-fx-background-color: black; -fx-background-radius: 0; -fx-opacity: 0.9;" />
+                              <ComboBox fx:id="room_comboBox" onAction="#rooms_Show" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: white; -fx-background-radius: 0;" visibleRowCount="20" />
                            </children>
                         </HBox>
                         <HBox prefHeight="81.0" prefWidth="365.0">
@@ -62,7 +62,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid;" text="TYPE">
+                              <Label fx:id="room_type" alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid;" text="TYPE">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -76,7 +76,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid;" text="Floor id">
+                              <Label fx:id="floor_id" alignment="CENTER" prefHeight="34.0" prefWidth="152.0" style="-fx-border-style: solid solid solid solid;" text="Floor id">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>

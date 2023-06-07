@@ -46,7 +46,6 @@ public class HomePage {
 
        StudentController studentController = new StudentController();
        studentController.add(event);
-
        // loadAllProducts(studentController.entries);
 
     }

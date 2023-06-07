@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.StudentController">
+<AnchorPane prefHeight="211.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.StudentController">
    <children>
       <HBox layoutY="124.0" prefHeight="50.0" prefWidth="1036.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -74,19 +74,19 @@
       </HBox>
       <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="299.0" prefWidth="839.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="174.0">
          <content>
-            <VBox fx:id="entries2" minWidth="${entries2.parent.width}" maxHeight="${entries2.parent.height}" maxWidth="${entries2.parent.width}" prefHeight="284.0" prefWidth="873.0" />
+            <VBox fx:id="entries2" maxHeight="${entries2.parent.height}" maxWidth="${entries2.parent.width}" minWidth="${entries2.parent.width}" prefHeight="284.0" prefWidth="873.0" />
          </content>
       </ScrollPane>
       <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
          <children>
             <HBox prefHeight="35.0" prefWidth="201.0">
                <children>
-                  <TextField prefHeight="47.0" prefWidth="166.0" promptText="Search" style="-fx-background-radius: -1;" HBox.hgrow="NEVER">
+                  <TextField fx:id="guardian_search_textfield" prefHeight="47.0" prefWidth="166.0" promptText="Search by Name" style="-fx-background-radius: -1;" HBox.hgrow="NEVER">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: -1;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
+                  <Button mnemonicParsing="false" onAction="#guardian_Search" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: -1;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -96,7 +96,7 @@
             <HBox prefHeight="35.0" prefWidth="102.0" />
             <HBox prefHeight="29.0" prefWidth="200.0">
                <children>
-                  <ComboBox editable="true" prefHeight="40.0" prefWidth="206.0" promptText="Filter By" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
+                  <ComboBox fx:id="comboBox2" editable="true" onAction="#g_Filter" prefHeight="40.0" prefWidth="206.0" promptText="Filter By Cities" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

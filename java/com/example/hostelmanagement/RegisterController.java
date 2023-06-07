@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -13,7 +14,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static com.example.hostelmanagement.HelloApplication.statement;
@@ -23,45 +28,28 @@ public class RegisterController {
     public static Stage stage1 = new Stage();
     public Scene scene1;
     @FXML
-    public Button next1;
+    public Button next1, next2, cancel1, cancel2, done;
     @FXML
-    public Button next2;
-    @FXML
-    public Button cancel1;
-    @FXML
-    public Button cancel2;
-    @FXML
-    public Button done;
-    @FXML
-    public TextField fname, lname, dob, semester, cgpa, degree, batch, Phncode, PhnNo, CNICcode, CNICno, email, religion, Hno, town, security;
+    public TextField fname, lname, dob, cgpa, degree, batch, Phncode, PhnNo, CNICcode, CNICno, email, religion, Hno, town, security;
     @FXML
     public PasswordField password;
     @FXML
    public ComboBox<String> comboBox = new ComboBox<>();
-    public String newStId;
-    public String selected_city;
+    public String newStId, selected_city, G_city;
+    public static String selected_room;
     @FXML
     public TextField G_fname, G_lname, G_relation, G_PHNcode, G_PHNno, G_CNICcode, G_CNICno, G_email, G_religion, G_Hno, G_town;
     @FXML
     public ComboBox<String> comboBox2 = new ComboBox<>();
-    public String G_city;
     @FXML
-    public TextField v_fname;
-    public TextField v_lname;
-    public TextField v_relation;
-    public TextField v_PHNcode;
-    public TextField v_PHNno;
-    public TextField v_CNICcode;
-    public TextField v_CNICno;
-
+    public TextField v_fname, v_lname, v_relation, v_PHNcode, v_PHNno, v_CNICcode, v_CNICno;
     @FXML
-    public TextField v2_fname;
-    public TextField v2_lname;
-    public TextField v2_relation;
-    public TextField v2_PHNcode;
-    public TextField v2_PHNno;
-    public TextField v2_CNICcode;
-    public TextField v2_CNICno;
+    public TextField v2_fname, v2_lname, v2_relation, v2_PHNcode, v2_PHNno, v2_CNICcode, v2_CNICno;
+    @FXML
+    ComboBox<String> room_comboBox = new ComboBox<>();
+    ObservableList<String> room_items = FXCollections.observableArrayList();
+    @FXML
+    Label room_type, floor_id;
     @FXML
     protected void Register(ActionEvent event) throws IOException {
         FXMLLoader reg1 = new FXMLLoader(getClass().getResource("RegisterPage.fxml"));
@@ -71,7 +59,7 @@ public class RegisterController {
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         ObservableList<String> items = FXCollections.observableArrayList("Arizona", "Auburn", "Boston",
                 "Chicago", "California", "Florence", "Florida", "Greenville", "Kansas", "New York", "Ohio", "Portland", "Seattle");
         comboBox.setItems(items);
@@ -79,6 +67,20 @@ public class RegisterController {
         ObservableList<String> items2 = FXCollections.observableArrayList("Arizona", "Auburn", "Boston",
                 "Chicago", "California", "Florence", "Florida", "Greenville", "Kansas", "New York", "Ohio", "Portland", "Seattle");
         comboBox2.setItems(items2);
+
+        try{
+            String query = "select r_id from Rooms where occ_status = 'Vacant' or occ_status = 'Partially Occupied'";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while(resultSet.next()){
+                String item = resultSet.getString("r_id");
+                room_items.add(item);
+            }
+            room_comboBox.setItems(room_items);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -121,22 +123,20 @@ public class RegisterController {
             e.printStackTrace();
         }
 
-        if(batch.getText().isEmpty() || degree.getText().isEmpty() || fname.getText().isEmpty() ||
-           lname.getText().isEmpty() || Phncode.getText().isEmpty() || PhnNo.getText().isEmpty() ||
-           email.getText().isEmpty() || dob.getText().isEmpty() || CNICcode.getText().isEmpty() ||
-           CNICno.getText().isEmpty() || religion.getText().isEmpty() || town.getText().isEmpty() ||
-           Hno.getText().isEmpty() || cgpa.getText().isEmpty() || password.getText().isEmpty() ||
-           security.getText().isEmpty()){
-            Alert a = new Alert(Alert.AlertType.WARNING);
-            a.setContentText("A text field is empty. Student has not been registered");
-            a.show();
-        }
-        else{
+//        if(batch.getText().isEmpty() || degree.getText().isEmpty() || fname.getText().isEmpty() ||
+//           lname.getText().isEmpty() || Phncode.getText().isEmpty() || PhnNo.getText().isEmpty() ||
+//           email.getText().isEmpty() || dob.getText().isEmpty() || CNICcode.getText().isEmpty() ||
+//           CNICno.getText().isEmpty() || religion.getText().isEmpty() || town.getText().isEmpty() ||
+//           Hno.getText().isEmpty() || cgpa.getText().isEmpty() || password.getText().isEmpty() ||
+//           security.getText().isEmpty()){
+//            Alert a = new Alert(Alert.AlertType.WARNING);
+//            a.setContentText("A text field is empty. Student has not been registered");
+//            a.show();
+//        }
+//        else{
             FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register2.fxml"));
             stage1.setScene(new Scene(reg2.load()));
-        }
-
-
+      //  }
     }
     @FXML
     protected void Show2(){
@@ -148,7 +148,6 @@ public class RegisterController {
     }
     @FXML
     protected void Next2(ActionEvent backevent) throws IOException {
-
         try{
             // Retrieve the maximum st_id value
             String maxStIdQuery = "SELECT MAX(st_id) FROM Student";
@@ -170,18 +169,18 @@ public class RegisterController {
             System.out.println( e.getMessage());
             e.printStackTrace();
     }
-        if(G_fname.getText().isEmpty() || G_lname.getText().isEmpty() || G_CNICcode.getText().isEmpty() ||
-           G_CNICno.getText().isEmpty() || G_relation.getText().isEmpty() || G_PHNcode.getText().isEmpty() ||
-           G_PHNno.getText().isEmpty() || G_town.getText().isEmpty() || G_Hno.getText().isEmpty() ||
-           G_email.getText().isEmpty()){
-            Alert a = new Alert(Alert.AlertType.WARNING);
-            a.setContentText("A text field is empty. Guardian has not been registered");
-            a.show();
-        }
-        else{
+//        if(G_fname.getText().isEmpty() || G_lname.getText().isEmpty() || G_CNICcode.getText().isEmpty() ||
+//           G_CNICno.getText().isEmpty() || G_relation.getText().isEmpty() || G_PHNcode.getText().isEmpty() ||
+//           G_PHNno.getText().isEmpty() || G_town.getText().isEmpty() || G_Hno.getText().isEmpty() ||
+//           G_email.getText().isEmpty()){
+//            Alert a = new Alert(Alert.AlertType.WARNING);
+//            a.setContentText("A text field is empty. Guardian has not been registered");
+//            a.show();
+//        }
+//        else{
             FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register3.fxml"));
             stage1.setScene(new Scene(reg2.load()));
-        }
+       // }
     }
 
     @FXML
@@ -202,7 +201,6 @@ public class RegisterController {
 
     @FXML
     protected void Next3() throws IOException {
-
         try{
             String maxStIdQuery = "SELECT MAX(st_id) FROM Student";
             ResultSet resultSet = statement.executeQuery(maxStIdQuery);
@@ -231,12 +229,82 @@ public class RegisterController {
             System.out.println( e.getMessage());
             e.printStackTrace();
         }
-
-        FXMLLoader allot = new FXMLLoader(getClass().getResource("AllotingRoom.fxml"));
-        stage1.setScene(new Scene(allot.load()));
+        rooms_Show();
     }
+
     @FXML
-    protected void Done(){
+    protected void rooms_Show() throws IOException {
+
+        selected_room = room_comboBox.getValue();
+        room_comboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            selected_room = newValue;
+        });
+        System.out.println("Selected room is: " + selected_room);
+        room_comboBox.setValue(selected_room);
+        RoomSel(selected_room);
+    }
+
+
+    @FXML
+    public void RoomSel(String selected_room) throws IOException {
+        FXMLLoader allot = new FXMLLoader(getClass().getResource("AllotingRoom.fxml"));
+        Parent all = allot.load();
+
+        RegisterController r = allot.getController();
+        try{
+            System.out.println("Selected room inside: " + selected_room);
+            String query = "select Rtype_name, floor_id from RoomShow where r_id = " + selected_room;
+            ResultSet resultSet = statement.executeQuery(query);
+
+            if(resultSet.next()){
+                System.out.println("room type is: " + resultSet.getString("Rtype_name"));
+                r.room_type.setText(resultSet.getString("Rtype_name"));
+                r.floor_id.setText(resultSet.getString("floor_id"));
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        stage1.setScene(new Scene(all));
+    }
+
+    @FXML
+    protected void Done(ActionEvent event) throws IOException {
+
+        try{
+            String maxAllotIdQuery = "SELECT MAX(allot_id) FROM Allotment";
+            ResultSet resultSet = statement.executeQuery(maxAllotIdQuery);
+            resultSet.next();
+            String maxAllot_Id = resultSet.getString(1);
+            System.out.println("\nAllot id: " + maxAllot_Id);
+            int numericPart = Integer.parseInt(maxAllot_Id.substring(2));
+            maxAllot_Id = "AL" + String.format("%02d", numericPart + 1);
+            System.out.println("MAX ALLOT ID: " + maxAllot_Id);
+
+
+            String maxStIdQuery = "SELECT MAX(st_id) FROM Student";
+            ResultSet resultSet2 = statement.executeQuery(maxStIdQuery);
+            resultSet2.next();
+            String maxStId = resultSet2.getString(1);
+            System.out.println("MAX ST_ID: " + maxStId);
+
+
+                //SELECTED ROOM IS NULL HERE
+            System.out.println("Selected room for insertion into allotment: " + selected_room);
+
+            LocalDate currentDate = LocalDate.now();
+            Date date = Date.valueOf(currentDate);
+
+            String InsertQuery = "INSERT INTO Allotment (allot_id, st_id, r_id, allot_date, allot_month, allot_year)"
+                    + "VALUES ('" + maxAllot_Id +  "' , '" + maxStId + "' , " + selected_room + ", " + date +
+                    ", " + currentDate.getMonthValue() + ", " + currentDate.getYear() + ")";
+
+            HelloApplication.statement.executeQuery(InsertQuery);
+        } catch (Exception e){
+            System.out.println( e.getMessage());
+            e.printStackTrace();
+        }
+
         stage1.close();
         Stage updated = new Stage();
         BorderPane upd = new BorderPane();

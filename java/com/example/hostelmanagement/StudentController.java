@@ -1,41 +1,38 @@
 package com.example.hostelmanagement;
 
-import javafx.beans.NamedArg;
-import javafx.beans.property.DoubleProperty;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.util.Objects;
+import java.sql.*;
 
 public class StudentController {
     public AnchorPane anchorPane;
-    public Button student;
-
-
-    public Button visitors;
-    public Button guardians;
-
+    @FXML
+    public Button student, visitors, guardians, register, back;
     public VBox entries = new VBox();
     public VBox entries2 = new VBox();
     public VBox entries3 = new VBox();
-
-    public Button register;
-    public Button back;
     public BorderPane borderPane;
+    @FXML
+    public ComboBox<String> comboBox = new ComboBox<>();
+    @FXML
+    public ComboBox<String> comboBox2 = new ComboBox<>();
+    @FXML
+    public ComboBox<String> comboBox3 = new ComboBox<>();
 
-
-
+    @FXML
+    public TextField st_search_textfield, guardian_search_textfield, vis_search_textfield;
+    private CallableStatement callableStatement;
 
     @FXML
     public void add(ActionEvent event) throws IOException {
@@ -43,8 +40,6 @@ public class StudentController {
        FXMLLoader stud = new FXMLLoader(getClass().getResource("StdPage.fxml"));
        HelloApplication.stage.setScene(new Scene(stud.load()));
        HelloApplication.stage.setMaximized(true);
-//       loadAllProducts();
-
     }
 
     @FXML
@@ -53,7 +48,6 @@ public class StudentController {
         Guardload();
         VisLoad();
     }
-
 
     @FXML
     protected void Back() throws IOException {
@@ -64,40 +58,29 @@ public class StudentController {
 
     @FXML
     public void StudentsHoverIn(){
-
         student.setStyle("-fx-background-color:   #A7A5C6;-fx-border-style: hidden hidden solid hidden ; -fx-border-color: #383B53");
-
     }
 
     @FXML
     public void StudentsHoverOut(){
-
         student.setStyle("-fx-background-color:   #A7A5C6;-fx-border-color: transparent");
-
     }
 
     @FXML
     protected void Student() throws IOException {
-
         //student.setStyle("-fx-background-color:   #A7A5C6;-fx-border-style: hidden hidden solid hidden ; -fx-border-color: #383B53");
         FXMLLoader stud = new FXMLLoader(getClass().getResource("StdPage.fxml"));
         HelloApplication.stage.setScene(new Scene(stud.load()));
         HelloApplication.stage.setMaximized(true);
-
-
     }
     @FXML
     public void GuardiansHoverIn(){
-
         guardians.setStyle("-fx-background-color:   #A7A5C6;-fx-border-style: hidden hidden solid hidden ; -fx-border-color: #383B53");
-
     }
 
     @FXML
     public void GuardiansHoverOut(){
-
         guardians.setStyle("-fx-background-color:   #A7A5C6;-fx-border-color: transparent");
-
     }
 
     @FXML
@@ -109,8 +92,6 @@ public class StudentController {
         borderPane.setCenter(guard.load());
         borderPane.setLeft(null);
     }
-
-
 
     @FXML
     public void VisitorsHoverIn(){
@@ -126,7 +107,6 @@ public class StudentController {
 
     }
 
-
     @FXML
     protected void Visitors() throws IOException {
 //        visitors.setStyle("-fx-background-color:   #A7A5C6;");
@@ -136,6 +116,7 @@ public class StudentController {
         borderPane.setLeft(null);
 
     }
+
     @FXML
     public void RegHoverIn(){
 
@@ -150,17 +131,11 @@ public class StudentController {
 
     }
 
-
     @FXML
     protected void Register(ActionEvent event) throws IOException {
         RegisterController reg = new RegisterController();
         reg.Register(event);
     }
-
-
-    //int count=0;
-
-
 
     public void loadAllProducts() {
         try {
@@ -173,7 +148,7 @@ public class StudentController {
 
                 SRowController prc = loader.getController();
                 prc.id.setText(res.getString("st_id"));
-                prc.name.setText(res.getString("st_firstName") + res.getString("st_lastName"));
+                prc.name.setText(res.getString("st_firstName") + " " + res.getString("st_lastName"));
                 prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
                 prc.degree.setText(res.getString("degree"));
                 prc.CGPA.setText(res.getString("cgpa"));
@@ -199,7 +174,7 @@ public class StudentController {
 
                 GuardianRow gRow = loader.getController();
                 gRow.st_id.setText(res.getString("st_id"));
-                gRow.guardianName.setText(res.getString("g_firstName") + res.getString("g_lastName"));
+                gRow.guardianName.setText(res.getString("g_firstName") + " " + res.getString("g_lastName"));
                 gRow.g_Phone.setText(res.getString("g_PHNcode") + res.getString("g_PHNno"));
                 gRow.relation.setText(res.getString("g_relation"));
                 gRow.g_email.setText(res.getString("g_email"));
@@ -211,8 +186,6 @@ public class StudentController {
             e.printStackTrace();
         }
     }
-
-
 
     @FXML
     public void VisLoad() {
@@ -226,7 +199,7 @@ public class StudentController {
 
                 VisRow visRow = loader.getController();
                 visRow.st_id.setText(res.getString("st_id"));
-                visRow.vis_Name.setText(res.getString("v_firstName") + res.getString("v_lastName"));
+                visRow.vis_Name.setText(res.getString("v_firstName") + " " + res.getString("v_lastName"));
                 visRow.Vphone.setText(res.getString("v_PHNcode") + res.getString("v_PHNno"));
                 visRow.Vrelation.setText(res.getString("v_relation"));
                 visRow.vis_id.setText(res.getString("v_id"));
@@ -240,6 +213,372 @@ public class StudentController {
     }
 
 
+    @FXML
+    protected void st_Search(){
+        entries.getChildren().clear();
+        String fullName = st_search_textfield.getText();
 
+        try {
+            if(fullName.contains(" ")){
+                callableStatement = HelloApplication.statement.getConnection().prepareCall("{call unconcatenate_name(?, ?, ?)}");
+                callableStatement.setString(1, fullName);
+                callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);
+                callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
+                callableStatement.execute();
+
+                // Retrieve the unconcatenated names
+                String stFirstName = callableStatement.getString(2);
+                String stLastName = callableStatement.getString(3);
+
+                // Remove leading spaces using trim()
+                stLastName = stLastName.trim().replaceAll("^\\s+", "");
+
+                String query2 = "select * from Student where st_firstName = '" + stFirstName +
+                        "' and st_lastName = '" + stLastName + "'";
+                ResultSet res2 = HelloApplication.statement.executeQuery(query2);
+                while (res2.next()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+                    Parent row = loader.load();
+
+                    SRowController prc = loader.getController();
+                    prc.id.setText(res2.getString("st_id"));
+                    prc.name.setText(res2.getString("st_firstName") + " " + res2.getString("st_lastName"));
+                    prc.phoneNumber.setText(res2.getString("st_PHNcode") + res2.getString("st_PHNno"));
+                    prc.degree.setText(res2.getString("degree"));
+                    prc.CGPA.setText(res2.getString("cgpa"));
+
+                    prc.details.setId(res2.getString("st_id"));
+
+                    entries.getChildren().add(row);
+                }
+            }
+            else{
+                String query = "select * from Student where st_firstName = '" + st_search_textfield.getText() +
+                            "'";
+                ResultSet res = HelloApplication.statement.executeQuery(query);
+                while (res.next()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+                    Parent row = loader.load();
+
+                    SRowController prc = loader.getController();
+                    prc.id.setText(res.getString("st_id"));
+                    prc.name.setText(res.getString("st_firstName") + " " + res.getString("st_lastName"));
+                    prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
+                    prc.degree.setText(res.getString("degree"));
+                    prc.CGPA.setText(res.getString("cgpa"));
+
+                    prc.details.setId(res.getString("st_id"));
+
+                    entries.getChildren().add(row);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void st_Filter(){
+        ObservableList<String> items = FXCollections.observableArrayList();
+        try {
+            String q = "select * from Student";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                items.add(res.getString("degree"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        comboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = comboBox.getEditor();
+            final String selected = (String)comboBox.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        entries.getChildren().clear();
+        comboBox.setItems(filteredItems);
+
+        try {
+            String selectedDegree = comboBox.getSelectionModel().getSelectedItem();
+            String query = "SELECT * FROM Student WHERE degree = '" + selectedDegree + "'";
+
+            ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+                Parent row = loader.load();
+
+                SRowController prc = loader.getController();
+                prc.id.setText(resultSet.getString("st_id"));
+                prc.name.setText(resultSet.getString("st_firstName") + " " + resultSet.getString("st_lastName"));
+                prc.phoneNumber.setText(resultSet.getString("st_PHNcode") + resultSet.getString("st_PHNno"));
+                prc.degree.setText(resultSet.getString("degree"));
+                prc.CGPA.setText(resultSet.getString("cgpa"));
+
+                prc.details.setId(resultSet.getString("st_id"));
+
+                entries.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void guardian_Search(){
+        entries2.getChildren().clear();
+        String fullName = guardian_search_textfield.getText();
+
+        try {
+            if(fullName.contains(" ")){
+                callableStatement = HelloApplication.statement.getConnection().prepareCall("{call unconcatenate_name(?, ?, ?)}");
+                callableStatement.setString(1, fullName);
+                callableStatement.registerOutParameter(2, Types.VARCHAR);
+                callableStatement.registerOutParameter(3, Types.VARCHAR);
+                callableStatement.execute();
+
+                // Retrieve the unconcatenated names
+                String g_FirstName = callableStatement.getString(2);
+                String g_LastName = callableStatement.getString(3);
+
+                // Remove leading spaces using trim()
+                g_LastName = g_LastName.trim().replaceAll("^\\s+", "");
+
+                String query = "select * from Guardian where g_firstName = '" + g_FirstName +
+                        "' and g_lastName = '" + g_LastName + "'";
+                ResultSet res = HelloApplication.statement.executeQuery(query);
+                while (res.next()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("GrdROW.fxml"));
+                    Parent row = loader.load();
+
+                    GuardianRow gRow = loader.getController();
+                    gRow.st_id.setText(res.getString("st_id"));
+                    gRow.guardianName.setText(res.getString("g_firstName") + " " + res.getString("g_lastName"));
+                    gRow.g_Phone.setText(res.getString("g_PHNcode") + res.getString("g_PHNno"));
+                    gRow.relation.setText(res.getString("g_relation"));
+                    gRow.g_email.setText(res.getString("g_email"));
+                    gRow.details.setId(res.getString("st_id"));
+
+                    entries2.getChildren().add(row);
+                }
+            }
+            else{
+                String query = "select * from Guardian where g_firstName = '" + guardian_search_textfield.getText() +
+                        "'";
+                ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+                while (resultSet.next()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("GrdROW.fxml"));
+                    Parent row = loader.load();
+
+                    GuardianRow gRow = loader.getController();
+                    gRow.st_id.setText(resultSet.getString("st_id"));
+                    gRow.guardianName.setText(resultSet.getString("g_firstName") + " " + " " + resultSet.getString("g_lastName"));
+                    gRow.g_Phone.setText(resultSet.getString("g_PHNcode") + resultSet.getString("g_PHNno"));
+                    gRow.relation.setText(resultSet.getString("g_relation"));
+                    gRow.g_email.setText(resultSet.getString("g_email"));
+                    gRow.details.setId(resultSet.getString("st_id"));
+
+                    entries2.getChildren().add(row);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void g_Filter(){
+        ObservableList<String> items = FXCollections.observableArrayList();
+        try {
+            String q = "select * from Guardian";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                items.add(res.getString("g_city"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        comboBox2.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = comboBox2.getEditor();
+            final String selected = (String)comboBox2.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        entries2.getChildren().clear();
+        comboBox2.setItems(filteredItems);
+
+        try {
+            String selectedCity = comboBox2.getSelectionModel().getSelectedItem();
+            String query = "SELECT * FROM Guardian WHERE g_city = '" + selectedCity + "'";
+
+            ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("GrdROW.fxml"));
+                Parent row = loader.load();
+
+                GuardianRow gRow = loader.getController();
+                gRow.st_id.setText(resultSet.getString("st_id"));
+                gRow.guardianName.setText(resultSet.getString("g_firstName") + " " + resultSet.getString("g_lastName"));
+                gRow.g_Phone.setText(resultSet.getString("g_PHNcode") + resultSet.getString("g_PHNno"));
+                gRow.relation.setText(resultSet.getString("g_relation"));
+                gRow.g_email.setText(resultSet.getString("g_email"));
+                gRow.details.setId(resultSet.getString("st_id"));
+
+                entries2.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    protected void Vis_Search(){
+        entries3.getChildren().clear();
+        String fullName = vis_search_textfield.getText();
+
+        try {
+            if(fullName.contains(" ")){
+                callableStatement = HelloApplication.statement.getConnection().prepareCall("{call unconcatenate_name(?, ?, ?)}");
+                callableStatement.setString(1, fullName);
+                callableStatement.registerOutParameter(2, Types.VARCHAR);
+                callableStatement.registerOutParameter(3, Types.VARCHAR);
+                callableStatement.execute();
+
+                // Retrieve the unconcatenated names
+                String v_FirstName = callableStatement.getString(2);
+                String v_LastName = callableStatement.getString(3);
+
+                // Remove leading spaces using trim()
+                v_LastName = v_LastName.trim().replaceAll("^\\s+", "");
+
+                String query = "select * from Visitors where v_firstName = '" + v_FirstName +
+                        "' and v_lastName = '" + v_LastName + "'";
+                ResultSet res = HelloApplication.statement.executeQuery(query);
+                while (res.next()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("VisRow.fxml"));
+                    Parent row = loader.load();
+
+                    VisRow visRow = loader.getController();
+                    visRow.st_id.setText(res.getString("st_id"));
+                    visRow.vis_Name.setText(res.getString("v_firstName") + " " + res.getString("v_lastName"));
+                    visRow.Vphone.setText(res.getString("v_PHNcode") + res.getString("v_PHNno"));
+                    visRow.Vrelation.setText(res.getString("v_relation"));
+                    visRow.vis_id.setText(res.getString("v_id"));
+                    visRow.details.setId(res.getString("st_id"));
+
+                    entries3.getChildren().add(row);
+                }
+            }
+            else{
+                String query = "select * from Visitors where v_firstName = '" + vis_search_textfield.getText() +
+                        "'";
+                ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+                while (resultSet.next()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("VisRow.fxml"));
+                    Parent row = loader.load();
+
+                    VisRow visRow = loader.getController();
+                    visRow.st_id.setText(resultSet.getString("st_id"));
+                    visRow.vis_Name.setText(resultSet.getString("v_firstName") + " " + resultSet.getString("v_lastName"));
+                    visRow.Vphone.setText(resultSet.getString("v_PHNcode") + resultSet.getString("v_PHNno"));
+                    visRow.Vrelation.setText(resultSet.getString("v_relation"));
+                    visRow.vis_id.setText(resultSet.getString("v_id"));
+                    visRow.details.setId(resultSet.getString("st_id"));
+
+                    entries3.getChildren().add(row);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void vis_Filer(){
+        ObservableList<String> items = FXCollections.observableArrayList();
+        try {
+            String q = "select * from Visitors";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                items.add(res.getString("v_relation"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        comboBox3.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = comboBox3.getEditor();
+            final String selected = (String)comboBox3.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        entries3.getChildren().clear();
+        comboBox3.setItems(filteredItems);
+
+        try {
+            String v_relation = comboBox3.getSelectionModel().getSelectedItem();
+            String query = "SELECT * FROM Visitors WHERE v_relation = '" + v_relation + "'";
+
+            ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VisRow.fxml"));
+                Parent row = loader.load();
+
+                VisRow visRow = loader.getController();
+                visRow.st_id.setText(resultSet.getString("st_id"));
+                visRow.vis_Name.setText(resultSet.getString("v_firstName") + " " + resultSet.getString("v_lastName"));
+                visRow.Vphone.setText(resultSet.getString("v_PHNcode") + resultSet.getString("v_PHNno"));
+                visRow.Vrelation.setText(resultSet.getString("v_relation"));
+                visRow.vis_id.setText(resultSet.getString("v_id"));
+                visRow.details.setId(resultSet.getString("st_id"));
+
+                entries3.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
-

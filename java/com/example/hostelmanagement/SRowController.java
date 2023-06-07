@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -39,14 +40,14 @@ public class SRowController {
     public Button edit;
     public AnchorPane anchorPane;
     public Label dett;
-
+    public String g;
     Stage inform = new Stage();
 
     @FXML
     public void Details(ActionEvent event) throws IOException, SQLException {
 
         try {
-            String g = ((Button) event.getSource()).getId();
+            g = ((Button) event.getSource()).getId();
             String q = "select * from Student where st_id ='" + g + "'";
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
@@ -77,7 +78,6 @@ public class SRowController {
     }
     @FXML
     public void Edit(){
-
         //for changing the style of textfields and making it editable
         inform.setTitle("Edit Details");
         dett.setText("Edit Student Details");
@@ -105,42 +105,39 @@ public class SRowController {
 
     @FXML
     public void EditHoverin(){
-
         edit.setStyle("-fx-background-color: #505472; -fx-text-fill: white");
     }
 
     @FXML
     public void SaveHoverOut(){
-
         save.setStyle("-fx-background-color: transparent; -fx-text-fill: green; -fx-border-color: green;");
     }
 
 
     @FXML
     public void SaveHoverin(){
-
         save.setStyle("-fx-background-color: green; -fx-text-fill: white");
     }
 
     @FXML
     public void EditHoverOut(){
-
         edit.setStyle("-fx-background-color: transparent; -fx-text-fill: #505472; -fx-border-color: #505472;");
     }
 
     @FXML
-    protected  void Save(ActionEvent event){
+    protected void Save(ActionEvent event){
         try{
-            String g = ((Button) event.getSource()).getId();
-            String edit_std_query = "update Student st_email = '" + email.getText() + "' , st_CNICcode = " + CNICcode.getText() +
+            String edit_std_query = "update Student set st_email = '" + email.getText() + "' , st_CNICcode = " + CNICcode.getText() +
                     " , st_CNICno = " + CNICno.getText() + " , st_firstName = '" + stfName.getText()+ "' , st_lastName = '" + stlName.getText()
                     +"' , st_PHNcode = " + phoneCode.getText() + " , st_PHNno = " + phoneNo.getText()+ " , batch ='" +
-                    batch.getText() + "' , st_dob = '" + dateofbirth.getText() + "' where st_id = '" + g + "'";
-            ResultSet res = HelloApplication.statement.executeQuery(edit_std_query);
-            if(res.next()){
+                    batch.getText() + "' , st_dob = '" + dateofbirth.getText() + "' where st_id = '" + st_id.getText() + "'";
+            HelloApplication.statement.executeUpdate(edit_std_query);
 
-                inform.close();
-            }
+//            Alert a = new Alert(Alert.AlertType.INFORMATION);
+//            a.setContentText("Data has been updated");
+//            a.show();
+            inform.close();
+
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();
