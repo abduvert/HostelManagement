@@ -41,7 +41,7 @@
                               </ImageView>
                               <ImageView fitHeight="273.0" fitWidth="302.0" layoutX="53.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@LOG%20N%20(6).png" />
+                                    <Image url="@LOG N (6).png" />
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -109,8 +109,8 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <RadioButton fx:id="emp" layoutX="162.0" layoutY="192.0" mnemonicParsing="false" onAction="#Emp" text="Employee" textFill="WHITE" />
-                              <RadioButton fx:id="std" layoutX="291.0" layoutY="192.0" mnemonicParsing="false" onAction="#STD" text="Student" textFill="WHITE" />
+                              <RadioButton fx:id="emp" layoutX="162.0" layoutY="191.0" mnemonicParsing="false" onAction="#Emp" text="Employee" textFill="WHITE" />
+                              <RadioButton fx:id="std" layoutX="292.0" layoutY="191.0" mnemonicParsing="false" onAction="#STD" text="Student" textFill="WHITE" />
                            </children>
                         </AnchorPane>
                      </items>

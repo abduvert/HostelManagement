@@ -72,7 +72,7 @@
       </FlowPane>
       <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
          <children>
-            <Label fx:id="comments" alignment="CENTER" style="-fx-border-color: blaclk;" text="Comments">
+            <Label fx:id="comments" alignment="CENTER" text="Comments">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>

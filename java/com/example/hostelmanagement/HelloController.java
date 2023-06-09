@@ -28,9 +28,14 @@ public class HelloController {
     public TextField id_field, security_field, Security_id_Field;
     @FXML
     public PasswordField passwordField;
+    public String passsave;
 
     @FXML
-    public Button done, cancel, emp, std;
+    public Button done, cancel;
+
+    @FXML
+    public RadioButton emp;
+    public RadioButton std;
 
 
 
@@ -41,31 +46,31 @@ public class HelloController {
     @FXML
     protected void Login() {
         try{
-            //if(std.isPressed()){
-                String q1 = "select * from Student where st_id ='" + id_field.getText() + "'and st_password = '" +  passwordField.getText() + "'";
+            if(std.isSelected()) {
+                String q1 = "select * from Student where st_id ='" + id_field.getText() + "'and st_password = '" + passwordField.getText() + "' or st_password = '" + passsave + "'";
                 ResultSet res = HelloApplication.statement.executeQuery(q1);
 
-                if(res.next()){  //Student has logged in
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
+                if (res.next()) {  //Student has logged in
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("STUDENTLOGIN.fxml")));
                     scene = new Scene(root);
 
                     HelloApplication.stage.setScene(scene);
                 }
-            //}
+            }
 
-//            else if(emp.isPressed()){
-//                String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "'";
-//                ResultSet res2 = HelloApplication.statement.executeQuery(q2);
-//
-//                if (res2.next()) {     //Employee has logged in
-//                    //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
-//                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
-//                    scene = new Scene(root);
-//
-//                    HelloApplication.stage.setScene(scene);
-//                    return;
-//                }
-//            }
+            else if(emp.isSelected()){
+                String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "'";
+                ResultSet res2 = HelloApplication.statement.executeQuery(q2);
+
+                if (res2.next()) {     //Employee has logged in
+                    //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
+                    scene = new Scene(root);
+
+                    HelloApplication.stage.setScene(scene);
+                    return;
+                }
+            }
 
             else{
                 Alert a = new Alert(Alert.AlertType.WARNING);
@@ -178,6 +183,7 @@ public class HelloController {
     @FXML
     protected void ShowPassword(){
         if (showpass.isSelected()) {
+            passsave = passwordField.getText();
             passwordField.setPromptText(passwordField.getText());
             passwordField.setText("");
         } else {

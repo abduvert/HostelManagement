@@ -23,7 +23,7 @@ public class SRowController {
     public TextField email, CNICcode, CNICno, phoneCode, phoneNo, stfName, stlName, batch, dateofbirth;
     public AnchorPane anchorPane;
     public String g;
-    Stage inform = new Stage();
+   static Stage inform = new Stage();
 
     @FXML
     public void Details(ActionEvent event) throws IOException, SQLException {

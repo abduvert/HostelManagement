@@ -81,6 +81,7 @@
             </VBox>
          </children>
       </VBox>
-      <Button fx:id="edit" layoutX="98.0" layoutY="148.0" mnemonicParsing="false" onAction="#Edit" onMouseEntered="#EditHoverin" onMouseExited="#EditHoverOut" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
+      <Button fx:id="edit" layoutX="94.0" layoutY="148.0" mnemonicParsing="false" onAction="#Edit" onMouseEntered="#EditHoverin" onMouseExited="#EditHoverOut" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
+      <Button fx:id="save" alignment="CENTER" contentDisplay="CENTER" layoutX="94.0" layoutY="441.0" mnemonicParsing="false" onAction="#Save" onMouseEntered="#SaveHoverin" onMouseExited="#SaveHoverOut" prefHeight="27.0" prefWidth="65.0" style="-fx-border-color: green; -fx-background-color: transparent; -fx-background-radius: 0;" text="Save" textFill="GREEN" visible="false" />
    </children>
 </AnchorPane>

@@ -6,7 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,7 +26,7 @@ public class NewPasswordController {
     @FXML
     public static Stage newStage;
     public Scene scene;
-    public Stage forStage;
+    public static Stage forStage;
     @FXML
     protected void UpdateHoverIn(){
         update.setStyle("-fx-background-color: #9A71AD; -fx-background-radius: 5");
@@ -70,18 +72,9 @@ public class NewPasswordController {
             }
 
             newStage.close();
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setContentText("Your password has been updated");
-            a.show();
-
-        }
-        else{
-            Alert a = new Alert(Alert.AlertType.WARNING);
-            a.setContentText("Password not matched");
-            a.show();
-        }
-        /*
-        newStage.close();
+//            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+//            a.setContentText("Your password has been updated");
+//            a.show();
         Stage updated = new Stage();
         BorderPane upd = new BorderPane();
         Label ud = new Label("Your Password has been updated!");
@@ -89,7 +82,15 @@ public class NewPasswordController {
         upd.setCenter(ud);
         updated.setScene(new Scene(upd,400,200));
         updated.show();
-        */
+
+        }
+        else{
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("Password not matched");
+            a.show();
+        }
+
+
 
     }
 

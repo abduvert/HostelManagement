@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="200.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.BillCenter">
+<VBox prefHeight="281.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.BillCenter">
    <children>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="596.0" style="-fx-background-color: #505472;">
          <children>

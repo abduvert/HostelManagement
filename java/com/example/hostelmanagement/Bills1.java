@@ -1,21 +1,32 @@
 package com.example.hostelmanagement;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+import javax.xml.transform.Result;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class Bills1 implements Initializable {
 
     public VBox entry = new VBox();
+    public Label stdEnr;
+    public Label dueDateON;
+    public Label total;
+    Date date,date2;
+    public Button fineBut;
 
 
     @FXML
@@ -47,27 +58,124 @@ public class Bills1 implements Initializable {
                 BillsRow1 row = loader.getController();
 
 
-                Date date = res.getDate("due_date");
-                Date date2 = res.getDate("paid_date");
+                date = res.getDate("due_date");
+                date2 = res.getDate("paid_date");
                 row.id.setText(res.getString("allot_id"));
-                row.comments.setText(res.getString("comments"));
+               row.comments.setText(res.getString("comments"));
                 row.duedate.setText(date.toString());
+
+
+
+
                 row.paidDate.setText(date2.toString());
                 row.dues.setText(res.getString("dues"));
                 row.fine.setText(res.getString("fine"));
                 row.method.setText(res.getString("payment_method"));
 
 
-
                 entry.getChildren().add(rr);
             }
+
+            res.close();
+
+            String q1 = "select count(allot_id) as counts from Bill";
+            ResultSet qS = HelloApplication.statement.executeQuery(q1);
+
+            if(qS.next())
+            {
+                stdEnr.setText(qS.getString("counts"));
+            }
+
+            qS.close();
+
+
+            if(qS.isClosed()) {
+                String q2 = "SELECT CAST(b.due_date AS DATE) AS due FROM Bill b WHERE b.allot_id = 'AL001'";
+                ResultSet qW = HelloApplication.statement.executeQuery(q2);
+
+                if (qW.next()) {
+                    dueDateON.setText(qW.getString("due"));
+                }
+
+
+                qW.close();
+            }
+
+                String q3 = "select sum(dues) as total from Bill";
+                ResultSet qV = HelloApplication.statement.executeQuery(q3);
+
+                if (qV.next()) {
+                    total.setText(qV.getString("total"));
+                }
+
+            qV.close();
+
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAll();
     }
+
+
+    @FXML
+    public void fineBut() throws SQLException, IOException {
+
+        String q = "select * from BillShow\n" +
+                "where fine <> 0.00";
+
+        ResultSet res = HelloApplication.statement.executeQuery(q);
+
+
+        entry.getChildren().clear();
+
+        while (res.next()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BillRow1.fxml"));
+            Parent rr = loader.load();
+
+
+            BillsRow1 row = loader.getController();
+
+
+            date = res.getDate("due_date");
+            date2 = res.getDate("paid_date");
+            row.id.setText(res.getString("allot_id"));
+            row.comments.setText(res.getString("comments"));
+            row.duedate.setText(date.toString());
+
+
+
+
+            row.paidDate.setText(date2.toString());
+            row.dues.setText(res.getString("dues"));
+            row.fine.setText(res.getString("fine"));
+            row.method.setText(res.getString("payment_method"));
+
+
+            entry.getChildren().add(rr);
+        }
+
+
+    }
+
+    @FXML
+    public void typesHoverIn(){
+        fineBut.setStyle("-fx-background-color: #505472 ;-fx-text-fill: white");
+    }
+
+    @FXML
+    public void typesHoverOut(){
+        fineBut.setStyle("-fx-background-color: white ;-fx-text-fill: #505472; -fx-border-color: #505472");
+    }
+
+
+
 }

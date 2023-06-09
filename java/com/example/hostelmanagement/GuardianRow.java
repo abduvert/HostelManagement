@@ -21,7 +21,7 @@ import java.sql.Statement;
 
 public class GuardianRow {
     public AnchorPane pane;
-    Stage inform = new Stage();
+    static Stage inform = new Stage();
     @FXML
     public Label detID = new Label();
     @FXML
@@ -117,8 +117,8 @@ public class GuardianRow {
                     detCNICno.getText() + " , g_relation = '" + detRelation.getText() + "' , g_PHNcode = " +
                     detPhonecode.getText() + " , g_PHNno = " + detPhoneNo.getText() + " where st_id = '" + g + "'";
             HelloApplication.statement.executeUpdate(G_edit_query);
-
             inform.close();
+
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="87.0" prefWidth="236.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.SideBill">
+   <children>
+      <Label fx:id="diff" alignment="CENTER" prefHeight="114.0" prefWidth="254.0" text="00000" textFill="#00ff51">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" prefHeight="29.0" prefWidth="255.0" text="Pending Bills">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

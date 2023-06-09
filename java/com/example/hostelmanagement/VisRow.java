@@ -20,7 +20,7 @@ public class VisRow {
 
     @FXML
     public Label st_id, vis_id, vis_Name, Vrelation, Vphone, dett;
-    Stage inform = new Stage();
+    static Stage inform = new Stage();
     @FXML
     public AnchorPane pane;
     @FXML

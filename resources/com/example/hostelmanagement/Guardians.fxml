@@ -98,7 +98,7 @@
             <HBox prefHeight="35.0" prefWidth="102.0" />
             <HBox prefHeight="29.0" prefWidth="200.0">
                <children>
-                  <ComboBox fx:id="comboBox2" editable="true" onAction="#g_Filter" prefHeight="40.0" prefWidth="206.0" promptText="Filter By Cities" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
+                  <ComboBox fx:id="comboBox2" onAction="#g_Filter" prefHeight="40.0" prefWidth="206.0" promptText="Filter By Cities" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

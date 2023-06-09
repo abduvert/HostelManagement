@@ -146,9 +146,9 @@ public class AllotmentPage implements Initializable {
         try {
             String query = "\n" +
                     "select * from Allotment\n" +
-                    "where allot_date between " + stDay + " and \n" + endDay +
-                    "and allot_month between " + stMonth + " and\n" + endMonth +
-                    "and allot_year between " + stYear + " and " + endYear;
+                    "where allot_date between " + stDay + " and " + endDay +
+                    " and allot_month between " + stMonth + " and " + endMonth +
+                    " and allot_year between " + stYear + " and " + endYear;
 
             ResultSet res = HelloApplication.statement.executeQuery(query);
             while (res.next()) {

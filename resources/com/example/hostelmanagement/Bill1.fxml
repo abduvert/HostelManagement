@@ -112,10 +112,53 @@
             </HBox>
             <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
                <content>
-                  <VBox fx:id="entry" maxHeight="${entry.parent.height}" minHeight="${entry.parent.height}" minWidth="${entry.parent.width}" prefHeight="284.0" prefWidth="1035.0" />
+                  <VBox fx:id="entry" maxHeight="${entry.parent.height}" minWidth="${entry.parent.width}" prefHeight="284.0" prefWidth="1035.0" />
                </content>
             </ScrollPane>
+            <HBox layoutX="21.0" layoutY="14.0" />
+            <Button fx:id="fineBut" layoutX="21.0" layoutY="50.0" mnemonicParsing="false" onAction="#fineBut" onMouseEntered="#typesHoverIn" onMouseExited="#typesHoverOut" prefHeight="35.0" prefWidth="151.0" style="-fx-border-color: #505472; -fx-background-color: white;" text="Filter by Fines" textFill="#505472" />
          </children>
       </AnchorPane>
    </center>
+   <left>
+      <VBox prefHeight="87.0" prefWidth="236.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="stdEnr1" alignment="CENTER" prefHeight="37.0" prefWidth="236.0" textFill="#00ff51">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="stdEnr" alignment="CENTER" prefHeight="92.0" prefWidth="236.0" text="1" textFill="#00ff51">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="255.0" text="Students Enrolled">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="total" alignment="CENTER" prefHeight="74.0" prefWidth="236.0" text="1" textFill="#eede00">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="255.0" text="Total Dues">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="dueDateON" alignment="CENTER" prefHeight="79.0" prefWidth="236.0" text="1" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="255.0" text="Due Date for May">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>
