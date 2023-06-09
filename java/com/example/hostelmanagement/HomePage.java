@@ -131,6 +131,12 @@ public class HomePage {
     }
 
     @FXML
+    protected void Bill() throws IOException {
+        Bills1 bill = new Bills1();
+        bill.add();
+    }
+
+    @FXML
     protected void LogoutHoverIn()
     {
         logout.setStyle("-fx-background-color: #D95D39 ; -fx-background-radius: 15");

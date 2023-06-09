@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="50.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.BillsRow1">
+   <children>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="id" alignment="CENTER" text="Allot ID">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="name" alignment="CENTER" style="-fx-border-color: blaclk;" text="Student Name">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="173.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="dues" alignment="CENTER" text="Dues">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="164.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="duedate" alignment="CENTER" text="Due Date">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="155.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="paidDate" alignment="CENTER" text="Paid Date">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="125.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="method" alignment="CENTER" text="Method">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="fine" alignment="CENTER" text="Fine">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+         <children>
+            <Label fx:id="comments" alignment="CENTER" style="-fx-border-color: blaclk;" text="Comments">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+   </children>
+</HBox>

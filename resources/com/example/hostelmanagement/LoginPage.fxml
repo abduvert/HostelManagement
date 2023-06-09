@@ -7,6 +7,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
@@ -108,8 +109,8 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="emp" layoutX="162.0" layoutY="178.0" mnemonicParsing="false" onAction="#Emp" onMouseEntered="#EmpHoverIn" onMouseExited="#EmpHoverout" style="-fx-background-color: transparent; -fx-border-color: #D4D6B9; -fx-border-style: hidden hidden solid hidden;" text="👤 Employee" textFill="WHITE" />
-                              <Button fx:id="std" layoutX="291.0" layoutY="178.0" mnemonicParsing="false" onAction="#STD" onMouseEntered="#STDHoverIn" onMouseExited="#STDHoverout" style="-fx-background-color: transparent; -fx-border-color: #D4D6B9; -fx-border-style: hidden hidden solid hidden;" text="🎓 Student" textFill="WHITE" />
+                              <RadioButton fx:id="emp" layoutX="162.0" layoutY="192.0" mnemonicParsing="false" onAction="#Emp" text="Employee" textFill="WHITE" />
+                              <RadioButton fx:id="std" layoutX="291.0" layoutY="192.0" mnemonicParsing="false" onAction="#STD" text="Student" textFill="WHITE" />
                            </children>
                         </AnchorPane>
                      </items>

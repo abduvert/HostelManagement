@@ -138,7 +138,7 @@
                      </children>
                   </HBox>
                   <Label layoutX="627.0" layoutY="614.0" text="Copyrights reserved v1.0 @2023" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="7.0" />
-                  <Button fx:id="bills" layoutX="434.0" layoutY="463.0" mnemonicParsing="false" onMouseEntered="#BillsHoverIn" onMouseExited="#BillsHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Bills" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
+                  <Button fx:id="bills" layoutX="434.0" layoutY="463.0" mnemonicParsing="false" onAction="#Bill" onMouseEntered="#BillsHoverIn" onMouseExited="#BillsHoverOut" prefHeight="48.0" prefWidth="193.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Bills" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="178.0">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="21.0" />
                      </font>

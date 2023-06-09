@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.Bills1">
+   <top>
+      <HBox style="-fx-background-color: #A7A5C6;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Back" prefHeight="34.0" prefWidth="81.0" rotate="180.0" style="-fx-background-color: D1CAA1; -fx-background-radius: 0;" text="➜" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="958.0" style="-fx-background-color: #505472; -fx-background-radius: 0; -fx-border-style: hidden hidden solid hidden; -fx-border-color: #D1CAA1;" text="Bills" textFill="WHITE" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutY="124.0" prefHeight="50.0" prefWidth="1036.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="Allot ID">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Student Name">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="173.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="Dues">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="164.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="Due Date">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="155.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+                     <children>
+                        <Label alignment="CENTER" text="Paid Date">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="125.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label alignment="CENTER" text="Method">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+                     <children>
+                        <Label alignment="CENTER" text="Fine">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: #A7A5C6; -fx-border-color: black;">
+                     <children>
+                        <Label alignment="CENTER" style="-fx-border-color: blaclk;" text="Cmments">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </children>
+            </HBox>
+            <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
+               <content>
+                  <VBox fx:id="entry" maxHeight="${entry.parent.height}" minHeight="${entry.parent.height}" minWidth="${entry.parent.width}" prefHeight="284.0" prefWidth="1035.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

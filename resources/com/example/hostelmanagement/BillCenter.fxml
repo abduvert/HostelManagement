@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="200.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.BillCenter">
+   <children>
+      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="596.0" style="-fx-background-color: #505472;">
+         <children>
+            <Label text="Details" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="138.0" prefWidth="596.0">
+         <children>
+            <VBox>
+               <children>
+                  <Label fx:id="dues" alignment="CENTER" prefHeight="114.0" prefWidth="254.0" text="00000" textFill="#00ff51">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="255.0" text="Total Dues">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="152.0" prefWidth="63.0" />
+            <VBox>
+               <children>
+                  <Label fx:id="method" alignment="CENTER" prefHeight="123.0" prefWidth="238.0" text="Cash" textFill="#ff94b5">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="33.0" prefWidth="239.0" text="Payment Method">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="111.0" prefWidth="596.0">
+         <children>
+            <VBox>
+               <children>
+                  <Label fx:id="duedate" alignment="CENTER" prefHeight="114.0" prefWidth="254.0" text="00000" textFill="#fff349">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="255.0" text="Due Date">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="152.0" prefWidth="63.0" />
+            <VBox>
+               <children>
+                  <Label fx:id="paidDate" alignment="CENTER" prefHeight="123.0" prefWidth="238.0" text="00000" textFill="#ff8420">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="33.0" prefWidth="239.0" text="Paid Date">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="111.0" prefWidth="596.0">
+         <children>
+            <VBox>
+               <children>
+                  <Label fx:id="fine" alignment="CENTER" prefHeight="114.0" prefWidth="254.0" text="00000" textFill="#ff4a4a">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="255.0" text="Fine">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="152.0" prefWidth="63.0" />
+            <VBox>
+               <children>
+                  <Label fx:id="comments" alignment="CENTER" prefHeight="123.0" prefWidth="238.0" text="Cash">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="33.0" prefWidth="239.0" text="Comments">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

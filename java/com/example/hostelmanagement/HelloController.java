@@ -28,8 +28,12 @@ public class HelloController {
     public TextField id_field, security_field, Security_id_Field;
     @FXML
     public PasswordField passwordField;
+
     @FXML
     public Button done, cancel, emp, std;
+
+
+
     public Scene scene;
     public Stage newStage;
 
@@ -184,32 +188,10 @@ public class HelloController {
     }
 
     @FXML
-    public void EmpHoverIn()
-    {
-         emp.setStyle("-fx-background-color:  #D4D6B9; -fx-text-fill: black");
-    }
-
-    @FXML
-    public void EmpHoverout(){
-        emp.setStyle("-fx-background-color: transparent; -fx-border-style: hidden hidden solid hidden; -fx-border-color:#D4D6B9; -fx-text-fill: white ");
-    }
-
-    @FXML
     public void Emp(){
         id_field.setPromptText("Employee ID");
     }
 
-    @FXML
-    public void STDHoverIn()
-    {
-        std.setStyle("-fx-background-color:  #D4D6B9; -fx-text-fill: black");
-    }
-
-
-    @FXML
-    public void STDHoverout(){
-        std.setStyle("-fx-background-color: transparent; -fx-border-style: hidden hidden solid hidden; -fx-border-color:#D4D6B9; -fx-text-fill: white ");
-    }
 
     @FXML
     public void STD(){
