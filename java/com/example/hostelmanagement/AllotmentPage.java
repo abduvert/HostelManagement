@@ -30,7 +30,7 @@ public class AllotmentPage implements Initializable {
     @FXML
     public BorderPane borderPane = new BorderPane();
     @FXML
-    public Button back, allot, vacat;
+    public Button back, allot;
     @FXML
     public TextField search_textField;
     public DatePicker startDate = new DatePicker();
@@ -97,10 +97,37 @@ public class AllotmentPage implements Initializable {
     }
 
 
+    @FXML
+    public void loadAll(){
+        try {
+            String q = "select * from Allotment";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+
+            while (res.next()) {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AllotROW.fxml"));
+                Parent row = loader.load();
+
+                AllotRow al = loader.getController();
+
+                al.r_id.setText(res.getString("r_id"));
+                al.st_id.setText(res.getString("st_id"));
+                al.allotid.setText(res.getString("allot_id"));
+                al.year.setText(res.getString("allot_year"));
+                al.date.setText(res.getString("allot_date"));
+                al.month.setText(res.getString("allot_month"));
+
+                entry.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     public void Apply(){
-
         start = startDate.getValue();
         end = endDate.getValue();
 
@@ -111,7 +138,6 @@ public class AllotmentPage implements Initializable {
         endDay =  Integer.toString(end.getDayOfMonth());
         endMonth = Integer.toString(end.getMonthValue());
         endYear = Integer.toString(end.getYear());
-
 
         System.out.println("date 1: " + stDay + " " + stMonth + " " + stYear);
         System.out.println("date 2: " + endDay + " " + endMonth + " " + endYear);
@@ -139,42 +165,9 @@ public class AllotmentPage implements Initializable {
                 al.month.setText(res.getString("allot_month"));
 
                 entry.getChildren().add(row);
-
-
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-
-
-    }
-
-
-    @FXML
-    public void loadAll(){
-        try {
-            String q = "select * from Allotment";
-            ResultSet res = HelloApplication.statement.executeQuery(q);
-
-
-            while (res.next()) {
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("AllotROW.fxml"));
-                Parent row = loader.load();
-
-                AllotRow al = loader.getController();
-
-               al.r_id.setText(res.getString("r_id"));
-               al.st_id.setText(res.getString("st_id"));
-               al.allotid.setText(res.getString("allot_id"));
-               al.year.setText(res.getString("allot_year"));
-               al.date.setText(res.getString("allot_date"));
-               al.month.setText(res.getString("allot_month"));
-
-               entry.getChildren().add(row);
-            }
-        } catch (Exception e) {
             e.printStackTrace();
         }
     }

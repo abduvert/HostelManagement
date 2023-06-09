@@ -18,57 +18,56 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 public class HelloController {
+    @FXML
     public static Stage forStage;
-    public Button login;
-    public Button forgot;
+    @FXML
+    public Button login, forgot;
+    @FXML
     public CheckBox showpass;
-    public TextField id_field;
+    @FXML
+    public TextField id_field, security_field, Security_id_Field;
+    @FXML
     public PasswordField passwordField;
-    public TextField security_field;
-    public TextField Security_id_Field;
-    public Button done;
-    public Button cancel;
-    public Button emp;
-    public Button std;
+    @FXML
+    public Button done, cancel, emp, std;
     public Scene scene;
-
     public Stage newStage;
 
-    public Circle circle;
-    public Stage mainstage;
 
     @FXML
     protected void Login() {
-
-
         try{
-            String q1 = "select * from Student where st_id ='" + id_field.getText() + "'and st_password = '" +  passwordField.getText() + "'";
-            ResultSet res = HelloApplication.statement.executeQuery(q1);
+            //if(std.isPressed()){
+                String q1 = "select * from Student where st_id ='" + id_field.getText() + "'and st_password = '" +  passwordField.getText() + "'";
+                ResultSet res = HelloApplication.statement.executeQuery(q1);
 
-//            String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "'";
-//            ResultSet res2 = HelloApplication.statement.executeQuery(q2);
+                if(res.next()){  //Student has logged in
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
+                    scene = new Scene(root);
 
-            if(res.next()){  //Student has logged in
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
-                scene = new Scene(root);
+                    HelloApplication.stage.setScene(scene);
+                }
+            //}
 
-                HelloApplication.stage.setScene(scene);
-
-            }
-//            else if (res2.next()) {     //Employee has logged in
-//                //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
-//                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
-//                scene = new Scene(root);
+//            else if(emp.isPressed()){
+//                String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "'";
+//                ResultSet res2 = HelloApplication.statement.executeQuery(q2);
 //
-//                HelloApplication.stage.setScene(scene);
-//                return;
+//                if (res2.next()) {     //Employee has logged in
+//                    //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
+//                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
+//                    scene = new Scene(root);
+//
+//                    HelloApplication.stage.setScene(scene);
+//                    return;
+//                }
 //            }
+
             else{
                 Alert a = new Alert(Alert.AlertType.WARNING);
                 a.setContentText("Entered ID or Password is incorrect");
                 a.show();
             }
-
             id_field.setText("");
             passwordField.setText("");
 

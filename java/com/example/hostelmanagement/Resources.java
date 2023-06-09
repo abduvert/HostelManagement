@@ -16,9 +16,6 @@ import java.util.ResourceBundle;
 public class Resources {
     public VBox vbox;
 
-
-
-
     @FXML
     public void loadA() throws IOException {
         Stage stage = new Stage();
@@ -48,6 +45,4 @@ public class Resources {
             e.printStackTrace();
         }
     }
-
-
 }

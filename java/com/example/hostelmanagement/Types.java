@@ -18,17 +18,14 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class Types {
+    @FXML
     public Label id = new Label();
+    @FXML
     public Label type = new Label();
+    @FXML
     public Label capacity = new Label();
+    @FXML
     public TextField price1 = new TextField();
-
-
-
-    public Button update = new Button();
-
-
-
 
 
     @FXML
@@ -41,10 +38,10 @@ public class Types {
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
             while (res.next()) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("TypeRow.fxml"));
-                Parent row = loader.load();
+               FXMLLoader loader = new FXMLLoader(getClass().getResource("TypeRow.fxml"));
+               Parent row = loader.load();
 
-                Types r = loader.getController();
+               Types r = loader.getController();
                r.id.setText(res.getString("Rtype_id"));
                r.capacity.setText(res.getString("Rtype_capacity"));
                r.type.setText(res.getString("Rtype_name"));
@@ -52,7 +49,6 @@ public class Types {
 
                TypeRow type = loader1.getController();
                type.vbox.getChildren().add(row);
-                System.out.println(res.getString("Rtype_price"));
             }
                 stage.setScene(new Scene(rr));
                 stage.show();

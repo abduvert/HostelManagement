@@ -95,37 +95,28 @@
                <children>
                   <HBox prefHeight="35.0" prefWidth="201.0">
                      <children>
-                        <TextField prefHeight="47.0" prefWidth="166.0" promptText="Search" style="-fx-background-radius: 0;" HBox.hgrow="NEVER">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="31.0" style="-fx-background-color: #505472; -fx-background-radius: 0;" text="🔍" textFill="WHITE" HBox.hgrow="NEVER">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="35.0" prefWidth="102.0" />
-                  <HBox prefHeight="29.0" prefWidth="200.0">
-                     <children>
-                        <ComboBox fx:id="comboBox" onAction="#Filter" prefHeight="40.0" prefWidth="206.0" promptText="Filter By Status" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
+                        <ComboBox fx:id="comboBox" onAction="#Filter" prefHeight="35.0" prefWidth="201.0" promptText="Filter By Status" style="-fx-background-color: #505472; -fx-background-radius: 0;" HBox.hgrow="NEVER">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ComboBox>
                      </children>
                   </HBox>
+                  <HBox prefHeight="35.0" prefWidth="102.0" />
+                  <HBox prefHeight="29.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Filter By Rooms:" wrappingWidth="144.80340576171875" />
+                        <TextField fx:id="from_tf" prefHeight="35.0" prefWidth="58.0" promptText="From" style="-fx-border-color: #505472;" />
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="101.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Filter By Rooms:" wrappingWidth="134.13671875" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="--" wrappingWidth="23.59765601158142" />
+                        <TextField fx:id="to_tf" prefHeight="35.0" prefWidth="57.0" promptText="To" style="-fx-border-color: #505472;" />
                      </children></HBox>
                   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="149.0">
                      <children>
-                        <TextField prefHeight="35.0" prefWidth="58.0" promptText="From" style="-fx-border-color: #505472;" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="--" />
-                        <TextField prefHeight="35.0" prefWidth="57.0" promptText="To" style="-fx-border-color: #505472;" />
+                        <Button mnemonicParsing="false" onAction="#filter_by_rooms" onMouseEntered="#StatusHoverIn" onMouseExited="#StatusHoverOut" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #505472;" text="Filter" textFill="WHITE" />
                      </children>
                   </HBox>
                   <HBox prefHeight="35.0" prefWidth="77.0" />

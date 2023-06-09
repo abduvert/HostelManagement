@@ -21,7 +21,7 @@ public class HelloApplication extends Application {
 
         HelloApplication.stage = stage;
         DriverManager.registerDriver(new SQLServerDriver());
-        Connection con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-OSAF15A;Database=Hostel_Management;encrypt=true;trustServerCertificate=true;IntegratedSecurity=true;");
+        Connection con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-P4J3J1U;Database=Hostel_Management;encrypt=true;trustServerCertificate=true;IntegratedSecurity=true;");
 
 
         statement = con.createStatement();

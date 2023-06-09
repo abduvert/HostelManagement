@@ -1,5 +1,9 @@
 package com.example.hostelmanagement;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,28 +11,49 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import static com.example.hostelmanagement.HelloApplication.statement;
+
 public class Rooms implements Initializable {
+    @FXML
     public VBox entry;
-
-    public Button back;
-    public Button rooms;
-    public Button floors;
-    public Button types;
-    public Button resources;
-
-
+    @FXML
+    public Button back, rooms, floors, types, resources;
     public BorderPane borderPane = new BorderPane();
+    @FXML
+    public ComboBox<String> comboBox = new ComboBox<>();
+    ObservableList<String> items = FXCollections.observableArrayList();
+    @FXML
+    public TextField search_tf;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadRooms();
+
+        // to fill values in filter comboBox
+        try{
+            String query = "select DISTINCT Rtype_name from RoomShow";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while(resultSet.next()){
+                String item = resultSet.getString("Rtype_name");
+                items.add(item);
+            }
+            comboBox.setItems(items);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     protected void Back() throws IOException {
@@ -121,8 +146,6 @@ public class Rooms implements Initializable {
 
     }
 
-
-
     @FXML
     public void loadRooms(){
         try {
@@ -133,7 +156,6 @@ public class Rooms implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("RoomsRow.fxml"));
                 Parent row = loader.load();
 
-
                 RoomRow r = loader.getController();
                 r.roomId.setText(res.getString("r_id"));
                 r.roomType.setText(res.getString("Rtype_name"));
@@ -141,20 +163,82 @@ public class Rooms implements Initializable {
                 r.status.setText(res.getString("occ_status"));
                 r.details.setId(res.getString("Rtype_id"));
 
+                entry.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected  void Search(){
+        entry.getChildren().clear();
+        try {
+            String q = "select * from RoomShow where floor_id =" + search_tf.getText();
+            ResultSet resultSet = statement.executeQuery(q);
+
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("RoomsRow.fxml"));
+                Parent row = loader.load();
+
+                RoomRow r = loader.getController();
+                r.roomId.setText(resultSet.getString("r_id"));
+                r.roomType.setText(resultSet.getString("Rtype_name"));
+                r.floorid.setText(resultSet.getString("floor_id"));
+                r.status.setText(resultSet.getString("occ_status"));
+                r.details.setId(resultSet.getString("Rtype_id"));
 
                 entry.getChildren().add(row);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
+    @FXML
+    protected void Filter_Rtype(){
 
+        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        comboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = comboBox.getEditor();
+            final String selected = (String)comboBox.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        entry.getChildren().clear();
+        comboBox.setItems(filteredItems);
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadRooms();
+        try {
+            String selected_Rtype = comboBox.getSelectionModel().getSelectedItem();
+            String query = "SELECT * FROM RoomShow WHERE Rtype_name = '" + selected_Rtype + "'";
+            ResultSet resultSet = statement.executeQuery(query);
 
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("RoomsRow.fxml"));
+                Parent row = loader.load();
+
+                RoomRow r = loader.getController();
+                r.roomId.setText(resultSet.getString("r_id"));
+                r.roomType.setText(resultSet.getString("Rtype_name"));
+                r.floorid.setText(resultSet.getString("floor_id"));
+                r.status.setText(resultSet.getString("occ_status"));
+                r.details.setId(resultSet.getString("Rtype_id"));
+
+                entry.getChildren().add(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
+
 }

@@ -11,9 +11,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 
 public class FloorRes {
-
     public VBox vBox;
-
 
     @FXML
     public void loadA() throws IOException {

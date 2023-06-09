@@ -5,41 +5,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SRowController {
-    public Label id;
-    public Label name;
-    public Label phoneNumber;
-    public Label degree;
-    public Label CGPA;
-    public Button details;
-
-    public Label st_id;
-    public TextField email;
-    public  TextField CNICcode;
-    public TextField CNICno;
-    public TextField phoneCode;
-    public TextField phoneNo;
-    public TextField stfName;
-    public TextField stlName;
-    public TextField batch;
-    public TextField dateofbirth;
-    public Button save;
-    public Button edit;
+    @FXML
+    public Label id, name, phoneNumber, degree, CGPA, st_id, dett;
+    @FXML
+    public Button details, save, edit;
+    @FXML
+    public TextField email, CNICcode, CNICno, phoneCode, phoneNo, stfName, stlName, batch, dateofbirth;
     public AnchorPane anchorPane;
-    public Label dett;
     public String g;
     Stage inform = new Stage();
 
@@ -79,28 +61,28 @@ public class SRowController {
     @FXML
     public void Edit(){
         //for changing the style of textfields and making it editable
+        save.setVisible(true);
         inform.setTitle("Edit Details");
         dett.setText("Edit Student Details");
         anchorPane.setStyle("-fx-border-color: green");
-        email.setEditable(true);
         email.setStyle("-fx-border-color: #505472 ");
-        CNICcode.setEditable(true);
         CNICcode.setStyle("-fx-border-color: #505472 ");
-        CNICno.setEditable(true);
         CNICno.setStyle("-fx-border-color: #505472 ");
-        phoneNo.setEditable(true);
         phoneNo.setStyle("-fx-border-color: #505472 ");
-        phoneCode.setEditable(true);
         phoneCode.setStyle("-fx-border-color: #505472 ");
-        batch.setEditable(true);
         batch.setStyle("-fx-border-color: #505472 ");
-        dateofbirth.setEditable(true);
         dateofbirth.setStyle("-fx-border-color: #505472 ");
-        stfName.setEditable(true);
         stfName.setStyle("-fx-border-color: #505472 ");
-        stlName.setEditable(true);
         stlName.setStyle("-fx-border-color: #505472 ");
-        save.setVisible(true);
+        CNICcode.setEditable(true);
+        CNICno.setEditable(true);
+        phoneNo.setEditable(true);
+        phoneCode.setEditable(true);
+        dateofbirth.setEditable(true);
+        batch.setEditable(true);
+        stfName.setEditable(true);
+        stlName.setEditable(true);
+        email.setEditable(true);
     }
 
     @FXML
@@ -133,17 +115,11 @@ public class SRowController {
                     batch.getText() + "' , st_dob = '" + dateofbirth.getText() + "' where st_id = '" + st_id.getText() + "'";
             HelloApplication.statement.executeUpdate(edit_std_query);
 
-//            Alert a = new Alert(Alert.AlertType.INFORMATION);
-//            a.setContentText("Data has been updated");
-//            a.show();
             inform.close();
-
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-
-
     }
 
 

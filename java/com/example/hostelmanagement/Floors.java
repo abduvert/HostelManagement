@@ -37,7 +37,6 @@ public class Floors implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("FloorsRow.fxml"));
                 Parent row = loader.load();
 
-
                 FloorsRow r = loader.getController();
 
                 r.id.setText(res.getString("floor_id"));
@@ -45,15 +44,12 @@ public class Floors implements Initializable {
                 r.rooms.setText(res.getString("total_rooms"));
                 r.resource.setId(res.getString("floor_id"));
 
-
                 entry.getChildren().add(row);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 
     @FXML
     public void Resources() throws IOException {

@@ -20,46 +20,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class GuardianRow {
-    @FXML
-
-    public Button details;
-    public Label dett;
     public AnchorPane pane;
-    public Label detID = new Label();
-    public TextField fname;
-    public TextField lname;
-
-    public TextField detRelation;
-    public TextField detCNICcode;
-    public TextField detCNICno;
-    public TextField detPhonecode;
-    public TextField detPhoneNo;
-
     Stage inform = new Stage();
-
-    public Label st_id;
-    public Label guardianName;
-    public Label g_Phone;
-    public Label relation;
-    public Label g_email;
-
-    public Button edit;
-    public Button save;
-
-
+    @FXML
+    public Label detID = new Label();
+    @FXML
+    public TextField fname, lname, detRelation, detCNICcode, detCNICno, detPhonecode, detPhoneNo;
+    @FXML
+    public Label dett, st_id, g_Phone, guardianName, relation, g_email;
+    @FXML
+    public Button edit, save, details;
+    public static String g;
 
 
-    //issue with details button
     @FXML
     public void Details(ActionEvent event) throws IOException, SQLException {
 
         try {
-
-            String g = ((Button) event.getSource()).getId();
+            g = ((Button) event.getSource()).getId();
             String q = "select * from Guardian where st_id ='" + g + "'";
             ResultSet res = HelloApplication.statement.executeQuery(q);
-
-            System.out.println(g);
 
             if (res.next()) {
                 System.out.println(res.getString("g_relation"));
@@ -86,8 +66,8 @@ public class GuardianRow {
 
     @FXML
     public void Edit(){
-        inform.setTitle("Edit details");
         save.setVisible(true);
+        inform.setTitle("Edit details");
         pane.setStyle("-fx-border-color: green;");
         fname.setStyle("-fx-border-color: #505472");
         lname.setStyle("-fx-border-color: #505472");
@@ -97,7 +77,12 @@ public class GuardianRow {
         detPhoneNo.setStyle("-fx-border-color: #505472");
         detPhonecode.setStyle("-fx-border-color: #505472");
         dett.setText("Edit Guardian Details");
-
+        detCNICcode.setEditable(true);
+        detCNICno.setEditable(true);
+        detPhoneNo.setEditable(true);
+        detPhonecode.setEditable(true);
+        fname.setEditable(true);
+        lname.setEditable(true);
     }
 
     @FXML
@@ -112,7 +97,6 @@ public class GuardianRow {
         save.setStyle("-fx-background-color: transparent; -fx-text-fill: green; -fx-border-color: green;");
     }
 
-
     @FXML
     public void SaveHoverin(){
 
@@ -121,18 +105,24 @@ public class GuardianRow {
 
     @FXML
     public void EditHoverOut(){
-
         edit.setStyle("-fx-background-color: transparent; -fx-text-fill: #505472; -fx-border-color: #505472;");
     }
 
     @FXML
-    protected void Save(ActionEvent event){
+    protected void Save(){
+        try{
+            System.out.println(g);
+            String G_edit_query = "update Guardian set g_firstName = '" + fname.getText() + "' , g_lastName = '" +
+                    lname.getText() + "' , g_CNICcode = " + detCNICcode.getText() + " , g_CNICno = " +
+                    detCNICno.getText() + " , g_relation = '" + detRelation.getText() + "' , g_PHNcode = " +
+                    detPhonecode.getText() + " , g_PHNno = " + detPhoneNo.getText() + " where st_id = '" + g + "'";
+            HelloApplication.statement.executeUpdate(G_edit_query);
 
-                inform.close();
-
+            inform.close();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
-
-
-
 }
 

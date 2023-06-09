@@ -123,21 +123,22 @@ public class RegisterController {
             e.printStackTrace();
         }
 
-//        if(batch.getText().isEmpty() || degree.getText().isEmpty() || fname.getText().isEmpty() ||
-//           lname.getText().isEmpty() || Phncode.getText().isEmpty() || PhnNo.getText().isEmpty() ||
-//           email.getText().isEmpty() || dob.getText().isEmpty() || CNICcode.getText().isEmpty() ||
-//           CNICno.getText().isEmpty() || religion.getText().isEmpty() || town.getText().isEmpty() ||
-//           Hno.getText().isEmpty() || cgpa.getText().isEmpty() || password.getText().isEmpty() ||
-//           security.getText().isEmpty()){
-//            Alert a = new Alert(Alert.AlertType.WARNING);
-//            a.setContentText("A text field is empty. Student has not been registered");
-//            a.show();
-//        }
-//        else{
+        if(batch.getText().isEmpty() || degree.getText().isEmpty() || fname.getText().isEmpty() ||
+           lname.getText().isEmpty() || Phncode.getText().isEmpty() || PhnNo.getText().isEmpty() ||
+           email.getText().isEmpty() || dob.getText().isEmpty() || CNICcode.getText().isEmpty() ||
+           CNICno.getText().isEmpty() || religion.getText().isEmpty() || town.getText().isEmpty() ||
+           Hno.getText().isEmpty() || cgpa.getText().isEmpty() || password.getText().isEmpty() ||
+           security.getText().isEmpty()){
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("A text field is empty. Student has not been registered");
+            a.show();
+        }
+        else{
             FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register2.fxml"));
             stage1.setScene(new Scene(reg2.load()));
-      //  }
+        }
     }
+
     @FXML
     protected void Show2(){
         G_city = comboBox2.getValue();
@@ -146,6 +147,7 @@ public class RegisterController {
             G_city = newValue;
         });
     }
+
     @FXML
     protected void Next2(ActionEvent backevent) throws IOException {
         try{
@@ -169,18 +171,18 @@ public class RegisterController {
             System.out.println( e.getMessage());
             e.printStackTrace();
     }
-//        if(G_fname.getText().isEmpty() || G_lname.getText().isEmpty() || G_CNICcode.getText().isEmpty() ||
-//           G_CNICno.getText().isEmpty() || G_relation.getText().isEmpty() || G_PHNcode.getText().isEmpty() ||
-//           G_PHNno.getText().isEmpty() || G_town.getText().isEmpty() || G_Hno.getText().isEmpty() ||
-//           G_email.getText().isEmpty()){
-//            Alert a = new Alert(Alert.AlertType.WARNING);
-//            a.setContentText("A text field is empty. Guardian has not been registered");
-//            a.show();
-//        }
-//        else{
+        if(G_fname.getText().isEmpty() || G_lname.getText().isEmpty() || G_CNICcode.getText().isEmpty() ||
+           G_CNICno.getText().isEmpty() || G_relation.getText().isEmpty() || G_PHNcode.getText().isEmpty() ||
+           G_PHNno.getText().isEmpty() || G_town.getText().isEmpty() || G_Hno.getText().isEmpty() ||
+           G_email.getText().isEmpty()){
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("A text field is empty. Guardian has not been registered");
+            a.show();
+        }
+        else{
             FXMLLoader reg2 = new FXMLLoader(getClass().getResource("Register3.fxml"));
             stage1.setScene(new Scene(reg2.load()));
-       // }
+        }
     }
 
     @FXML
@@ -232,16 +234,13 @@ public class RegisterController {
 
         rooms_Show();
 
-
         //shifting to another class for a new page
         AllotingRoom room = new AllotingRoom();
         room.add(stage1);
-
     }
 
     @FXML
     protected void rooms_Show() throws IOException {
-
         selected_room = room_comboBox.getValue();
         room_comboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
             selected_room = newValue;

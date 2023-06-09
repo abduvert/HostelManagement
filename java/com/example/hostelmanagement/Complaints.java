@@ -29,20 +29,25 @@ public class Complaints implements Initializable {
     public Button stat;
     @FXML
     ComboBox<String > comboBox = new ComboBox<>();
-
-    public Label complain;
     Stage st = new Stage();
     ObservableList<String> comItems = FXCollections.observableArrayList();
-
+    ObservableList<String> items = FXCollections.observableArrayList();
+    @FXML
     public ComboBox<String> comID = new ComboBox<>();
-
-
-
     public static String selectedID;
+    public static String selectedStatus;
+    public TextField from_tf, to_tf;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        loadAll();
+
+        //to fill comboBox of filter by complaint status
+        items = FXCollections.observableArrayList("Open", "Closed");
+        comboBox.setItems(items);
+
+        //to fill values of comboBox in status update
         try{
             String query = "select * from Complaints c\n" +
                     "where c.status = 'Open'";
@@ -57,10 +62,8 @@ public class Complaints implements Initializable {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-
-
-        loadAll();
     }
+
     @FXML
     public void add(ActionEvent event) throws IOException {
         FXMLLoader complain = new FXMLLoader(getClass().getResource("Complaints.fxml"));
@@ -98,7 +101,6 @@ public class Complaints implements Initializable {
 
         updated.setScene(new Scene(upd,400,200));
         updated.show();
-
     }
 
 
@@ -139,7 +141,6 @@ public class Complaints implements Initializable {
             String q = "select * from Complaints_show";
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
-            System.out.println("before");
             while (res.next()) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ComRow.fxml"));
                 Parent row = loader.load();
@@ -147,7 +148,7 @@ public class Complaints implements Initializable {
                 ComRow comRow = loader.getController();
 
                 comRow.comID.setText(res.getString("cmp_id"));
-                comRow.empName.setText(res.getString("emp_firstName") + res.getString("emp_lastName"));
+                comRow.empName.setText(res.getString("emp_firstName") + " " + res.getString("emp_lastName"));
                 comRow.r_id.setText(res.getString("r_id"));
                 comRow.complain.setText(res.getString("complain"));
                 comRow.status.setText(res.getString("status"));
@@ -161,23 +162,18 @@ public class Complaints implements Initializable {
 
     @FXML
     protected void Filter(){
-        ObservableList<String> items = FXCollections.observableArrayList();
-        try {
-            String q = "select * from Complaints";
-            ResultSet res = HelloApplication.statement.executeQuery(q);
-
-            while (res.next()) {
-                items.add(res.getString("status"));
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+        selectedStatus = comboBox.getValue();
+        comboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            selectedStatus = newValue;
+        });
+        comboBox.setValue(selectedStatus);
 
         FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
         comboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
             final TextField editor = comboBox.getEditor();
             final String selected = (String)comboBox.getSelectionModel().getSelectedItem();
+
+            System.out.println("selected: " + selected);
             Platform.runLater(() -> {
                 if (selected == null || !selected.equals(editor.getText())) {
                     filteredItems.setPredicate(item -> {
@@ -190,14 +186,16 @@ public class Complaints implements Initializable {
                 }
             });
         });
-        comEntry.getChildren().clear();
         comboBox.setItems(filteredItems);
+        comEntry.getChildren().clear();
+
 
         try {
-            String selectedStatus = comboBox.getSelectionModel().getSelectedItem();
-            String query = "SELECT * FROM Complaints WHERE status = '" + selectedStatus + "'";
+            selectedStatus = comboBox.getSelectionModel().getSelectedItem();
 
-            ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+            String query = "SELECT * FROM Complaints_show WHERE status = '" + selectedStatus + "'";
+            ResultSet resultSet = statement.executeQuery(query);
+
             while (resultSet.next()) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ComRow.fxml"));
                 Parent row = loader.load();
@@ -205,7 +203,7 @@ public class Complaints implements Initializable {
                 ComRow comRow = loader.getController();
 
                 comRow.comID.setText(resultSet.getString("cmp_id"));
-                comRow.empName.setText(resultSet.getString("emp_firstName") + resultSet.getString("emp_lastName"));
+                comRow.empName.setText(resultSet.getString("emp_firstName") + " " + resultSet.getString("emp_lastName"));
                 comRow.r_id.setText(resultSet.getString("r_id"));
                 comRow.complain.setText(resultSet.getString("complain"));
                 comRow.status.setText(resultSet.getString("status"));
@@ -218,6 +216,32 @@ public class Complaints implements Initializable {
         }
     }
 
+    @FXML
+    protected void filter_by_rooms(){
+        comEntry.getChildren().clear();
+        try{
+            String query = "select * from Complaints_show where r_id between " + from_tf.getText() + " " +
+                    "and " + to_tf.getText();
+            ResultSet resultSet = statement.executeQuery(query);
 
+            while (resultSet.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ComRow.fxml"));
+                Parent row = loader.load();
 
+                ComRow comRow = loader.getController();
+
+                comRow.comID.setText(resultSet.getString("cmp_id"));
+                comRow.empName.setText(resultSet.getString("emp_firstName") + " " + resultSet.getString("emp_lastName"));
+                comRow.r_id.setText(resultSet.getString("r_id"));
+                comRow.complain.setText(resultSet.getString("complain"));
+                comRow.status.setText(resultSet.getString("status"));
+
+                comEntry.getChildren().add(row);
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
 }

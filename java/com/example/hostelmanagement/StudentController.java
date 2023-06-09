@@ -26,10 +26,13 @@ public class StudentController {
     public BorderPane borderPane;
     @FXML
     public ComboBox<String> comboBox = new ComboBox<>();
+    ObservableList<String> st_items = FXCollections.observableArrayList();
     @FXML
     public ComboBox<String> comboBox2 = new ComboBox<>();
+    ObservableList<String> g_items = FXCollections.observableArrayList();
     @FXML
     public ComboBox<String> comboBox3 = new ComboBox<>();
+    ObservableList<String> v_items = FXCollections.observableArrayList();
 
     @FXML
     public TextField st_search_textfield, guardian_search_textfield, vis_search_textfield;
@@ -48,6 +51,46 @@ public class StudentController {
         loadAllProducts();
         Guardload();
         VisLoad();
+
+        //to fill values in student filter comboox
+        try {
+            String q = "select DISTINCT degree from Student";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                st_items.add(res.getString("degree"));
+            }
+            comboBox.setItems(st_items);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        //to fill comboBox2 in guardians
+        try {
+            String q = "select DISTINCT g_city from Guardian";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                g_items.add(res.getString("g_city"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        //to fill comboBox3 in visitors
+        try {
+            String q = "select * from Visitors";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            while (res.next()) {
+                v_items.add(res.getString("v_relation"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -281,20 +324,8 @@ public class StudentController {
 
     @FXML
     protected void st_Filter(){
-        ObservableList<String> items = FXCollections.observableArrayList();
-        try {
-            String q = "select * from Student";
-            ResultSet res = HelloApplication.statement.executeQuery(q);
 
-            while (res.next()) {
-                items.add(res.getString("degree"));
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-
-        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        FilteredList<String> filteredItems = new FilteredList<String>(st_items, p -> true);
         comboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
             final TextField editor = comboBox.getEditor();
             final String selected = (String)comboBox.getSelectionModel().getSelectedItem();
@@ -404,20 +435,7 @@ public class StudentController {
 
     @FXML
     protected void g_Filter(){
-        ObservableList<String> items = FXCollections.observableArrayList();
-        try {
-            String q = "select * from Guardian";
-            ResultSet res = HelloApplication.statement.executeQuery(q);
-
-            while (res.next()) {
-                items.add(res.getString("g_city"));
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-
-        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        FilteredList<String> filteredItems = new FilteredList<String>(g_items, p -> true);
         comboBox2.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
             final TextField editor = comboBox2.getEditor();
             final String selected = (String)comboBox2.getSelectionModel().getSelectedItem();
@@ -526,20 +544,7 @@ public class StudentController {
     }
     @FXML
     protected void vis_Filer(){
-        ObservableList<String> items = FXCollections.observableArrayList();
-        try {
-            String q = "select * from Visitors";
-            ResultSet res = HelloApplication.statement.executeQuery(q);
-
-            while (res.next()) {
-                items.add(res.getString("v_relation"));
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-
-        FilteredList<String> filteredItems = new FilteredList<String>(items, p -> true);
+        FilteredList<String> filteredItems = new FilteredList<String>(v_items, p -> true);
         comboBox3.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
             final TextField editor = comboBox3.getEditor();
             final String selected = (String)comboBox3.getSelectionModel().getSelectedItem();
