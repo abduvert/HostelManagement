@@ -47,6 +47,41 @@ public class Bills1 implements Initializable {
     @FXML
     public void loadAll(){
         try {
+
+            String q1 = "select count(allot_id) as counts from Bill";
+            ResultSet qS = HelloApplication.statement.executeQuery(q1);
+
+            if(qS.next())
+            {
+                stdEnr.setText(qS.getString("counts"));
+            }
+
+            qS.close();
+
+
+
+                String q2 = "SELECT CAST(b.due_date AS DATE) AS due FROM Bill b WHERE b.allot_id = 'AL001'";
+                ResultSet qW = HelloApplication.statement.executeQuery(q2);
+
+                if (qW.next()) {
+                    dueDateON.setText(qW.getString("due"));
+                }
+
+
+                qW.close();
+
+
+                String q3 = "select sum(dues) as total from Bill";
+                ResultSet qV = HelloApplication.statement.executeQuery(q3);
+
+                if (qV.next()) {
+                    total.setText(qV.getString("total"));
+                }
+
+            qV.close();
+
+
+
             String q = "select * from BillShow";
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
@@ -78,41 +113,6 @@ public class Bills1 implements Initializable {
             }
 
             res.close();
-
-            String q1 = "select count(allot_id) as counts from Bill";
-            ResultSet qS = HelloApplication.statement.executeQuery(q1);
-
-            if(qS.next())
-            {
-                stdEnr.setText(qS.getString("counts"));
-            }
-
-            qS.close();
-
-
-            if(qS.isClosed()) {
-                String q2 = "SELECT CAST(b.due_date AS DATE) AS due FROM Bill b WHERE b.allot_id = 'AL001'";
-                ResultSet qW = HelloApplication.statement.executeQuery(q2);
-
-                if (qW.next()) {
-                    dueDateON.setText(qW.getString("due"));
-                }
-
-
-                qW.close();
-            }
-
-                String q3 = "select sum(dues) as total from Bill";
-                ResultSet qV = HelloApplication.statement.executeQuery(q3);
-
-                if (qV.next()) {
-                    total.setText(qV.getString("total"));
-                }
-
-            qV.close();
-
-
-
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -30,20 +30,10 @@ public class HelloController {
     public PasswordField passwordField;
     public String passsave;
     @FXML
-<<<<<<< Updated upstream
     public RadioButton emp,std;
-=======
-    public Button done, cancel;
-
-    @FXML
-    public RadioButton emp;
-    public RadioButton std;
 
 
-    public static String storeName;
-    public static String storeID;
 
->>>>>>> Stashed changes
     public Scene scene;
     public Stage newStage;
     public static String storeName,storeID;
@@ -59,13 +49,8 @@ public class HelloController {
                 if (res.next()) {  //Student has logged in
                     storeName = res.getString("st_firstName");
                     storeID = id_field.getText();
-<<<<<<< Updated upstream
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("STUDENTLOGIN.fxml")));
-=======
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("STUDENTLOGIN.fxml"));
                     Parent root = loader.load();
-
->>>>>>> Stashed changes
                     scene = new Scene(root);
 
                     HelloApplication.stage.setScene(scene);
@@ -80,15 +65,14 @@ public class HelloController {
                 if (res2.next()) {     //Employee has logged in
                     //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
                     storeName = res2.getString("emp_firstName");
-<<<<<<< Updated upstream
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
-=======
+
+
                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
                    Parent root = loader.load();
 
 
 
->>>>>>> Stashed changes
+
                     scene = new Scene(root);
 
                     HelloApplication.stage.setScene(scene);
