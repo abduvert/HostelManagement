@@ -68,11 +68,11 @@ public class StudentController {
 
         //to fill comboBox2 in guardians
         try {
-            String q = "select DISTINCT g_city from Guardian";
-            ResultSet res = HelloApplication.statement.executeQuery(q);
+            String q2 = "select DISTINCT g_city from Guardian";
+            ResultSet res2 = HelloApplication.statement.executeQuery(q2);
 
-            while (res.next()) {
-                g_items.add(res.getString("g_city"));
+            while (res2.next()) {
+                g_items.add(res2.getString("g_city"));
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -81,7 +81,7 @@ public class StudentController {
 
         //to fill comboBox3 in visitors
         try {
-            String q = "select * from Visitors";
+            String q = "select distinct v_relation from Visitors";
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
             while (res.next()) {
@@ -259,7 +259,6 @@ public class StudentController {
 
     @FXML
     protected void st_Search(){
-        entries.getChildren().clear();
         String fullName = st_search_textfield.getText();
 
         try {
@@ -280,6 +279,8 @@ public class StudentController {
                 String query2 = "select * from Student where st_firstName = '" + stFirstName +
                         "' and st_lastName = '" + stLastName + "'";
                 ResultSet res2 = HelloApplication.statement.executeQuery(query2);
+                entries.getChildren().clear();
+
                 while (res2.next()) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
                     Parent row = loader.load();
@@ -300,6 +301,8 @@ public class StudentController {
                 String query = "select * from Student where st_firstName = '" + st_search_textfield.getText() +
                             "'";
                 ResultSet res = HelloApplication.statement.executeQuery(query);
+                entries.getChildren().clear();
+
                 while (res.next()) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
                     Parent row = loader.load();
@@ -372,7 +375,6 @@ public class StudentController {
 
     @FXML
     protected void guardian_Search(){
-        entries2.getChildren().clear();
         String fullName = guardian_search_textfield.getText();
 
         try {
@@ -393,6 +395,8 @@ public class StudentController {
                 String query = "select * from Guardian where g_firstName = '" + g_FirstName +
                         "' and g_lastName = '" + g_LastName + "'";
                 ResultSet res = HelloApplication.statement.executeQuery(query);
+                entries2.getChildren().clear();
+
                 while (res.next()) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("GrdROW.fxml"));
                     Parent row = loader.load();
@@ -412,6 +416,8 @@ public class StudentController {
                 String query = "select * from Guardian where g_firstName = '" + guardian_search_textfield.getText() +
                         "'";
                 ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+                entries2.getChildren().clear();
+
                 while (resultSet.next()) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("GrdROW.fxml"));
                     Parent row = loader.load();
@@ -432,6 +438,7 @@ public class StudentController {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     protected void g_Filter(){
@@ -482,7 +489,6 @@ public class StudentController {
 
     @FXML
     protected void Vis_Search(){
-        entries3.getChildren().clear();
         String fullName = vis_search_textfield.getText();
 
         try {
@@ -503,6 +509,8 @@ public class StudentController {
                 String query = "select * from Visitors where v_firstName = '" + v_FirstName +
                         "' and v_lastName = '" + v_LastName + "'";
                 ResultSet res = HelloApplication.statement.executeQuery(query);
+                entries3.getChildren().clear();
+
                 while (res.next()) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("VisRow.fxml"));
                     Parent row = loader.load();
@@ -522,6 +530,8 @@ public class StudentController {
                 String query = "select * from Visitors where v_firstName = '" + vis_search_textfield.getText() +
                         "'";
                 ResultSet resultSet = HelloApplication.statement.executeQuery(query);
+                entries3.getChildren().clear();
+
                 while (resultSet.next()) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("VisRow.fxml"));
                     Parent row = loader.load();

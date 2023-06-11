@@ -63,7 +63,6 @@ public class VisRow {
         }
     }
 
-
     @FXML
     public void Edit(){
         inform.setTitle("Edit details");

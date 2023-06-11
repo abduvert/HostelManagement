@@ -21,7 +21,7 @@ public class HelloController {
     @FXML
     public static Stage forStage;
     @FXML
-    public Button login, forgot;
+    public Button login, forgot,done, cancel;
     @FXML
     public CheckBox showpass;
     @FXML
@@ -29,16 +29,8 @@ public class HelloController {
     @FXML
     public PasswordField passwordField;
     public String passsave;
-
     @FXML
-    public Button done, cancel;
-
-    @FXML
-    public RadioButton emp;
-    public RadioButton std;
-
-
-
+    public RadioButton emp,std;
     public Scene scene;
     public Stage newStage;
 

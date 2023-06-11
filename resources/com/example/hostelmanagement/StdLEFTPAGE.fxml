@@ -103,6 +103,6 @@
       <Label fx:id="dett" alignment="CENTER" layoutX="114.0" layoutY="40.0" text="Student Details" textFill="#302f46" />
       <Button fx:id="save" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="487.0" mnemonicParsing="false" onAction="#Save" onMouseEntered="#SaveHoverin" onMouseExited="#SaveHoverOut" prefHeight="27.0" prefWidth="65.0" style="-fx-border-color: green; -fx-background-color: transparent; -fx-background-radius: 0;" text="Save" textFill="GREEN" visible="false" />
       <Button fx:id="edit" layoutX="90.0" layoutY="140.0" mnemonicParsing="false" onAction="#Edit" onMouseEntered="#EditHoverin" onMouseExited="#EditHoverOut" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: #505472; -fx-background-color: transparent; -fx-background-radius: 0;" text="Edit" textFill="#505472" />
-      <Button layoutX="167.0" layoutY="140.0" mnemonicParsing="false" onMouseEntered="#EditHoverin" onMouseExited="#EditHoverOut" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: red; -fx-background-color: red; -fx-background-radius: 0;" text="🗑 Delete" textFill="WHITE" />
+      <Button layoutX="167.0" layoutY="140.0" mnemonicParsing="false" onAction="#Delete" onMouseEntered="#EditHoverin" onMouseExited="#EditHoverOut" prefHeight="28.0" prefWidth="65.0" style="-fx-border-color: red; -fx-background-color: red; -fx-background-radius: 0;" text="🗑 Delete" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -122,5 +122,16 @@ public class SRowController {
         }
     }
 
+    @FXML
+    protected void Delete(){
+        try{
+            String delete_query = "delete from Student where st_id = '" + st_id.getText() + "'";
+            HelloApplication.statement.executeUpdate(delete_query);
 
+            inform.close();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
