@@ -1,8 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-
-</AnchorPane>
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hostelmanagement.StudentLog">
+   <top>
+      <HBox prefHeight="28.0" prefWidth="831.0" style="-fx-background-color: #7F5A83;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="bill" mnemonicParsing="false" onAction="#Bill" onMouseEntered="#BillHoverIn" onMouseExited="#BillHoverOut" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: #0D324D; -fx-background-radius: 0;" text="Bills" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="complain" mnemonicParsing="false" onAction="#Complain" onMouseEntered="#ComHoverIn" onMouseExited="#ComHoverOut" prefHeight="35.0" prefWidth="199.0" style="-fx-background-color: #0D324D; -fx-background-radius: 0;" text="My Complains" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="232.0" style="-fx-background-color: #9DA2AB; -fx-background-radius: 0;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="233.0" style="-fx-background-color: #0D324D; -fx-background-radius: 0;" text="Profile" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="521.0" prefWidth="232.0" style="-fx-border-color: #9DA2AB; -fx-border-style: hidden hidden hidden solid;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="225.0" prefWidth="230.0">
+               <children>
+                  <Circle fill="#a188a6" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label fx:id="stdName" alignment="CENTER" prefHeight="25.0" prefWidth="114.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#Logout" onMouseEntered="#LogoutHoverIn" onMouseExited="#LogoutHoverOut" prefHeight="29.0" prefWidth="163.0" style="-fx-background-radius: 15; -fx-background-color: #2D1E34; -fx-border-color: white; -fx-border-radius: 15;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow height="38.59" radius="19.527500000000003" width="41.52">
+                     <color>
+                        <Color red="0.25" green="0.25" blue="0.25" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

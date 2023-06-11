@@ -21,9 +21,11 @@ public class Resources {
         Stage stage = new Stage();
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("RoomResources.fxml"));
         Parent rr = loader1.load();
+
         try {
             String q = "select * from Room_Resources";
             ResultSet res = HelloApplication.statement.executeQuery(q);
+
 
             while (res.next()) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ResRow.fxml"));
@@ -36,9 +38,15 @@ public class Resources {
                 r.category.setText(res.getString("Rresource_category"));
                 r.condition.setText(res.getString("Rresource_condition"));
 
+
                 Resources ro = loader1.getController();
+
                 ro.vbox.getChildren().add(row);
+
+
             }
+
+
             stage.setScene(new Scene(rr));
             stage.show();
         } catch (Exception e) {

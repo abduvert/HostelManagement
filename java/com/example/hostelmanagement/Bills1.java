@@ -27,6 +27,7 @@ public class Bills1 implements Initializable {
     public Label total;
     Date date,date2;
     public Button fineBut;
+    public Button unpaidd;
 
 
     @FXML
@@ -127,6 +128,42 @@ public class Bills1 implements Initializable {
 
 
     @FXML
+    public void unpaid() throws SQLException, IOException {
+
+        String q ="select * from Bill b\n" +
+                "where b.paid_date is null";
+
+        ResultSet res = HelloApplication.statement.executeQuery(q);
+
+        entry.getChildren().clear();
+        while (res.next())
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BillRow1.fxml"));
+            Parent rr = loader.load();
+
+
+            BillsRow1 row = loader.getController();
+
+
+            date = res.getDate("due_date");
+
+            row.id.setText(res.getString("allot_id"));
+            row.comments.setText(res.getString("comments"));
+            row.duedate.setText(date.toString());
+
+            row.paidDate.setText("UNPAID");
+            row.dues.setText(res.getString("dues"));
+            row.fine.setText(res.getString("fine"));
+            row.method.setText(res.getString("payment_method"));
+
+
+            entry.getChildren().add(rr);
+
+        }
+
+
+    }
+    @FXML
     public void fineBut() throws SQLException, IOException {
 
         String q = "select * from BillShow\n" +
@@ -152,8 +189,6 @@ public class Bills1 implements Initializable {
             row.duedate.setText(date.toString());
 
 
-
-
             row.paidDate.setText(date2.toString());
             row.dues.setText(res.getString("dues"));
             row.fine.setText(res.getString("fine"));
@@ -174,6 +209,16 @@ public class Bills1 implements Initializable {
     @FXML
     public void typesHoverOut(){
         fineBut.setStyle("-fx-background-color: white ;-fx-text-fill: #505472; -fx-border-color: #505472");
+    }
+
+    @FXML
+    public void HoverIn(){
+        unpaidd.setStyle("-fx-background-color: #505472 ;-fx-text-fill: white");
+    }
+
+    @FXML
+    public void HoverOut(){
+        unpaidd.setStyle("-fx-background-color: white ;-fx-text-fill: #505472; -fx-border-color: #505472");
     }
 
 

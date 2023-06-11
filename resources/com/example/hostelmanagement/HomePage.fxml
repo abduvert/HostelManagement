@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
@@ -99,7 +100,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="logout" layoutX="29.0" layoutY="222.0" mnemonicParsing="false" onAction="#Logout" onMouseEntered="#LogoutHoverIn" onMouseExited="#LogoutHoverOut" prefHeight="41.0" prefWidth="184.0" style="-fx-background-radius: 15; -fx-background-color: #2D1E34; -fx-border-color: white; -fx-border-radius: 15;" text="Logout" textFill="WHITE" AnchorPane.leftAnchor="29.0">
+                  <Button fx:id="logout" layoutX="33.0" layoutY="331.0" mnemonicParsing="false" onAction="#Logout" onMouseEntered="#LogoutHoverIn" onMouseExited="#LogoutHoverOut" prefHeight="41.0" prefWidth="184.0" style="-fx-background-radius: 15; -fx-background-color: #2D1E34; -fx-border-color: white; -fx-border-radius: 15;" text="Logout" textFill="WHITE" AnchorPane.leftAnchor="33.0">
                      <font>
                         <Font name="Tw Cen MT Condensed Extra Bold" size="18.0" />
                      </font>
@@ -115,9 +116,9 @@
                      </cursor>
                   </Button>
                   <Circle fill="DODGERBLUE" layoutX="120.0" layoutY="107.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Text fill="WHITE" layoutX="64.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" textAlignment="CENTER" wrappingWidth="112.0">
+                  <Text fx:id="admin" fill="WHITE" layoutX="54.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" textAlignment="CENTER" wrappingWidth="132.0">
                      <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                        <Font name="Berlin Sans FB Demi Bold" size="31.0" />
                      </font>
                   </Text>
                   <Separator layoutX="238.0" orientation="VERTICAL" prefHeight="636.0" prefWidth="33.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
@@ -151,6 +152,20 @@
                         <Image url="@bill.png" />
                      </image>
                   </ImageView>
+                  <VBox alignment="CENTER" layoutX="28.0" layoutY="203.0" prefHeight="35.0" prefWidth="184.0">
+                     <children>
+                        <Label fx:id="role" alignment="CENTER" prefHeight="26.0" prefWidth="191.0" text="Manager" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="26.0" prefWidth="191.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
          </children>

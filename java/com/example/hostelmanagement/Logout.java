@@ -38,6 +38,12 @@ public class Logout implements Initializable {
                     HelloApplication.stage.setTitle("SU HOSTEL");
 
 
+                    if(HomePage.splashStage ==null)
+                    {
+                    StudentLog.splashStage.close();
+                        HelloApplication.stage.show();
+                        return;
+                    }
                     HomePage.splashStage.close();
                     HelloApplication.stage.show();
 

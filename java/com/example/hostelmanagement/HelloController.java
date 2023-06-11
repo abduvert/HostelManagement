@@ -30,9 +30,23 @@ public class HelloController {
     public PasswordField passwordField;
     public String passsave;
     @FXML
+<<<<<<< Updated upstream
     public RadioButton emp,std;
+=======
+    public Button done, cancel;
+
+    @FXML
+    public RadioButton emp;
+    public RadioButton std;
+
+
+    public static String storeName;
+    public static String storeID;
+
+>>>>>>> Stashed changes
     public Scene scene;
     public Stage newStage;
+    public static String storeName,storeID;
 
 
     @FXML
@@ -43,7 +57,15 @@ public class HelloController {
                 ResultSet res = HelloApplication.statement.executeQuery(q1);
 
                 if (res.next()) {  //Student has logged in
+                    storeName = res.getString("st_firstName");
+                    storeID = id_field.getText();
+<<<<<<< Updated upstream
                     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("STUDENTLOGIN.fxml")));
+=======
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("STUDENTLOGIN.fxml"));
+                    Parent root = loader.load();
+
+>>>>>>> Stashed changes
                     scene = new Scene(root);
 
                     HelloApplication.stage.setScene(scene);
@@ -51,12 +73,22 @@ public class HelloController {
             }
 
             else if(emp.isSelected()){
-                String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "'";
+                String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "' or emp_password = '" + passsave + "'" ;
                 ResultSet res2 = HelloApplication.statement.executeQuery(q2);
+
 
                 if (res2.next()) {     //Employee has logged in
                     //  TO CHECK LOGIN CONDITION FOR EMPLOYEE AND ADD ANOTHER SCENE INSTEAD OF HOMEPAGE.FXML TO DIFFER LOGIN PAGES FOR STUDENTS AND EMPLOYEES
+                    storeName = res2.getString("emp_firstName");
+<<<<<<< Updated upstream
                     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomePage.fxml")));
+=======
+                   FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+                   Parent root = loader.load();
+
+
+
+>>>>>>> Stashed changes
                     scene = new Scene(root);
 
                     HelloApplication.stage.setScene(scene);
@@ -89,8 +121,8 @@ public class HelloController {
             String q1 = "select * from Student where st_SecurityQuestion = '" + security_field.getText() + "'and st_id = " + Security_id_Field.getText() + "'";
             ResultSet res1 = HelloApplication.statement.executeQuery(q1);
 
-//            String q2 = "select * from Employees where emp_SecurityQuestion ='" + security_field.getText() + "'and emp_id = '" +  Security_id_Field.getText() + "'";
-//            ResultSet res2 = HelloApplication.statement.executeQuery(q2);
+            String q2 = "select * from Employees where emp_SecurityQuestion ='" + security_field.getText() + "'and emp_id = '" +  Security_id_Field.getText() + "'";
+            ResultSet res2 = HelloApplication.statement.executeQuery(q2);
 
                 if(res1.next()){    //Student security question checked
                    // b_student = true;
@@ -100,12 +132,12 @@ public class HelloController {
 
                     HelloApplication.stage.setScene(scene);
                 }
-//                else if(res2.next()){   //Employee security question checked
-//                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ForgotPass.fxml")));
-//                    scene = new Scene(root);
-//
-//                    HelloApplication.stage.setScene(scene);
-//                }
+                else if(res2.next()){   //Employee security question checked
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ForgotPass.fxml")));
+                    scene = new Scene(root);
+
+                    HelloApplication.stage.setScene(scene);
+                }
                 else{
                     Alert a = new Alert(Alert.AlertType.WARNING);
                     a.setContentText("ID and Security Answer not matched");

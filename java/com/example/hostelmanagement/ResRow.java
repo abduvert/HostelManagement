@@ -8,5 +8,6 @@ public class ResRow {
     public Label name;
     public Label category;
     public Label condition;
+    public Label quantityy;
 
 }

@@ -4,26 +4,34 @@ import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.AccessibleAction;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
-public class HomePage {
+import java.util.ResourceBundle;
+
+public class HomePage implements Initializable {
 
 
     public Button student;
@@ -33,7 +41,13 @@ public class HomePage {
     public Button allotment;
     public Button bills;
     public Button logout;
+    public Text admin;
     public static Stage splashStage;
+    public TextArea complain;
+    public Label role;
+
+
+
 
 
     @FXML
@@ -163,4 +177,29 @@ public class HomePage {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        try {
+            Name();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    public void Name() throws SQLException {
+        String q = "select * from Employees where emp_firstName =  '" + HelloController.storeName + "' ";
+            ResultSet res = HelloApplication.statement.executeQuery(q);
+
+            if(res.next())
+            {
+                role.setText(res.getString("emp_role"));
+                admin.setText(res.getString("emp_firstName"));
+            }
+
+
+    }
 }
