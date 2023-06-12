@@ -55,10 +55,15 @@ public class HelloController {
 
                     HelloApplication.stage.setScene(scene);
                 }
+                else {
+                    Alert a = new Alert(Alert.AlertType.WARNING);
+                    a.setContentText("Entered ID or Password is incorrect");
+                    a.show();
+                }
             }
 
             else if(emp.isSelected()){
-                String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'and emp_password = '" +  passwordField.getText() + "' or emp_password = '" + passsave + "'" ;
+                String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'  and emp_role = 'Manager' or emp_role = 'Supervisor' and emp_password = '" +  passwordField.getText() + "' or emp_password = '" + passsave + "'" ;
                 ResultSet res2 = HelloApplication.statement.executeQuery(q2);
 
 
@@ -78,9 +83,17 @@ public class HelloController {
                     HelloApplication.stage.setScene(scene);
                     return;
                 }
-            }
+                else {
+                    Alert a = new Alert(Alert.AlertType.WARNING);
+                    a.setContentText("Entered ID or Password is incorrect");
+                    a.show();
+                }
+            } else if (emp.isSelected() && std.isSelected()) {
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setContentText("Choose one of the buttons: Employee or Student");
+                a.show();
 
-            else{
+            } else{
                 Alert a = new Alert(Alert.AlertType.WARNING);
                 a.setContentText("Entered ID or Password is incorrect");
                 a.show();

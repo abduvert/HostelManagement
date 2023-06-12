@@ -36,7 +36,7 @@ public class Complaints implements Initializable {
     public ComboBox<String> comID = new ComboBox<>();
     public static String selectedID;
     public static String selectedStatus;
-    public TextField from_tf, to_tf;
+    public TextField from_tf, to_tf,commonField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -241,6 +241,28 @@ public class Complaints implements Initializable {
         }catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
+        }
+
+    }
+
+    public void Common() throws SQLException, IOException {
+        String common = "select * from Complaints_show where complain like '%" + commonField.getText() +  "%'";
+        ResultSet res = statement.executeQuery(common);
+
+        comEntry.getChildren().clear();
+        while (res.next()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ComRow.fxml"));
+            Parent row = loader.load();
+
+            ComRow comRow = loader.getController();
+
+            comRow.comID.setText(res.getString("cmp_id"));
+            comRow.empName.setText(res.getString("emp_firstName") + " " + res.getString("emp_lastName"));
+            comRow.r_id.setText(res.getString("r_id"));
+            comRow.complain.setText(res.getString("complain"));
+            comRow.status.setText(res.getString("status"));
+
+            comEntry.getChildren().add(row);
         }
 
     }

@@ -374,6 +374,30 @@ public class StudentController {
     }
 
     @FXML
+    public void CGPA() throws SQLException, IOException {
+        String q = "select * from Student where cgpa = (select min(cgpa) from Student)";
+        ResultSet res = HelloApplication.statement.executeQuery(q);
+
+        entries.getChildren().clear();
+        while (res.next()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Std_Row.fxml"));
+            Parent row = loader.load();
+
+            SRowController prc = loader.getController();
+            prc.id.setText(res.getString("st_id"));
+            prc.name.setText(res.getString("st_firstName") + " " + res.getString("st_lastName"));
+            prc.phoneNumber.setText(res.getString("st_PHNcode") + res.getString("st_PHNno"));
+            prc.degree.setText(res.getString("degree"));
+            prc.CGPA.setText(res.getString("cgpa"));
+
+            prc.details.setId(res.getString("st_id"));
+
+            entries.getChildren().add(row);
+        }
+
+    }
+
+    @FXML
     protected void guardian_Search(){
         String fullName = guardian_search_textfield.getText();
 

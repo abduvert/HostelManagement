@@ -28,6 +28,7 @@ public class Bills1 implements Initializable {
     Date date,date2;
     public Button fineBut;
     public Button unpaidd;
+    public Button find;
 
 
     @FXML
@@ -81,8 +82,8 @@ public class Bills1 implements Initializable {
             qV.close();
 
 
-
-            String q = "select * from BillShow";
+           //casted the values of date time into date on sql
+            String q = "select CAST(b.due_date as date) as due_datee,CAST(b.paid_date as date) as paid_datee,b.comments,b.allot_id,b.payment_method,b.dues,b.fine  from BillShow b";
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
             System.out.println("before");
@@ -94,16 +95,20 @@ public class Bills1 implements Initializable {
                 BillsRow1 row = loader.getController();
 
 
-                date = res.getDate("due_date");
-                date2 = res.getDate("paid_date");
+                row.name.setText(res.getString("st_firstName"));
                 row.id.setText(res.getString("allot_id"));
                row.comments.setText(res.getString("comments"));
-                row.duedate.setText(date.toString());
+                row.duedate.setText(res.getString("due_datee"));
 
 
+                if(res.getString("paid_datee").equals("1900-01-01")){
 
+                    row.paidDate.setText("UNPAID");
+                }
+                else{
 
-                row.paidDate.setText(date2.toString());
+                row.paidDate.setText(res.getString("paid_datee"));
+                }
                 row.dues.setText(res.getString("dues"));
                 row.fine.setText(res.getString("fine"));
                 row.method.setText(res.getString("payment_method"));
@@ -130,8 +135,7 @@ public class Bills1 implements Initializable {
     @FXML
     public void unpaid() throws SQLException, IOException {
 
-        String q ="select * from Bill b\n" +
-                "where b.paid_date is null";
+        String q ="select * from BillShow b where CAST(b.paid_date as date) = '1900-01-01'";
 
         ResultSet res = HelloApplication.statement.executeQuery(q);
 
@@ -147,6 +151,7 @@ public class Bills1 implements Initializable {
 
             date = res.getDate("due_date");
 
+            row.name.setText(res.getString("st_firstName"));
             row.id.setText(res.getString("allot_id"));
             row.comments.setText(res.getString("comments"));
             row.duedate.setText(date.toString());
@@ -202,6 +207,42 @@ public class Bills1 implements Initializable {
     }
 
     @FXML
+    public void Find() throws SQLException, IOException {
+        String q = "select * from BillShow where fine = (select max(fine) from BillShow)";
+
+        ResultSet res = HelloApplication.statement.executeQuery(q);
+
+
+        entry.getChildren().clear();
+
+        while (res.next()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BillRow1.fxml"));
+            Parent rr = loader.load();
+
+
+            BillsRow1 row = loader.getController();
+
+
+            date = res.getDate("due_date");
+            date2 = res.getDate("paid_date");
+            row.id.setText(res.getString("allot_id"));
+            row.comments.setText(res.getString("comments"));
+            row.duedate.setText(date.toString());
+
+
+            row.paidDate.setText(date2.toString());
+            row.dues.setText(res.getString("dues"));
+            row.fine.setText(res.getString("fine"));
+            row.method.setText(res.getString("payment_method"));
+
+
+            entry.getChildren().add(rr);
+        }
+
+
+    }
+
+    @FXML
     public void typesHoverIn(){
         fineBut.setStyle("-fx-background-color: #505472 ;-fx-text-fill: white");
     }
@@ -209,6 +250,17 @@ public class Bills1 implements Initializable {
     @FXML
     public void typesHoverOut(){
         fineBut.setStyle("-fx-background-color: white ;-fx-text-fill: #505472; -fx-border-color: #505472");
+    }
+
+
+    @FXML
+    public void tHoverIn(){
+        find.setStyle("-fx-background-color: #505472 ;-fx-text-fill: white");
+    }
+
+    @FXML
+    public void tHoverOut(){
+        find.setStyle("-fx-background-color: white ;-fx-text-fill: #505472; -fx-border-color: #505472");
     }
 
     @FXML

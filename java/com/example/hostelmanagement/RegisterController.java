@@ -14,11 +14,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static com.example.hostelmanagement.HelloApplication.statement;
@@ -107,6 +108,7 @@ public class RegisterController {
 
             newStId = "S" + String.format("%03d", numericPart + 1); // Increment and format
 
+
             // Step 3: Insert the new record
             String InsertQuery = "insert into Student(st_id, batch, degree, st_firstName, st_lastName, st_PHNcode, " +
                     "st_PHNno, st_email, st_dob, st_CNICcode," + " st_CNICno, religion, st_city, st_town, s_houseNo, " +
@@ -117,7 +119,16 @@ public class RegisterController {
                     selected_city + "' , '" + town.getText() + "' , '" + Hno.getText() + "' , " + cgpa.getText() +
                     ", '" + password.getText() +"' , '" + security.getText() + "')";
 
+            if(email.getText().contains("@") &&  email.getText().chars().mapToObj(Character::isDigit).anyMatch(Boolean::valueOf))
+            {
             HelloApplication.statement.executeQuery(InsertQuery);
+
+            }
+            else {
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setContentText("Wrong email format");
+                a.show();
+            }
         } catch (Exception e){
             System.out.println( e.getMessage());
             e.printStackTrace();
@@ -167,6 +178,8 @@ public class RegisterController {
                   + "' , '" + G_Hno.getText() + "' , '" + G_email.getText() + "')";
 
             HelloApplication.statement.executeQuery(InsertQuery2);
+
+
         } catch (Exception e){
             System.out.println( e.getMessage());
             e.printStackTrace();
@@ -284,7 +297,7 @@ public class RegisterController {
             String maxAllot_Id = resultSet.getString(1);
             System.out.println("\nAllot id: " + maxAllot_Id);
             int numericPart = Integer.parseInt(maxAllot_Id.substring(2));
-            maxAllot_Id = "AL" + String.format("%02d", numericPart + 1);
+            maxAllot_Id = "AL" + String.format("%03d", numericPart + 1);
             System.out.println("MAX ALLOT ID: " + maxAllot_Id);
 
 
@@ -298,12 +311,17 @@ public class RegisterController {
                 //SELECTED ROOM IS NULL HERE
             System.out.println("Selected room for insertion into allotment: " + selected_room);
 
-            LocalDate currentDate = LocalDate.now();
-            Date date = Date.valueOf(currentDate);
+
+            Calendar calendar = Calendar.getInstance();
+            Date currentDate = calendar.getTime();
+
+            int month = calendar.get(Calendar.MONTH) + 1;  // Adding 1 since months are zero-based
+            int year = calendar.get(Calendar.YEAR);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
 
             String InsertQuery = "INSERT INTO Allotment (allot_id, st_id, r_id, allot_date, allot_month, allot_year)"
-                    + "VALUES ('" + maxAllot_Id +  "' , '" + maxStId + "' , " + selected_room + ", " + date +
-                    ", " + currentDate.getMonthValue() + ", " + currentDate.getYear() + ")";
+                    + "VALUES ('" + maxAllot_Id +  "' , '" + maxStId + "' , " + selected_room + ", " + day +
+                    ", " + month + ", " + year + ")";
 
             HelloApplication.statement.executeQuery(InsertQuery);
         } catch (Exception e){

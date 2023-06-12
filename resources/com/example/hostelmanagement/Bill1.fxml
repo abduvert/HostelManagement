@@ -118,6 +118,7 @@
             <HBox layoutX="21.0" layoutY="14.0" />
             <Button fx:id="fineBut" layoutX="21.0" layoutY="50.0" mnemonicParsing="false" onAction="#fineBut" onMouseEntered="#typesHoverIn" onMouseExited="#typesHoverOut" prefHeight="35.0" prefWidth="151.0" style="-fx-border-color: #505472; -fx-background-color: white;" text="Filter by Fines" textFill="#505472" />
             <Button fx:id="unpaidd" layoutX="223.0" layoutY="50.0" mnemonicParsing="false" onAction="#unpaid" onMouseEntered="#HoverIn" onMouseExited="#HoverOut" prefHeight="35.0" prefWidth="117.0" style="-fx-border-color: #505472; -fx-background-color: white;" text="Unpaid Bills" textFill="#505472" />
+            <Button fx:id="find" layoutX="373.0" layoutY="50.0" mnemonicParsing="false" onAction="#Find" onMouseEntered="#tHoverIn" onMouseExited="#tHoverOut" prefHeight="35.0" prefWidth="165.0" style="-fx-border-color: #505472; -fx-background-color: white;" text="Maximum Fined Student" textFill="#505472" />
          </children>
       </AnchorPane>
    </center>
