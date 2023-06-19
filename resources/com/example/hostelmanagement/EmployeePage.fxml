@@ -104,9 +104,9 @@
                   </FlowPane>
                </children>
             </HBox>
-            <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
+            <ScrollPane layoutX="-3.0" fitToWidth="true" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
                <content>
-                  <VBox fx:id="empEntry" minHeight="${empEntry.parent.height}" minWidth="${empEntry.parent.width}" prefHeight="284.0" prefWidth="1035.0" />
+                  <VBox fx:id="empEntry"  maxHeight="${empEntry.parent.height}" minWidth="${empEntry.parent.width}" prefHeight="284.0" prefWidth="1035.0" />
                </content>
             </ScrollPane>
             <HBox layoutX="48.0" layoutY="43.0">

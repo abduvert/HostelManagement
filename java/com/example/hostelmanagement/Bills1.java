@@ -83,7 +83,7 @@ public class Bills1 implements Initializable {
 
 
            //casted the values of date time into date on sql
-            String q = "select CAST(b.due_date as date) as due_datee,CAST(b.paid_date as date) as paid_datee,b.comments,b.allot_id,b.payment_method,b.dues,b.fine  from BillShow b";
+            String q = "select CAST(b.due_date as date) as due_datee,CAST(b.paid_date as date) as paid_datee,b.comments,b.allot_id,b.payment_method,b.dues,b.fine ,b.st_firstName from BillShow b";
             ResultSet res = HelloApplication.statement.executeQuery(q);
 
             System.out.println("before");

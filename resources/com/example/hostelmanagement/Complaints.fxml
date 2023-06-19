@@ -86,9 +86,9 @@
                   </FlowPane>
                </children>
             </HBox>
-            <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
+            <ScrollPane layoutX="-3.0" fitToWidth="true" layoutY="174.0" prefHeight="297.0" prefWidth="1036.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="174.0">
                <content>
-                  <VBox fx:id="comEntry" prefHeight="284.0" prefWidth="1035.0" />
+                  <VBox fx:id="comEntry"   maxHeight="${comEntry.parent.height}" minWidth="${comEntry.parent.width}" prefHeight="284.0" prefWidth="1035.0" />
                </content>
             </ScrollPane>
             <HBox layoutX="12.0" layoutY="51.0" prefHeight="35.0" prefWidth="782.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">

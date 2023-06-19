@@ -42,7 +42,7 @@ public class HelloController {
     @FXML
     protected void Login() {
         try{
-            if(std.isSelected()) {
+            if(std.isSelected() && !emp.isSelected()) {
                 String q1 = "select * from Student where st_id ='" + id_field.getText() + "'and st_password = '" + passwordField.getText() + "' or st_password = '" + passsave + "'";
                 ResultSet res = HelloApplication.statement.executeQuery(q1);
 
@@ -62,7 +62,7 @@ public class HelloController {
                 }
             }
 
-            else if(emp.isSelected()){
+            else if(emp.isSelected() && !std.isSelected()){
                 String q2 = "select * from Employees where emp_id ='" + id_field.getText() + "'  and emp_role = 'Manager' or emp_role = 'Supervisor' and emp_password = '" +  passwordField.getText() + "' or emp_password = '" + passsave + "'" ;
                 ResultSet res2 = HelloApplication.statement.executeQuery(q2);
 

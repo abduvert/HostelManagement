@@ -25,8 +25,6 @@ import java.util.ResourceBundle;
 public class AllotmentPage implements Initializable {
     @FXML
     public Button room;
-
-
     public Button room1;
     public Button room2;
 

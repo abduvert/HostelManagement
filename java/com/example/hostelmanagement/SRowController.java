@@ -11,8 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static com.example.hostelmanagement.HelloApplication.statement;
 
 public class SRowController {
     @FXML
@@ -129,6 +132,7 @@ public class SRowController {
             HelloApplication.statement.executeUpdate(delete_query);
 
             inform.close();
+
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();

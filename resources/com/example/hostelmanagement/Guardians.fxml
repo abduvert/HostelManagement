@@ -72,10 +72,10 @@
             </FlowPane>
          </children>
       </HBox>
-      <ScrollPane layoutX="-3.0" layoutY="174.0" prefHeight="299.0" prefWidth="839.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="174.0">
+      <ScrollPane layoutX="-3.0" fitToWidth="true" layoutY="174.0" prefHeight="299.0" prefWidth="839.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="174.0">
          <content>
 
-            <VBox fx:id="entries2" maxHeight="${entries2.parent.height}" maxWidth="${entries2.parent.width}" minWidth="${entries2.parent.width}" prefHeight="284.0" prefWidth="873.0" />
+            <VBox fx:id="entries2" maxHeight="${entries2.parent.height}" maxWidth="${entries2.parent.width}"  prefHeight="284.0" prefWidth="873.0" />
 
          </content>
       </ScrollPane>

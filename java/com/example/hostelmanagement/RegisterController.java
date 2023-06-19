@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
@@ -235,11 +236,14 @@ public class RegisterController {
             System.out.println("v_id2: " + v_id2);
             String InsertQuery3 = "insert into Visitors values ('"+ maxStId + "' , '" + v_id + "' , '" + v_fname.getText() + "' , '" + v_lname.getText() + "' , "
                     + v_CNICcode.getText() + " , " + v_CNICno.getText() + " , '" + v_relation.getText() + "' , " + v_PHNcode.getText() + " , "
-                    + v_PHNno.getText() +") , ( '" + maxStId + "' , '" + v_id2 + "' , '" + v2_fname.getText() + "' , '" + v2_lname.getText() +
-                    "' , " + v2_CNICcode.getText() + " , " + v2_CNICno.getText() + " , '" + v2_relation.getText() + "' , " + v2_PHNcode.getText() +
+                    + v_PHNno.getText() +")";
+
+            String q2 = "insert into Visitors values ('" + maxStId + "' , '" + v_id2 + "' , '" + v2_fname.getText() + "' , '" + v2_lname.getText() +
+            "' , " + v2_CNICcode.getText() + " , " + v2_CNICno.getText() + " , '" + v2_relation.getText() + "' , " + v2_PHNcode.getText() +
                     " , " + v2_PHNno.getText() + ")";
 
             HelloApplication.statement.executeUpdate(InsertQuery3);
+            HelloApplication.statement.executeUpdate(q2);
         } catch (Exception e){
             System.out.println( e.getMessage());
             e.printStackTrace();
@@ -318,6 +322,10 @@ public class RegisterController {
             int month = calendar.get(Calendar.MONTH) + 1;  // Adding 1 since months are zero-based
             int year = calendar.get(Calendar.YEAR);
             int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            CallableStatement callableStatement = statement.getConnection().prepareCall("{call UpdateRoomOccupancyStatus(?)}");
+            callableStatement.setString(1, selected_room);
+            callableStatement.execute();
 
             String InsertQuery = "INSERT INTO Allotment (allot_id, st_id, r_id, allot_date, allot_month, allot_year)"
                     + "VALUES ('" + maxAllot_Id +  "' , '" + maxStId + "' , " + selected_room + ", " + day +
