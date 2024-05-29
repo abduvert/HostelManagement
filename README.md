@@ -1,6 +1,6 @@
 # Hostel Management System
 
-Hostel Management System is an ongoing PC software project developed in Java, utilizing MySQL database, aimed at efficiently managing hostel operations. The software encompasses essential features required for hostel management, including room allocation, student information management, employee records, and resources management.
+Hostel Management System is PC software project developed in Java, utilizing MySQL database, aimed at efficiently managing hostel operations. The software encompasses essential features required for hostel management, including room allocation, student information management, employee records, and resources management.
 
 ## Features
 
