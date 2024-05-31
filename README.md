@@ -14,11 +14,9 @@ Hostel Management System is PC software project developed in Java, utilizing MyS
 
 ## Development Status
 
-The project is currently in progress and includes the following components:
-
 - **MySQL Database**: Database schema and queries are being developed to store hostel-related data.
   
-- **Java Interface**: An effective interface is being designed and implemented using Java to interact with the database and perform various operations.
+- **Java Interface**: An effective interface is designed and implemented using Java to interact with the database and perform various operations.
 
 ## Basic Assumptions
 
